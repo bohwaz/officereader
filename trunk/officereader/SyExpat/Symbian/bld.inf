@@ -1,0 +1,12 @@
+// BLD.INF
+// Component description file
+//
+// Copyright (c) 2000 ToddSoftware.  All rights reserved.
+
+
+PRJ_PLATFORMS
+//WINS WINSCW
+ARMI THUMB //gcce
+
+PRJ_MMPFILES
+SyExpat.mmp
