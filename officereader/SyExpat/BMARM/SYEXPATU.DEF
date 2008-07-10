@@ -1,0 +1,54 @@
+EXPORTS
+	__16CExpatParserBase @ 1 NONAME R3UNUSED ; CExpatParserBase::CExpatParserBase(void)
+	CharactersL__16CSyGeneratorBaseRC7TDesC16 @ 2 NONAME R3UNUSED ; CSyGeneratorBase::CharactersL(TDesC16 const &)
+	CommentL__16CSyGeneratorBaseRC7TDesC16 @ 3 NONAME R3UNUSED ; CSyGeneratorBase::CommentL(TDesC16 const &)
+	EmptyElementL__16CSyGeneratorBaseRC7TDesC16 @ 4 NONAME R3UNUSED ; CSyGeneratorBase::EmptyElementL(TDesC16 const &)
+	EmptyElementL__16CSyGeneratorBaseRC7TDesC16T1 @ 5 NONAME R3UNUSED ; CSyGeneratorBase::EmptyElementL(TDesC16 const &, TDesC16 const &)
+	EndCDATAL__16CSyGeneratorBase @ 6 NONAME R3UNUSED ; CSyGeneratorBase::EndCDATAL(void)
+	EndDocumentL__16CSyGeneratorBase @ 7 NONAME R3UNUSED ; CSyGeneratorBase::EndDocumentL(void)
+	EndElementL__16CSyGeneratorBase @ 8 NONAME R3UNUSED ; CSyGeneratorBase::EndElementL(void)
+	EndFragmentL__16CSyGeneratorBase @ 9 NONAME R3UNUSED ; CSyGeneratorBase::EndFragmentL(void)
+	GetBuffer__16CExpatParserBasei @ 10 NONAME R3UNUSED ; CExpatParserBase::GetBuffer(int)
+	GetCurrentByteCount__C16CExpatParserBase @ 11 NONAME R3UNUSED ; CExpatParserBase::GetCurrentByteCount(void) const
+	GetCurrentByteIndex__C16CExpatParserBase @ 12 NONAME R3UNUSED ; CExpatParserBase::GetCurrentByteIndex(void) const
+	GetCurrentColumnNumber__C16CExpatParserBase @ 13 NONAME R3UNUSED ; CExpatParserBase::GetCurrentColumnNumber(void) const
+	GetCurrentLineNumber__C16CExpatParserBase @ 14 NONAME R3UNUSED ; CExpatParserBase::GetCurrentLineNumber(void) const
+	GetErrorCode__C16CExpatParserBase @ 15 NONAME R3UNUSED ; CExpatParserBase::GetErrorCode(void) const
+	GetParsingStatus__C16CExpatParserBasePi @ 16 NONAME R3UNUSED ; CExpatParserBase::GetParsingStatus(int *) const
+	IgnorableWhitespaceL__16CSyGeneratorBaseRC7TDesC16 @ 17 NONAME R3UNUSED ; CSyGeneratorBase::IgnorableWhitespaceL(TDesC16 const &)
+	NewLC__12CSyGeneratorR16MSyOutputHandleri @ 18 NONAME R3UNUSED ; CSyGenerator::NewLC(MSyOutputHandler &, int)
+	NewLC__19CSyContextualParserRC7TDesC16 @ 19 NONAME R3UNUSED ; CSyContextualParser::NewLC(TDesC16 const &)
+	NewLC__9CSyParserRC7TDesC16 @ 20 NONAME R3UNUSED ; CSyParser::NewLC(TDesC16 const &)
+	NewL__12CSyGeneratorR16MSyOutputHandleri @ 21 NONAME R3UNUSED ; CSyGenerator::NewL(MSyOutputHandler &, int)
+	NewL__19CSyContextualParserRC7TDesC16 @ 22 NONAME R3UNUSED ; CSyContextualParser::NewL(TDesC16 const &)
+	NewL__9CSyParserRC7TDesC16 @ 23 NONAME R3UNUSED ; CSyParser::NewL(TDesC16 const &)
+	Panic__16CExpatParserBasei @ 24 NONAME R3UNUSED ; CExpatParserBase::Panic(int)
+	Panic__16CSyGeneratorBasei @ 25 NONAME R3UNUSED ; CSyGeneratorBase::Panic(int)
+	ParseBuffer__16CExpatParserBaseii @ 26 NONAME R3UNUSED ; CExpatParserBase::ParseBuffer(int, int)
+	Parse__16CExpatParserBaseG6TPtrC8i @ 27 NONAME ; CExpatParserBase::Parse(TPtrC8, int)
+	PopDeclHandler__19CSyContextualParser @ 28 NONAME R3UNUSED ; CSyContextualParser::PopDeclHandler(void)
+	PopDocHandler__19CSyContextualParser @ 29 NONAME R3UNUSED ; CSyContextualParser::PopDocHandler(void)
+	ProcessingInstructionL__16CSyGeneratorBaseRC7TDesC16T1 @ 30 NONAME R3UNUSED ; CSyGeneratorBase::ProcessingInstructionL(TDesC16 const &, TDesC16 const &)
+	PushDeclHandler__19CSyContextualParserP14MSyDeclHandler @ 31 NONAME R3UNUSED ; CSyContextualParser::PushDeclHandler(MSyDeclHandler *)
+	PushDocHandler__19CSyContextualParserP13MSyDocHandler @ 32 NONAME R3UNUSED ; CSyContextualParser::PushDocHandler(MSyDocHandler *)
+	Reset__16CExpatParserBaseRC7TDesC16 @ 33 NONAME R3UNUSED ; CExpatParserBase::Reset(TDesC16 const &)
+	SetAttributeL__16CSyGeneratorBaseRC7TDesC16N21 @ 34 NONAME ; CSyGeneratorBase::SetAttributeL(TDesC16 const &, TDesC16 const &, TDesC16 const &)
+	SetAttributeL__16CSyGeneratorBaseRC7TDesC16T1 @ 35 NONAME R3UNUSED ; CSyGeneratorBase::SetAttributeL(TDesC16 const &, TDesC16 const &)
+	SetHandler__16CExpatParserBaseP13MSyDocHandler @ 36 NONAME R3UNUSED ; CExpatParserBase::SetHandler(MSyDocHandler *)
+	SetHandler__16CExpatParserBaseP14MSyDeclHandler @ 37 NONAME R3UNUSED ; CExpatParserBase::SetHandler(MSyDeclHandler *)
+	SetNamespaceL__16CSyGeneratorBaseRC7TDesC16 @ 38 NONAME R3UNUSED ; CSyGeneratorBase::SetNamespaceL(TDesC16 const &)
+	SetNamespaceL__16CSyGeneratorBaseRC7TDesC16T1 @ 39 NONAME R3UNUSED ; CSyGeneratorBase::SetNamespaceL(TDesC16 const &, TDesC16 const &)
+	StartCDATAL__16CSyGeneratorBase @ 40 NONAME R3UNUSED ; CSyGeneratorBase::StartCDATAL(void)
+	StartDocumentL__16CSyGeneratorBaseRC7TDesC16iT1T1 @ 41 NONAME ; CSyGeneratorBase::StartDocumentL(TDesC16 const &, int, TDesC16 const &, TDesC16 const &)
+	StartDocumentL__16CSyGeneratorBasei @ 42 NONAME R3UNUSED ; CSyGeneratorBase::StartDocumentL(int)
+	StartElementL__16CSyGeneratorBaseRC7TDesC16 @ 43 NONAME R3UNUSED ; CSyGeneratorBase::StartElementL(TDesC16 const &)
+	StartElementL__16CSyGeneratorBaseRC7TDesC16T1 @ 44 NONAME R3UNUSED ; CSyGeneratorBase::StartElementL(TDesC16 const &, TDesC16 const &)
+	StartFragmentL__16CSyGeneratorBase @ 45 NONAME R3UNUSED ; CSyGeneratorBase::StartFragmentL(void)
+	Stop__16CExpatParserBasei @ 46 NONAME R3UNUSED ; CExpatParserBase::Stop(int)
+	VersionInfo__C16CExpatParserBase @ 47 NONAME R3UNUSED ; CExpatParserBase::VersionInfo(void) const
+	VersionInfo__C16CSyGeneratorBase @ 48 NONAME R3UNUSED ; CSyGeneratorBase::VersionInfo(void) const
+	"_._16CExpatParserBase" @ 49 NONAME R3UNUSED ; CExpatParserBase::~CExpatParserBase(void)
+	"_._16CSyGeneratorBase" @ 50 NONAME R3UNUSED ; CSyGeneratorBase::~CSyGeneratorBase(void)
+	"_._9CSyParser" @ 51 NONAME R3UNUSED ; CSyParser::~CSyParser(void)
+	BaseConstructL__16CExpatParserBaseRC7TDesC16 @ 52 NONAME R3UNUSED ; CExpatParserBase::BaseConstructL(TDesC16 const &)
+

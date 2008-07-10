@@ -1,0 +1,22 @@
+// Copyright (c) 1998, 1999 Thai Open Source Software Center Ltd
+TARGET                                  SyExpat.dll 
+TARGETTYPE                              dll 
+UID                                     0x1000008d 0x102046C1 
+MACRO                         	    HAVE_EXPAT_CONFIG_H 
+MACRO						    XML_BUILDING_EXPAT
+MACRO						    PLATFORM_2RD
+USERINCLUDE                             . 
+USERINCLUDE                             ..\lib 
+SOURCEPATH                              . 
+SOURCE                                  SyExpat.cpp 
+SOURCE                                  SyGen.cpp 
+
+SOURCEPATH						..\Lib 
+SOURCE						xmlparse.c xmlrole.c xmltok.c 
+
+SYSTEMINCLUDE                           \Epoc32\include 
+SYSTEMINCLUDE                           \epoc32\include\libc 
+SYSTEMINCLUDE                           . 
+SYSTEMINCLUDE                           ..\Lib 
+LIBRARY                                 estlib.lib 
+LIBRARY                                 euser.lib 
