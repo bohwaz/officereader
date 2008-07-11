@@ -99,7 +99,7 @@ struct TExpatDocumentHandlers
 // The E32Dll() entry point function
 
 
-#ifdef PLATFORM_2RD
+#ifdef PLATFORM_2ND
 
 GLDEF_C TInt E32Dll(TDllReason)
 {
