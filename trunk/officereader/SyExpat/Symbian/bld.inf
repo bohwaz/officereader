@@ -19,3 +19,6 @@ SyExpat.mmp
 
 #endif
 
+
+PRJ_EXPORTS
+SyExpat.h
