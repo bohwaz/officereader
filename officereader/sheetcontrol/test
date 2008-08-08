@@ -1,0 +1,4 @@
+#!/bin/bash
+for file in `find` ; do
+(echo '0r ../header.txt'; echo 'wq') | ed $file
+done
