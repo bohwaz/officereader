@@ -27,33 +27,23 @@
  *
  ************************************************************************/
 
-#ifdef EKA2
 
-PRJ_PLATFORMS
-//WINS 
-WINSCW THUMB gcce
+TARGET                                  sheet.lib 
+TARGETTYPE                              lib 
+uid                                     0x1000008d 0xA00005B7 
+EXPORTUNFROZEN                           
+USERINCLUDE                             ..\inc 
+SYSTEMINCLUDE                           \epoc32\include 
+SOURCEPATH                              ..\src 
+SOURCE		                      sheet_trace.cpp 
+SOURCE                                  sheet_model.cpp 
+SOURCE                                  sheet_lib.cpp 
+SOURCE                                  sheet_drawer.cpp 
+SOURCE                                  sheet_data.cpp 
+SOURCE                                  sheet_ctrl.cpp 
+SOURCE                                  cell_array.cpp 
+SOURCE                                  cell.cpp 
+SOURCE                                  sheet_view.cpp 
 
-PRJ_MMPFILES
-
-#ifdef UIQ_UMTS_AVAILABLE
-sheet_lib_UIQ3.mmp
-#else
-sheet_lib_v9.mmp
-#endif
-
-
-#else
-
-
-PRJ_PLATFORMS
-WINSCW ARMI THUMB
-
-PRJ_MMPFILES
-sheet_lib.mmp
-
-
-#endif
-
-
-PRJ_EXPORTS
-..\inc\sheet_lib.h
+LIBRARY                                 euser.lib 
+MACRO 					    __UIQ__
