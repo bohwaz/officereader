@@ -15,6 +15,13 @@ START ABLD.bat build armi urel
 cd ../..
 echo "Finished compiling Sheet Control
 
+echo "Start compiling Engine"
+cd officereader\Engine\group
+bldmake bldfiles
+START ABLD.bat build armi urel
+cd ../../..
+echo "Finished compiling Engine
+
 echo "Finsihed compiling for S60 2nd Edition"
 
 
@@ -35,5 +42,13 @@ bldmake bldfiles
 START ABLD.bat build gcce urel
 cd ../..
 echo "Finished compiling Sheet Control
+
+echo "Start compiling Engine"
+cd officereader\Engine\group
+bldmake bldfiles
+START ABLD.bat build armi urel
+cd ../../..
+echo "Finished compiling Engine
+
 
 echo "Finished for S60 3nd Edition"
