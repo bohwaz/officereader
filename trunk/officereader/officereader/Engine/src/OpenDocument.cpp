@@ -30,7 +30,6 @@
 #include "OpenDocument.h"
 #include "OpenDocument.pan"
 
-
 #include <txtetext.h>  //ELineBreak
 #include <txtrich.h>  //Richtext
 #include <eikmenup.h> //menubar
