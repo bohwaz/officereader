@@ -6,7 +6,7 @@
 	the Expat.org site.
 	@n
 	@n
-	Copyright © 2004 ToddSoftware.com. All rights reserved.
+	Copyright  © 2004 ToddSoftware.com. All rights reserved.
 	@n
 	Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
     and Clark Cooper
@@ -46,6 +46,8 @@
 
 #include <e32base.h>
 
+namespace SyExpat
+{
 	 /**
 	 *	Status of the parser object.
 	 */
@@ -1021,5 +1023,6 @@
 			 */
 			RArray<MSyDeclHandler*>	iDeclHandlerStack;	
 	};
+}
 	
 #endif // __SYMBIAN_EXPAT_H

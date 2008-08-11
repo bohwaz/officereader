@@ -30,6 +30,9 @@
 #ifndef XML_H
 #define XML_H
 
+
+#include <SyExpat.h>
+
 #include <e32std.h>
 #include <e32base.h>
 #include <f32file.h>
@@ -39,13 +42,13 @@
 
 #include "OpenDocument.h"
 
-#include <SyExpat.h>
 
 //#define _log_
 
 #ifdef _log_
 	#include <flogger.h>
 #endif	
+
 
 class CTags: public CBase
 {
@@ -85,7 +88,7 @@ class CTags: public CBase
 };
 
 
-class CXML : public CBase, MSyDocHandler
+class CXML : public CBase, SyExpat::MSyDocHandler
 {
 	public: // Constructors and destructor
 
@@ -105,15 +108,15 @@ class CXML : public CBase, MSyDocHandler
 		virtual void ConstructL();
 	
 
-		virtual void StartElement(const TQualified& aName, const RArray<TAttribute >& aAttributes);
-		virtual void EndElement(const TQualified& aName);
+		virtual void StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute >& aAttributes);
+		virtual void EndElement(const SyExpat::TQualified& aName);
 		virtual void CharacterData(const TDesC& aName);
 		virtual void ProcessingInstruction(const TDesC& aTarget, const TDesC& aData);
 		virtual void Comment(const TDesC& aData) ;
 		virtual void StartCDataSection();
 		virtual void EndCDataSection();
 		virtual void Default(const TDesC& aData);
-		virtual void SetParser(CExpatParserBase* aParser);
+		virtual void SetParser(SyExpat::CExpatParserBase* aParser);
 			 	
 		CTags* iTags;	// stackclass to hold XML tags
 		HBufC* temp;	// temp buffer for storing note fragments
@@ -123,7 +126,7 @@ class CXML : public CBase, MSyDocHandler
 		
 		TPtrC8 iData;
 		RFs iRFs;		
-		CSyParser* iReader;
+		SyExpat::CSyParser* iReader;
 		COpenDocument* iOpenDocument;
 
 		#ifdef _log_
@@ -143,8 +146,8 @@ class CTableXML: public CXML
 		HBufC *iTable;
 		TBool iCorrectTable;
 	protected:
-		virtual void StartElement(const TQualified& aName, const RArray<TAttribute>& aAttributes);
-		virtual void EndElement(const TQualified& aName);
+		virtual void StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute>& aAttributes);
+		virtual void EndElement(const SyExpat::TQualified& aName);
 		virtual void CharacterData(const TDesC& aName);
 	private:
 		TBool iAddFormat;
@@ -157,8 +160,8 @@ class CTextXML: public CXML
 		static CTextXML* NewLC(COpenDocument* aParent);
 	protected:
 		virtual void ConstructL();
-		virtual void StartElement(const TQualified& aName, const RArray<TAttribute>& aAttributes);
-		virtual void EndElement(const TQualified& aName);
+		virtual void StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute>& aAttributes);
+		virtual void EndElement(const SyExpat::TQualified& aName);
 		virtual void CharacterData(const TDesC& aName);
 	private:
 		HBufC* iWidth;

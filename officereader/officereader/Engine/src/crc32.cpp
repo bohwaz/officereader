@@ -55,9 +55,6 @@
 
 
 
-//using namespace util;
-
-
 _LIT(KCrc32, "Crc32");
 
 const TUint32 CCrc32::iCrcTable[256] =
