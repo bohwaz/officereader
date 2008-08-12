@@ -21,7 +21,8 @@ Completion:		September 1st, 2008
 
 =Milestone 2: Developer tools=
   * developer documentation for building Mobile Office 
-  * setup of public available developer related tools (mailing lists, commit notifications,lxr)
+  * ~~mailing lists for questions and commit notifcations~~
+  * setup of public available developer related tools (lxr)
   * make code warning free during compilation 
 
 Completion:		October 1st, 2008
