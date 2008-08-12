@@ -10,10 +10,10 @@ The commercial product Mobile Office will be opensourced in several Milestones a
 
   * ~~create an appropriate project in a public repository~~
   * release source code under GPL3/LGPL3 including correct license headers with the following modules:
-  *  * SyExpat - XML parser
-  ** sheetcontrol - new control for showing cells/spreadsheets
-  ** Engine   - main engine for reading zip and opendocument files
-  ** Application - has to be decided for which ones exactly in regards to legacy platforms
+    * SyExpat - XML parser
+    * sheetcontrol - new control for showing cells/spreadsheets
+    * Engine   - main engine for reading zip and opendocument files
+    * Application - has to be decided for which ones exactly in regards to legacy platforms
   * release binaries for current Symbian versions under new name
   * announce the project of opensourcing Mobile Office
 
