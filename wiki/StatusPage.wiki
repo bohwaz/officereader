@@ -22,7 +22,7 @@ Completion:		September 1st, 2008
 =Milestone 2: Developer tools=
   * developer documentation for building Mobile Office 
   * ~~main mailing list for the project - http://groups.google.com/group/officereader~~
-  * ~~and commit notifcations - http://groups.google.com/group/officereader_commits~~
+  * ~~mailing list for commit notifcations - http://groups.google.com/group/officereader_commits~~
   * setup of public available developer related tools (lxr)
   * make code warning free during compilation 
 
