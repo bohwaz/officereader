@@ -15,7 +15,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
     * ~~Engine - main engine for reading zip and opendocument files~~
     * Application - has to be decided for which ones exactly in regards to legacy platforms
   * release binaries for current Symbian versions under new name
-  * announce the project of opensourcing Mobile Office
+  * announce the project of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
 Completion:		September 1st, 2008
 
