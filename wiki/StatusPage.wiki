@@ -9,6 +9,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
 
 
   * ~~create an appropriate project in a public repository~~
+  * ~~fill project pages with initial content~~
   * release source code under GPL3/LGPL3 including correct license headers with the following modules:
     * ~~SyExpat - XML parser~~
     * ~~sheetcontrol - new control for showing cells/spreadsheets~~
