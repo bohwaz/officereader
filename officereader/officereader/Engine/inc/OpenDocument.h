@@ -47,6 +47,13 @@
 #include "hint.h"
 
 
+//#define _log_
+
+#ifdef _log_
+	#include <flogger.h>	
+#endif
+
+
 // CLASS DECLARATION
 class CCZip;
 class CXML;
@@ -245,6 +252,9 @@ class COpenDocument: public MEZBufferManager
 		TInt iNoteIndex;	
 		/***********************************************/
 
+		#ifdef _log_
+			RFileLogger iFileLogger;
+		#endif
     };
 
 #endif  // __OPENDOCUMENT_H__

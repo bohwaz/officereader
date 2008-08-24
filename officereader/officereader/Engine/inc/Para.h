@@ -111,10 +111,6 @@ public: // Constructors and destructor
 	void SetParent(const TDesC& aName);
 	void SetBullet(void);
 	
-	#ifdef _log_
-		void StyleEnd();
-	#endif
-
 	TCharFormat CharFormat(TInt aPos);
 	TCharFormatMask CharFormatMask(TInt aPos);
 	CParaFormat* ParaFormat(TInt aPos);

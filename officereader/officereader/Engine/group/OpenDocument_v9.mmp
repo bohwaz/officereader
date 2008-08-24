@@ -69,7 +69,7 @@ LIBRARY                                 ImageConversion.lib
 LIBRARY                                 charconv.lib 
 LIBRARY                                 etext.lib 
 LIBRARY                                 flogger.lib 
-LIBRARY                                 SyExpat.lib 
+LIBRARY                           SyExpat.lib 
 LIBRARY                                 ezip.lib 
 LIBRARY                                 efsrv.lib 
 LIBRARY                                 euser.lib 

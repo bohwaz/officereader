@@ -30,10 +30,12 @@
 #include <e32def.h>
 #define bf_N 16
 
+/*
 extern TUint32 bf_S[4][256];
 extern TUint32 bf_P[bf_N + 2];
 extern TUint32 tempbf_S[4][256];
 extern TUint32 tempbf_P[bf_N + 2];
+*/
 
 #define MAXKEYBYTES 56
 
