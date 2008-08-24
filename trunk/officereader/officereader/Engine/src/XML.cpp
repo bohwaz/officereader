@@ -128,7 +128,7 @@ void CXML::ConstructL()
 	iTags = CTags::NewL();
 	iChange = EFalse;
 
-	iReader = SyExpat::CSyParser::NewL(TPtrC());		
+	iReader = CSyParser::NewL(TPtrC());		
 	iReader->SetHandler(this);	
 
 }
@@ -144,7 +144,7 @@ void CXML::SetParseDataL(const TDesC8& aData)
 }
 
 
-void CXML::StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute>& aAttributes)
+void CXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes)
 {
 	#ifdef _log_
 		iFileLogger.Write(aName.iLocalName);
@@ -242,7 +242,7 @@ void CXML::StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::
 	}
 }
 
-void CXML::EndElement(const SyExpat::TQualified& aName)
+void CXML::EndElement(const TQualified& aName)
 {	
 		#ifdef _log_
 			iTags->Pop(aName.iLocalName);
@@ -302,7 +302,7 @@ void CXML::Default(const TDesC& aData)
 }
 
 
-void CXML::SetParser(SyExpat::CExpatParserBase* aParser)
+void CXML::SetParser(CExpatParserBase* aParser)
 {}
 
 /*
@@ -321,7 +321,7 @@ HBufC* CXML::GetValue(const TDesC8& aData,const TDesC& aName, const TDesC&aPrefi
 	const int KMaxBufLen = 500;
 	TBuf8<KMaxBufLen> buf;
 	TBool isFinal = ETrue;
-	SyExpat::TSyExpatStatus status = EStatusOk;
+	TSyExpatStatus status = EStatusOk;
 	do
 	{
 		// 4. First read some data
@@ -371,10 +371,10 @@ void CXML::GetContent()
 	// TODO: in kleinen Teilen lesen
 
 	TBool isFinal = ETrue;
-	SyExpat::TSyExpatStatus status = SyExpat::EStatusOk;
+	TSyExpatStatus status = EStatusOk;
 	status = iReader->Parse(iData, isFinal);		
 	
-		if (status != SyExpat::EStatusOk)	//TODO: Assert_debug
+		if (status != EStatusOk)	//TODO: Assert_debug
 		{
 
 		}
@@ -405,7 +405,7 @@ CTableXML* CTableXML::NewL(COpenDocument* aParent)
 
 
 
-void CTableXML::StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute>& aAttributes)
+void CTableXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes)
 {
 	CXML::StartElement(aName,aAttributes);	// hier stack befüllt und meta, für alle gleich
 
@@ -631,7 +631,7 @@ void CTableXML::CharacterData(const TDesC& aName)
 }
 
 
-void CTableXML::EndElement(const SyExpat::TQualified& aName)
+void CTableXML::EndElement(const TQualified& aName)
 {
 		
 		CXML::EndElement(aName);
@@ -699,7 +699,7 @@ void CTextXML::ConstructL(void)
 
 
 
-void CTextXML::StartElement(const SyExpat::TQualified& aName, const RArray<SyExpat::TAttribute>& aAttributes)
+void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes)
 {
 	CXML::StartElement(aName,aAttributes);	// hier stack befüllt und meta, für alle gleich
 
@@ -1140,7 +1140,7 @@ void CTextXML::CharacterData(const TDesC& aName)
 }
 
 
-void CTextXML::EndElement(const SyExpat::TQualified& aName)
+void CTextXML::EndElement(const TQualified& aName)
 {	
 
 	CXML::EndElement(aName);
