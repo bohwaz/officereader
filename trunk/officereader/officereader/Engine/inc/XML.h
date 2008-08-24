@@ -105,7 +105,7 @@ class CXML : public CBase, MSyDocHandler
 		virtual void ConstructL();
 	
 
-		virtual void StartElement(const TQualified& aName, const RArray< ::TAttribute >& aAttributes);
+		virtual void StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes);
 		virtual void EndElement(const TQualified& aName);
 		virtual void CharacterData(const TDesC& aName);
 		virtual void ProcessingInstruction(const TDesC& aTarget, const TDesC& aData);

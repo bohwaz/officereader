@@ -42,8 +42,6 @@
 
 _LIT(KSeperator, "\n");
 
-namespace SyExpat
-{
 static void SplitElementName(const TText* aName, TQualified& aItem)
 {
 	TPtrC tmp(aName);
@@ -617,5 +615,4 @@ EXPORT_C MSyDeclHandler* CSyContextualParser::PopDeclHandler()
 	}
 	
 	return ret;
-}
 }

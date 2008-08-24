@@ -46,8 +46,6 @@
 
 #include <e32base.h>
 
-namespace SyExpat
-{
 	 /**
 	 *	Status of the parser object.
 	 */
@@ -164,7 +162,7 @@ namespace SyExpat
 	{
 	public:
 		/** 	
-		@fn					virtual void StartElement(const TQualified& aName, const RArray<TAttribute>& aAttributes)
+		@fn					virtual void StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes)
 		Intended Usage:		Called whenever a new element is parsed. The name of the element is stored
 							in aName.
 		@exception			none.
@@ -174,7 +172,7 @@ namespace SyExpat
 		@pre 				None
 		@post				Nothing is left on the CleanupStack
 		*/
-		virtual void StartElement(const TQualified& aName, const RArray<TAttribute>& aAttributes) = 0;
+		virtual void StartElement(const TQualified& aName, const RArray< ::TAttribute>& aAttributes) = 0;
 
 		/** 	
 		@fn					virtual void EndElement(const TQualified& aName)
@@ -1023,6 +1021,5 @@ namespace SyExpat
 			 */
 			RArray<MSyDeclHandler*>	iDeclHandlerStack;	
 	};
-}
 	
 #endif // __SYMBIAN_EXPAT_H
