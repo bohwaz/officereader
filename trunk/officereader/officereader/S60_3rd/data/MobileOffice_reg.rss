@@ -1,0 +1,56 @@
+#include <appinfo.rh>
+#include <aiftool.rh>
+
+#include <MobileOffice.rsg>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xa00005b5
+
+RESOURCE APP_REGISTRATION_INFO
+  {
+  app_file="MobileOffice";
+  localisable_resource_file = "\\resource\\apps\\MobileOffice";
+  localisable_resource_id = R_MOBILEOFFICE_LOCALISABLE_APP_INFO;			
+  embeddability=KAppEmbeddable;
+  newfile=KAppSupportsNewFile;
+  
+  hidden=KAppNotHidden; // MIME types application supports
+  
+  datatype_list= 
+	{ 
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.text";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.spreadsheet";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.presentation";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.text-template";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.spreadsheet-template";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.presentation-template";
+		}
+	 
+	 };
+ 
+     
+  }
+      
