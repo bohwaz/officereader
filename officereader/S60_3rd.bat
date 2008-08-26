@@ -59,12 +59,4 @@ bldmake bldfiles
 START ABLD.bat build gcce urel
 echo "Finished compiling Application"
 
-cd ..\sis	
-makesis MobileOffice.pkg
-signsis -s MobileOffice.SIS OfficeReader.sisx c:\cert\cert2008.cer c:\cert\key2008.key hideku65
-copy OfficeReader.sisx X:\
-cd ..\..\..
-
-
-
 echo "Finished for S60 3nd Edition"
