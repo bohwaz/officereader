@@ -1,0 +1,484 @@
+//  RESOURCE IDENTIFIER
+NAME    AWIZ // 4 letter ID
+
+//  INCLUDES
+
+#include <eikon.rh>
+#include "MobileOffice.hrh"
+#include "MobileOffice.rls"
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+#include <appinfo.rh>
+
+
+
+//  RESOURCE DEFINITIONS 
+// -----------------------------------------------------------------------------
+//
+//    Define the resource file signature
+//    This resource should be empty.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE { }
+
+// -----------------------------------------------------------------------------
+//
+//    Default Document Name
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF { buf = "MobileOffice"; }
+
+// -----------------------------------------------------------------------------
+//
+//    Define default menu and CBA key.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+    {
+    status_pane = r_mobileoffice_status_pane;
+    }
+
+// -----------------------------------------------------------------------------
+//
+//    Localizable application information
+//
+// -----------------------------------------------------------------------------
+//
+
+RESOURCE LOCALISABLE_APP_INFO r_mobileoffice_localisable_app_info
+    {
+    short_caption = qtn_app_short_caption_string;
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = qtn_app_caption_string;
+        number_of_icons = 1;
+        icon_file = "\\resource\\apps\\MobileOffice_reg.mif";	
+        };			 
+    }
+
+//-------------------------------		---------------------
+//   
+//    r_mobileoffice_hotkeys
+//
+//----------------------------------------------------
+//
+RESOURCE HOTKEYS r_mobileoffice_hotkeys
+    {
+    control =
+        {
+        HOTKEY { command = EAknCmdExit; key = 'e'; }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_view1
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_mobileoffice_view1
+    {
+    hotkeys = r_mobileoffice_hotkeys;
+    menubar = r_mobileoffice_menubar_view1;  
+    cba     = R_AVKON_SOFTKEYS_SELECTION_LIST;    
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_menubar_view1
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_BAR r_mobileoffice_menubar_view1
+    {
+    titles =
+        {
+        MENU_TITLE { menu_pane = r_mobileoffice_app_menu; txt = "App"; },
+        MENU_TITLE { menu_pane = r_mobileoffice_view1_menu; txt = "View"; }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_view1_menu
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_mobileoffice_view1_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = EMobileOfficeCmdOpen; txt = qtn_open; },
+        MENU_ITEM { command = EMobileOfficeCmdDelete; txt = qtn_delete; },
+        MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; },
+        MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; },
+        MENU_ITEM { command = EMobileOfficeCmdRefresh; txt = qtn_view1_refresh; },
+//        MENU_ITEM { command = EMobileOfficeCmdNewText; txt = qtn_list_newwriter; },
+        MENU_ITEM { command = EMobileOfficeCmdRegister; txt = qtn_view1_reg; }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_view2
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_mobileoffice_view2
+    {
+    hotkeys = r_mobileoffice_hotkeys;
+    menubar = r_mobileoffice_menubar_view2;  
+    cba     = R_AVKON_SOFTKEYS_SELECTION_LIST; 
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_menubar_view2
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_BAR r_mobileoffice_menubar_view2
+    {
+    titles =
+        {MENU_TITLE { menu_pane = r_mobileoffice_app_menu; txt = "App"; },
+        MENU_TITLE { menu_pane = r_mobileoffice_view2_menu; txt = "View"; }
+        
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_view2_menu
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_mobileoffice_view2_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = EMobileOfficeCmdOpen; txt = qtn_open; },
+        MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_mobileoffice_app_menu
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_mobileoffice_app_menu
+    {
+    items =
+        {
+        MENU_ITEM { command = EMobileOfficeCmdAppAbout; txt = qtn_appl_option_item; },
+        MENU_ITEM { command = EAknCmdExit; txt = qtn_appl_exit; }
+        };
+    }
+
+RESOURCE STATUS_PANE_APP_MODEL r_mobileoffice_status_pane
+    {
+    }
+
+
+
+#define KWidth 176
+#define KHeight 144
+#define KMaxLength 256	
+
+// ---------------------------------------------------------
+//   
+//    Rich Text editor for the application
+//
+// ---------------------------------------------------------
+//
+RESOURCE RTXTED r_richtexteditor_rich_text_editor
+	{
+	width=KWidth;
+	height=KHeight;
+	textlimit=KMaxLength; 
+	flags=  EEikEdwinReadOnly | EEikEdwinAvkonDisableCursor;
+	avkon_flags=EAknEditorFlagEnableScrollBars;
+	}
+
+
+RESOURCE TBUF r_mobilesearch_about
+{
+ 	buf = qtn_about;
+}
+
+RESOURCE TBUF r_mobilesearch_abouttitle
+{
+ 	buf = qtn_abouttitle;
+}
+
+RESOURCE TBUF r_find_query
+{
+ 	buf = qtn_find_query;
+}
+
+RESOURCE TBUF r_password_query
+{
+ 	buf = qtn_password_query;
+}
+
+
+RESOURCE DIALOG r_message_query
+{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items=
+	{
+		DLG_LINE
+		{
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			control = AVKON_HEADING
+					{
+						headinglayout=R_AVKON_LIST_HEADING_PANE_POPUPS;
+					};
+		},
+		DLG_LINE
+		{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+				{
+				};
+		}
+	};
+}
+
+
+
+//----------------------------------------------------------------------
+//  r_mobileoffice_editorview_view -- View resources for 'EditorView'
+//----------------------------------------------------------------------
+RESOURCE AVKON_VIEW r_mobileoffice_editorview_view
+    {
+    menubar = r_mobileoffice_editorview_menubar;  
+    cba     = R_AVKON_SOFTKEYS_SELECTION_LIST;    
+    }
+
+RESOURCE MENU_BAR r_mobileoffice_editorview_menubar
+    {
+    titles =
+        {
+        //MENU_TITLE { menu_pane = r_mobileoffice_app_menu; txt = "App"; },
+        MENU_TITLE { menu_pane = r_mobileoffice_editorview_menu; txt = "View"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_mobileoffice_editorview_menu
+    {
+    items =
+        {
+			MENU_ITEM { command = EMobileOfficeCmdTable; txt = qtn_view_worksheets; cascade = r_mobileoffice_editorview_table; },
+			MENU_ITEM { command = EMobileOfficeCmdSave; txt = r_save; },
+			MENU_ITEM { command = EMobileOfficeCmdGoto; txt = qtn_view_goto; cascade = r_mobileoffice_editorview_goto; },
+			MENU_ITEM { command = EMobileOfficeCmdFind;txt = r_find; cascade =r_mobileoffice_editorview_find;},
+			MENU_ITEM { command = EMobileOfficeCmdZoom; txt = r_zoom; cascade = r_zoom_menu; },
+			MENU_ITEM { command = EMobileOfficeCmdFull; txt = r_full;},
+			MENU_ITEM { command = EMobileOfficeCmdSheet;txt = r_adjust ; },
+			MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; },
+			MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; },
+			MENU_ITEM { command = EMobileOfficeCmdAppAbout; txt = qtn_appl_option_item; },
+			MENU_ITEM { command = EEikCmdExit; txt = qtn_appl_exit; }
+        
+        };
+    }
+
+
+RESOURCE MENU_PANE r_mobileoffice_editorview_find
+{
+	items =
+	{
+			MENU_ITEM { command = EMobileOfficeCmdFindFirst; txt = r_find; },
+			MENU_ITEM { command = EMobileOfficeCmdFindAgain; txt = r_findagain; }
+	};
+}
+
+RESOURCE MENU_PANE r_mobileoffice_editorview_table
+{
+	items =
+	{
+	};
+
+}
+
+RESOURCE MENU_PANE r_mobileoffice_editorview_goto
+{
+	items =
+	{
+			MENU_ITEM { command = EMobileOfficeCmdStart; txt = qtn_start; },
+			MENU_ITEM { command = EMobileOfficeCmdEnd; txt = qtn_end; }
+	};
+}
+
+RESOURCE MENU_PANE r_zoom_menu
+{
+	items =
+	{
+			MENU_ITEM { command = EMobileOfficeCmdZoomNormal; txt = r_zoom_normal; },
+			MENU_ITEM { command = EMobileOfficeCmdZoomMedium; txt = r_zoom_medium; },
+			MENU_ITEM { command = EMobileOfficeCmdZoomLarge; txt = r_zoom_large; }
+	};
+}
+
+
+//----------------------------------------------------------------------
+//  r_mobileoffice_viewimage_view -- View resources for 'ViewImage'
+//----------------------------------------------------------------------
+RESOURCE AVKON_VIEW r_mobileoffice_viewimage_view
+    {
+    menubar = r_mobileoffice_viewimage_menubar;  
+    cba     = R_AVKON_SOFTKEYS_SELECTION_LIST;    
+    }
+
+RESOURCE MENU_BAR r_mobileoffice_viewimage_menubar
+    {
+    titles =
+        {
+        MENU_TITLE { menu_pane = r_mobileoffice_app_menu; txt = "App"; },
+        MENU_TITLE { menu_pane = r_mobileoffice_viewimage_menu; txt = "View"; }
+        };
+    }
+
+RESOURCE MENU_PANE r_mobileoffice_viewimage_menu
+    {
+    items =
+        {
+				MENU_ITEM { command = EMobileOfficeCmdOpen; txt = qtn_open; },
+        		MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; }
+        };
+    }
+
+
+RESOURCE DIALOG r_dataquery_data_query
+	{
+	flags=EGeneralQueryFlags; 
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	items =
+		{
+		DLG_LINE
+			{
+			type = EAknCtQuery;
+			id = 1000;
+			control = AVKON_DATA_QUERY
+				{
+				layout = EDataLayout;
+				control = 
+					EDWIN
+						{
+						width = 50;
+						lines = 1;
+						maxlength = 50;
+						};
+				};
+			}
+		};
+	}
+	
+	RESOURCE DIALOG r_mobile_office_container_wait_dialog
+	{
+	flags = EAknWaitNoteFlags;
+	//buttons = R_AVKON_SOFTKEYS_CANCEL;
+	buttons = R_AVKON_SOFTKEYS_EMPTY;
+	items =
+		{
+		DLG_LINE
+			{
+			type = EAknCtNote;
+			id = 100;
+			control = AVKON_NOTE
+				{
+				layout = EWaitLayout;
+				singular_label = "Searching...";
+				animation = R_QGN_GRAF_WAIT_BAR_ANIM;
+				};
+			}
+		};
+	}
+	
+
+
+
+
+	
+	RESOURCE TBUF r_mobilesearch_error
+{
+ 	buf = qtn_error;
+}
+
+RESOURCE TBUF r_mobilesearch_invalidcode
+{
+ 	buf = qtn_invalidcode;
+}
+
+RESOURCE TBUF r_mobilesearch_correctcode
+{
+ 	buf = qtn_correctcode;
+}
+
+RESOURCE TBUF r_mobilesearch_thanks
+{
+ 	buf = qtn_thanks;
+}
+
+RESOURCE TBUF r_mobilesearch_mobilesearch
+{
+ 	buf = qtn_mobileoffice;
+}
+
+RESOURCE TBUF r_mobilesearch_demo
+{
+ 	buf = qtn_demo;
+}
+
+RESOURCE TBUF r_str_input_activation_code { buf = "Activation Code"; }
+
+
+//----------------------------------------------------------------------------
+//
+//R_GNFIELDQUERY_BIGNUMBER_QUERY -> Used by registration
+//
+//----------------------------------------------------------------------------
+#define GNFIELDQUERY_ONELINE_DATAQUERY_LINES 1
+#define GNFIELDQUERY_EDWIN_WIDTH 5
+#define GNFIELDQUERY_EDWIN_LINES 5
+#define GNFIELDQUERY_EDWIN_MAXLENGTH 256
+#define GNFIELDQUERY_EDWIN_SHORT_MAXLENGTH 8
+
+RESOURCE DIALOG r_gnfieldquery_bignumber_query
+    {
+    flags = EGeneralQueryFlags;
+//      flags = EEikDialogFlagNoDrag | EEikDialogFlagNoTitleBar | EEikDialogFlagCbaButtons;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_DATA_QUERY
+                {
+                layout = EPhoneLayout; //ENumberLayout;
+                label = GFL_TEXT;
+                control = EDWIN
+                    {
+                    flags = EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+                    width = GNFIELDQUERY_EDWIN_WIDTH;
+                    maxlength = GNFIELDQUERY_EDWIN_MAXLENGTH;
+                    max_view_height_in_lines = GNFIELDQUERY_EDWIN_LINES;
+                    base_line_delta = 21;
+                    };
+                };
+            }
+        };
+    }
+
