@@ -20,7 +20,6 @@ The commercial product Mobile Office will be opensourced in several Milestones a
       * S80 Edition
       * UIQ3 Edition
   * release binaries for current Symbian versions under new name
-  * announce the project of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
 Completion:		September 1st, 2008
 
@@ -47,5 +46,7 @@ Completion:		January 1st, 2009
   * finish of all websites related to the project 
   * final cleanup and finish of the project
   * release new binaries for current Symbian versions with user documentation
+  * announce the project of opensourcing Mobile Office, new product based on the same code will be Office Reader
+
 
 Completion:		January 31th, 2009
