@@ -51,5 +51,10 @@ START ABLD.bat build gcce urel
 cd ../../..
 echo "Finished compiling Engine
 
+echo "Start compiling Application"
+cd officereader\UIQ3\group
+bldmake bldfiles
+START ABLD.bat build gcce urel
+echo "Finished compiling Application"
 
 echo "Finished for UIQ3"

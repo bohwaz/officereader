@@ -55,11 +55,13 @@
 	#include "CIMEI.h"
 #endif
 
+/*
+
 #include <rsendasmessage.h>
 #include <rsendas.h>
 #include <senduiconsts.h>
 
-/*
+
 void SendFileL(const TDesC& aFilename)
     {
    // 1. Open session

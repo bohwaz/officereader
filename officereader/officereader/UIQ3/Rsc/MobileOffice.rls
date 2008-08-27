@@ -1,0 +1,38 @@
+// Text for commands in the view
+rls_string STRING_r_mobileoffice_close_debug_cmd "Close"
+
+// list view commands
+rls_string STRING_r_listbox_listview_cmd_close_debug "Close (debug)"
+rls_string STRING_r_listbox_listview_cmd_close_debug_shorttext "Close"
+
+
+#define qtn_open "Open"
+#define qtn_delete "Delete"
+#define qtn_view1_prop	"Properties"
+#define qtn_view_goto "Goto"
+#define qtn_view1_reg "Register"
+#define qtn_start "Start"
+#define qtn_end "End"
+#define qtn_view_worksheets "Worksheet"
+#define qtn_view1_picture "Thumbnail"
+#define qtn_view1_refresh "Refresh"
+
+#define qtn_list_newwriter "TP: New Text Document"
+
+#define r_zoom "Zoom"
+#define r_zoom_normal "Normal"
+#define	r_zoom_medium "Medium"
+#define r_zoom_large "Large"
+#define r_adjust "Adjust Cell/Row Size"
+#define r_find "Find"
+#define r_findagain "Find again"
+#define r_full "Toggle Full Screen"
+
+#define r_findquestion "Please enter your text:"
+#define r_delete "Would you like to delete this file?"
+
+#define qtn_about			"Office Reader, Version 0.6\r\nAll rights reserved\r\nCopyright by Max Odendahl\r\nOdendahl SEPT-Solutions\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader"
+#define qtn_abouttitle			"Info"
+
+
+
