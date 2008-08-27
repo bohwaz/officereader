@@ -14,9 +14,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
     * ~~SyExpat - XML parser~~
     * ~~sheetcontrol - new control for showing cells/spreadsheets~~
     * ~~Engine - main engine for reading zip and opendocument files~~
-    * Application
-      * ~~S60 3rd Edition~~
-      * ~~UIQ3 Edition~~
+    * ~~ S60 3rd Edition and UIQ3 Edition application~~
   * ~~release binaries for current Symbian versions under new name~~
 
 Completion:		September 1st, 2008
