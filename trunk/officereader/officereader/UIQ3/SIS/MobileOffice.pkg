@@ -1,0 +1,28 @@
+; Languages
+&EN
+
+; Header
+#{"Office Reader"},(0xa00005b5), 0, 6, 1
+
+; Platform compatibility
+[0x101F6300], *, *, *, {"UIQ30ProductID"}
+
+; vendor
+%{"Odendahl SEPT-Solutions"}
+:"Odendahl SEPT-Solutions"
+
+; Target
+"C:\Symbian\UIQ3SDK\Epoc32\release\gcce\UREL\MobileOffice.exe"-"!:\sys\bin\MobileOffice.exe"
+"C:\Symbian\UIQ3SDK\Epoc32\data\z\Resource\Apps\MobileOffice_loc.rSC"-"!:\Resource\Apps\MobileOffice_loc.rSC"
+"C:\Symbian\UIQ3SDK\Epoc32\data\z\Resource\Apps\MobileOffice.rSC"-"!:\Resource\Apps\MobileOffice.rSC"
+"C:\Symbian\UIQ3SDK\Epoc32\data\z\Resource\Apps\MobileOfficeAppIcon.mbm"-"!:\resource\apps\MobileOfficeAppIcon.mbm"
+"C:\Symbian\UIQ3SDK\Epoc32\data\z\private\10003a3f\apps\MobileOffice_reg.rSC"-"!:\private\10003a3f\import\apps\MobileOffice_reg.rSC"
+"C:\Symbian\UIQ3SDK\Epoc32\release\gcce\UREL\OpenDocument.dll"-"!:\sys\bin\OpenDocument.dll"
+"C:\Symbian\UIQ3SDK\Epoc32\release\gcce\UREL\SyExpat.dll"-"!:\sys\bin\SyExpat.dll"
+
+""-"c:\private\A00005B5\mobileoffice.cfg",FN
+
+
+@"ODFRecog_UIQ_3_0_v_1_0_Signed.sis",(0x20008761)
+
+

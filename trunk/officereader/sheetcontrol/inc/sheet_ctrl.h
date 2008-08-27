@@ -35,6 +35,8 @@
 #include <EIKSCRLB.H>
 
 
+#define __UIQ__
+
 #include "sheet_drawer.h"
 
 class CSheetModel;

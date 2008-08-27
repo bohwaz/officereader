@@ -1,0 +1,3 @@
+// Text showed in the applauncher
+rls_string STRING_r_mobileoffice_caption "Office Reader"
+rls_string STRING_r_mobileoffice_shortcaption "Office Reader"

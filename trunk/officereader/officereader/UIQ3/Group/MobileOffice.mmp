@@ -1,0 +1,81 @@
+TARGET                                  MobileOffice.exe 
+TARGETTYPE                              EXE 
+UID                                     0x100039CE 0xa00005b5 
+SOURCEPATH                              ..\Reg 
+START RESOURCE MobileOffice_reg.rss 
+  TARGETPATH                              \private\10003a3f\apps 
+END  
+
+START RESOURCE MobileOffice_loc.rss 
+  TARGETPATH                              \Resource\Apps 
+  LANG                                    SC 
+END  
+MACRO 						FREEVERSION
+#define 					FREEVERSION
+
+
+SOURCEPATH                              ..\Rsc 
+START RESOURCE MobileOffice.rss 
+  TARGETPATH                              \Resource\Apps 
+  HEADER                                   
+  LANG                                    SC 
+END  
+
+
+SOURCEPATH                              ..\Src 
+
+#ifndef					FREEVERSION
+SOURCE                                  genericCfg.cpp 
+SOURCE                                  CIMEI.cpp 
+SOURCE                                  LicenseManager.cpp 
+#endif
+
+SOURCE                                  MobileOfficePropView.cpp 
+SOURCE                                  MobileOfficeImageView.cpp 
+SOURCE                                  MobileOfficeEditorView.cpp 
+SOURCE                                  MobileOfficeApplication.cpp 
+SOURCE                                  MobileOfficeDocument.cpp 
+SOURCE                                  MobileOfficeAppUi.cpp 
+SOURCE                                  MobileOfficeView.cpp 
+
+USERINCLUDE                             ..\..\..\sheetcontrol\inc 
+USERINCLUDE                             ..\..\Engine\inc 
+USERINCLUDE                             ..\Inc 
+SYSTEMINCLUDE                           \EPOC32\INCLUDE 
+/* [+] */ LIBRARY                       etel3rdparty.lib 
+LIBRARY                                 fbscli.lib 
+LIBRARY                                 quiconfigclient.lib 
+LIBRARY                                 qikctl.lib 
+LIBRARY                                 qikdlg.lib 
+LIBRARY                                 bafl.lib 
+LIBRARY                                 form.lib 
+LIBRARY                                 estor.lib 
+LIBRARY                                 gdi.lib 
+STATICLIBRARY                           sheet.lib 
+LIBRARY                                 OpenDocument.lib 
+LIBRARY                                 etext.lib 
+LIBRARY                                 eikctl.lib 
+LIBRARY                                 efsrv.lib 
+LIBRARY                                 qiklbx.lib 
+LIBRARY                                 euser.lib 
+LIBRARY                                 apparc.lib 
+LIBRARY                                 cone.lib 
+LIBRARY                                 eikcore.lib 
+LIBRARY                                 eikcoctl.lib 
+LIBRARY							           qikcore.lib 
+STATICLIBRARY                           qikalloc.lib 
+LIBRARY                                 qikallocdll.lib 
+START BITMAP MobileOfficeAppIcon.mbm 
+  TARGETPATH                              \Resource\Apps 
+  HEADER                                   
+  SOURCEPATH                              ..\Data\AppIcon 
+  SOURCE                                  c24 MobileOffice_Small.bmp 
+  SOURCE                                  8 MobileOffice_Small_mask.bmp 
+  SOURCE                                  c24 MobileOffice_Large.bmp 
+  SOURCE                                  8 MobileOffice_Large_mask.bmp 
+  SOURCE                                  c24 MobileOffice_xLarge.bmp 
+  SOURCE                                  8 MobileOffice_xLarge_mask.bmp 
+
+END  
+
+EPOCHEAPSIZE                            500000 10000000 

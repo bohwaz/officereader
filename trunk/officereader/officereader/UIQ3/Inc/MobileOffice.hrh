@@ -1,0 +1,66 @@
+#ifndef MOBILEOFFICE_HRH
+#define MOBILEOFFICE_HRH
+
+/**
+Identifies the value for the commands in the application.
+Commands shall first start on 0x1000.
+Values before 0x1000 is reserved for commands in the framework.
+*/
+enum TMobileOfficeCommand
+	{
+	EMobileOfficeCmdAppAbout = 1,
+    EMobileOfficeCmdProp = 2,
+    EMobileOfficeCmdOpen = 3,
+    EMobileOfficeCmdPicture = 4,
+    EMobileOfficeCmdList = 5,
+    EMobileOfficeCmdBack = 6,
+    EMobileOfficeCmdRefresh = 7,
+    EMobileOfficeCmdGoto = 8,
+    EMobileOfficeCmdStart = 9,
+    EMobileOfficeCmdEnd = 10,
+    EMobileOfficeCmdZoom = 11,
+    EMobileOfficeCmdZoomNormal = 12,
+    EMobileOfficeCmdZoomMedium = 13,
+    EMobileOfficeCmdZoomLarge = 14,
+    EMobileOfficeCmdSheet = 15,
+    EMobileOfficeCmdFind = 16,
+    EMobileOfficeCmdFindFirst = 17,
+    EMobileOfficeCmdFindAgain = 18,
+    EMobileOfficeCmdFull = 19,
+    EMobileOfficeCmdTable = 20,
+    EMobileOfficeCmdRegister = 21,
+    EMobileOfficeCmdDelete = 22,
+    EMobileOfficeCmdNewText = 23,
+    EMobileOfficeCmdSave
+    };
+
+/**
+Unique controls in view.
+*/
+enum TMobileOfficeControl
+	{
+	EListBoxListViewListCtrl = 1,
+	EEditorListCtrl,
+	EListBoxListViewListCtrl2,
+	EMyViewRichTextEditor,
+	EMobileOfficeViewPage,
+	EMobileOfficeViewPage2,
+	EMobileOfficeEditorViewPage,
+	EMobileOfficeImageViewPage,
+	EMobileOfficePropViewPage
+	
+	};
+	
+	
+	enum TSimpleDialogControls
+    {
+    ESimpleDialogBB,
+    ESimpleDialogEdwin,
+    ESimpleDialogBB_about,
+    ESimpleDialogLabel,
+    ESimpleDialogBB_reg
+    
+    };
+    
+    
+#endif // MOBILEOFFICE_HRH
