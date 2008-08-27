@@ -10,16 +10,14 @@ The commercial product Mobile Office will be opensourced in several Milestones a
 
   * ~~create an appropriate project in a public repository~~
   * ~~fill project pages with initial content~~
-  * release source code under GPL3/LGPL3 including correct license headers with the following modules:
+  * ~~release source code under GPL3/LGPL3 including correct license headers with the following modules:~~
     * ~~SyExpat - XML parser~~
     * ~~sheetcontrol - new control for showing cells/spreadsheets~~
     * ~~Engine - main engine for reading zip and opendocument files~~
     * Application
       * ~~S60 3rd Edition~~
-      * S60 2nd Edition
-      * S80 Edition
-      * UIQ3 Edition
-  * release binaries for current Symbian versions under new name
+      * ~~UIQ3 Edition~~
+  * ~~release binaries for current Symbian versions under new name~~
 
 Completion:		September 1st, 2008
 
