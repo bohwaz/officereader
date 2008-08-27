@@ -15,7 +15,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
     * ~~sheetcontrol - new control for showing cells/spreadsheets~~
     * ~~Engine - main engine for reading zip and opendocument files~~
     * ~~ S60 3rd Edition and UIQ3 Edition application~~
-  * ~~release binaries for current Symbian versions under new name~~
+  * ~~release binaries for current Symbian versions under new name, version 0.6~~
 
 Completion:		September 1st, 2008
 
@@ -33,7 +33,7 @@ Completion:		October 1st, 2008
   * test ODF maturity against http://develop.opendocumentfellowship.com/testsuite and/or new Oasis test suite in areas of existing functionality  
   * fix all known crashes and other major/urgent issues within existing functionality with respect to interoperability with OpenOffice.org 3.0 and one other major ODF implementation
   * support for hybrid PDF's 
-  * release new binaries for current Symbian versions
+  * release new binaries for current Symbian versions, version 0.9
 
 Completion:		January 1st, 2009
 
@@ -41,7 +41,7 @@ Completion:		January 1st, 2009
   * finish of end user documentation
   * finish of all websites related to the project 
   * final cleanup and finish of the project
-  * release new binaries for current Symbian versions with user documentation
+  * release new binaries for current Symbian versions with user documentation, version 1.0
   * announce the project of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
 
