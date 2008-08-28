@@ -1,5 +1,4 @@
 #summary Downloads for older, deprecated Symbian devices
-#labels Old,Symbian,Release
 
 There are older Symbian OS devices on which Office Reader is running as well. These versions were already available as Freeware before, here are the links:
 
