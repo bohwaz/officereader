@@ -9,3 +9,6 @@ http://www.sept-solutions.de/office_s80.sis
 
 
 To make it not even more complicated and there is little demand for these old version, we did not upload the code here as well. But if you are still running an older device and are interested in the source of these versions, let us know on the mailing list and we will certainly provide it.
+
+
+For a list of Symbian phones, please have a look at the [http://www.symbian.com/phones/index.html Symbian Website]. Please note that Foma phones are not supported, as this is a closed enviromnent
