@@ -157,6 +157,7 @@ TInt CCell::MaxRepresentationLengthL() const
 	case enUnknown:
 	case enWrong:
 		return 32;
+	default: return 0;
 	}
 }
 

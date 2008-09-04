@@ -79,9 +79,8 @@ CGraphicsContext::TTextAlign GetGraphicAlign(TCellAlign aAlign)
 			case ECellLeft: {  return CGraphicsContext::ELeft;}
 			case ECellRight: {  return CGraphicsContext::ERight;}
 			case ECellCenter: {  return CGraphicsContext::ECenter;}
+			default: {  return CGraphicsContext::ECenter;}
 	}
-
-	return CGraphicsContext::ELeft;
 }
 
 COpenDocument::COpenDocument()
@@ -362,6 +361,9 @@ void COpenDocument::GetContent(const TDesC& aFile, TXMLMode aMode, HBufC* aTable
 				((CTableXML*)parser)->iTable = aTable;
 				break;
 			}
+		default:{ 
+				break;
+			} 
 	}
 
 
@@ -1039,7 +1041,7 @@ void COpenDocument::AddCellFormat(void)
 void COpenDocument::SetValueType(const TDesC& aType, TBool aName)
 {
 		_LIT(string,"string");
-		_LIT(date,"date");
+//		_LIT(date,"date");
 		_LIT(time,"time");
 
 		if ((aType==string))// ||(aType==date))
@@ -1115,9 +1117,9 @@ void COpenDocument::InitializeL(CEZZStream &aZStream)
 	aZStream.SetOutput(ptr_xml);
 
 }
-void COpenDocument::NeedInputL(CEZZStream &aZStream)	{}
-void COpenDocument::NeedOutputL(CEZZStream &aZStream) {}
-void COpenDocument::FinalizeL(CEZZStream &aZStream)	{}
+void COpenDocument::NeedInputL(CEZZStream &/*aZStream*/)	{}
+void COpenDocument::NeedOutputL(CEZZStream &/*aZStream*/) 	{}
+void COpenDocument::FinalizeL(CEZZStream &/*aZStream*/)		{}
 /*************************************************************/
 
 
@@ -1161,10 +1163,11 @@ void COpenDocument::WriteMIME(CCreateZip* aZip)
 		case ODT:	{ aZip->AddFile(writer,mimetype); break; }
 		case ODS:	{ aZip->AddFile(spread,mimetype); break; }
 		case OTS:	{ aZip->AddFile(spread_template,mimetype); break; }
+		case ODFUnknown:{ break; }
 	}
 }
 	
-void COpenDocument::WriteContentAndStyles(CCreateZip* aZip)
+void COpenDocument::WriteContentAndStyles(CCreateZip* /*aZip*/)
 {
 	HBufC* aStyle = HBufC::NewLC(9000);
 	TPtr pStyle = aStyle->Des();

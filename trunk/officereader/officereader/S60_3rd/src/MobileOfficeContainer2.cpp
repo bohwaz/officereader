@@ -137,13 +137,13 @@ CCoeControl* CMobileOfficeContainer2::ComponentControl(TInt aIndex) const
 // ---------------------------------------------------------
 //
 void CMobileOfficeContainer2::Draw(const TRect& aRect) const
-    {CWindowGc& gc = SystemGc();
-	/*gc.SetPenStyle(CGraphicsContext::ENullPen);
+{
+	/*CWindowGc& gc = SystemGc();
+	gc.SetPenStyle(CGraphicsContext::ENullPen);
 	gc.SetBrushStyle(CGraphicsContext::ESolidBrush);
 	gc.DrawRect(aRect);
 	*/
-	
-    }
+}
 
 // ---------------------------------------------------------
 // CMobileOfficeContainer2::HandleControlEventL(

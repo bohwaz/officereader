@@ -71,12 +71,12 @@ public:
         iFont=aEnv->DenseFont();
         /* 1.1 times font height is a standard estimate
            for line height when we don't know any better */
-        iLineHeight=iFont->HeightInPixels()*1.1;
+        iLineHeight=(TInt)(iFont->HeightInPixels()*1.1);
         iMargin=aMargin;
         iBorder=aBorder;
         iBorderColor=aBorderColor;
     }
-    void Draw(const    TRect& aRect) const {
+    void Draw(const    TRect& /*aRect*/) const {
         /* we don't care if aRect is actually smaller than
            this window:
             a) it won't normally happen, since this will

@@ -35,7 +35,7 @@
 #include <EIKSCRLB.H>
 
 
-#define __UIQ__
+//#define __UIQ__
 
 #include "sheet_drawer.h"
 
