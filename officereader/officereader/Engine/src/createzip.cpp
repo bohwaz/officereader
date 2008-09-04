@@ -450,7 +450,7 @@ void CCreateZip::InitializeL(CEZZStream &aZStream)
 // CCreateZip::NeedInputL()
 // -----------------------------------------------------------------------------
 //
-void CCreateZip::NeedInputL(CEZZStream &aZStream)
+void CCreateZip::NeedInputL(CEZZStream &/*aZStream*/)
 {
 	//TPtr8 iCompressOutputBufferPtr = iCompressOutputBuffer->Des();
 	//aZStream.SetInput(iCompressInputBuffer->Des());
@@ -460,7 +460,7 @@ void CCreateZip::NeedInputL(CEZZStream &aZStream)
 // CCreateZip::NeedOutputL()
 // -----------------------------------------------------------------------------
 //
-void CCreateZip::NeedOutputL(CEZZStream &aZStream)
+void CCreateZip::NeedOutputL(CEZZStream &/*aZStream*/)
 {
 
 
@@ -481,7 +481,7 @@ void CCreateZip::FinalizeL(CEZZStream &aZStream)
 // CCreateZip::InitialiseBufManL()
 // -----------------------------------------------------------------------------
 //
-void CCreateZip::InitialiseBufManL(RFs &aRfs, const TDesC &aZipFileName, TInt aBufferSize)
+void CCreateZip::InitialiseBufManL(RFs &/*aRfs*/, const TDesC &/*aZipFileName*/, TInt /*aBufferSize*/)
 {
 
 
@@ -498,7 +498,7 @@ void CCreateZip::GetLastModifiedDateTime(const TDesC &aGzFileName,TUint16& mod_d
 	if(iFs.Modified(aGzFileName, time_obj)== KErrNone ) {
 		TDateTime date_time = time_obj.DateTime();
 		//Calculating Date in MS-Dos Format
-		TUint16 year = date_time.Year()-1980;
+		TUint32 year = date_time.Year()-1980;
 		if(year < 0){
 			year = 0;
 		}

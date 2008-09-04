@@ -89,7 +89,7 @@ class COpenDocument: public MEZBufferManager
     public:     // new functions
         IMPORT_C static COpenDocument* NewL();
         IMPORT_C static COpenDocument* NewLC();
-        IMPORT_C ~COpenDocument();
+        IMPORT_C virtual ~COpenDocument();
 
     public:     
         IMPORT_C TVersion Version() const;

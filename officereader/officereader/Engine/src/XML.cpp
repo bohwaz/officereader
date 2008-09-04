@@ -44,7 +44,7 @@ TReal GetPtByDesC(const TDesC& aLength)
 	_LIT(px,"px");
 	_LIT(pc,"pc");
 	_LIT(pt,"pt");
-	_LIT(pro,"%");
+//	_LIT(pro,"%");
 	
 	TPtrC aType;
 	TInt len;
@@ -242,7 +242,11 @@ void CXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>& aA
 	}
 }
 
+#ifdef _log_
 void CXML::EndElement(const TQualified& aName)
+#else
+void CXML::EndElement(const TQualified& /*aName*/)
+#endif
 {	
 		#ifdef _log_
 			iTags->Pop(aName.iLocalName);
@@ -282,11 +286,11 @@ void CXML::CharacterData(const TDesC& aName)
 	}
 }
 
-void CXML::ProcessingInstruction(const TDesC& aTarget, const TDesC& aData)
+void CXML::ProcessingInstruction(const TDesC& /*aTarget*/, const TDesC& /*aData*/)
 {
 }
 
-void CXML::Comment(const TDesC& aData) 
+void CXML::Comment(const TDesC& /*aData*/) 
 {
 }
 
@@ -297,12 +301,12 @@ void CXML::StartCDataSection()
 void CXML::EndCDataSection()
 {}
 
-void CXML::Default(const TDesC& aData)
+void CXML::Default(const TDesC& /*aData*/)
 {
 }
 
 
-void CXML::SetParser(CExpatParserBase* aParser)
+void CXML::SetParser(CExpatParserBase* /*aParser*/)
 {}
 
 /*
@@ -1087,7 +1091,7 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 				
 					/* VERY IMPOIRTANT TODO TODO*/
 				if (iWidth && iHeight)
-					iOpenDocument->GetPicture(aAttributes[0].iValue, TSize(GetPtByDesC(*iWidth) ,GetPtByDesC(*iHeight) ));     //20,50));
+					iOpenDocument->GetPicture(aAttributes[0].iValue, TSize(TInt(GetPtByDesC(*iWidth)) ,TInt(GetPtByDesC(*iHeight)) ));     //20,50));
 			}
 
 			if (aName.iLocalName == page)

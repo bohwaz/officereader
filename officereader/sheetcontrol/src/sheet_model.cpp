@@ -370,6 +370,7 @@ TBool CSheetModel::FindNextL( TPoint& Pos )
 	{
 		ASSERT( FALSE );
 	}
+	return	EFalse;
 }
 
 void CSheetModel::ColumnTextL( TInt nIndex, TDes& sText ) const

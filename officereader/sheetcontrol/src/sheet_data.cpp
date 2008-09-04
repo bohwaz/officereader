@@ -38,14 +38,14 @@
 
 CSheetData::CSheetData():
 	m_enLongTextMode( enRightMost ),
-	m_nZoomDivident( 1 ),
-	m_nZoomDivisor( 1 ),
-	m_pColumnSizes( NULL ),
-	m_pRowSizes( NULL ),
 	m_pColumnHeaderFont( NULL ),
 	m_pRowHeaderFont( NULL ),
 	m_pCellFont( NULL ),
 	m_pItemWndFont( NULL ),
+	m_nZoomDivident( 1 ),
+	m_nZoomDivisor( 1 ),
+	m_pColumnSizes( NULL ),
+	m_pRowSizes( NULL ),
 	m_enFont( enAnnotation )
 {
 }

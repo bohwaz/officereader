@@ -186,16 +186,11 @@ void CMobileOfficeContainer::ClearListbox(void)
 
 TKeyResponse CMobileOfficeContainer::OfferKeyEventL(const TKeyEvent& aKeyEvent,TEventCode aType)
 {
-
 	CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iAvkonAppUi;
- 
 	CAknTabGroup* iTabGroup = (CAknTabGroup*) iNaviDecorator->DecoratedControl();
 	if ( iTabGroup )
 	{
- 
-		TInt active = iTabGroup->ActiveTabIndex();
-		TInt count = iTabGroup->TabCount();
-	 
+		TInt active = iTabGroup->ActiveTabIndex(); 
 		switch ( aKeyEvent.iCode )
 			{
 				case EKeyLeftArrow:
@@ -266,22 +261,25 @@ TKeyResponse CMobileOfficeContainer::OfferKeyEventL(const TKeyEvent& aKeyEvent,T
 		/*
 		if ( iFindbox )
 		{
-            TBool needRefresh( EFalse );
-            
-            // Offers the key event to find box.
-            if ( AknFind::HandleFindOfferKeyEventL( aKeyEvent, aType, this, iListbox, iFindbox,EFalse, needRefresh ) == EKeyWasConsumed )
-            {
-               	if ( needRefresh )
-                {
-              	    SizeChanged();
-                  	DrawNow();
-                }
+	            TBool needRefresh( EFalse );
+        	    
+	            // Offers the key event to find box.
+        	    if ( AknFind::HandleFindOfferKeyEventL( aKeyEvent, aType, this, iListbox, iFindbox,EFalse, needRefresh ) == EKeyWasConsumed )
+	            {
+	               	if ( needRefresh )
+        	        {
+              		    SizeChanged();
+                  		DrawNow();
+	                }
  
-               	return EKeyWasConsumed;
-            }
-		}*/
+ 	              	return EKeyWasConsumed;
+        	    }
+		}
+		*/
 		return iListbox->OfferKeyEventL(aKeyEvent,aType);
 	}
+	
+	return EKeyWasNotConsumed;
 }
 
 TPtrC CMobileOfficeContainer::ListboxText()

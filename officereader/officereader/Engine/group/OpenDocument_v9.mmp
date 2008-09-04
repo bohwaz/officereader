@@ -74,3 +74,5 @@ LIBRARY                                 ezip.lib
 LIBRARY                                 efsrv.lib 
 LIBRARY                                 euser.lib 
 EXPORTUNFROZEN                           
+
+CAPABILITY					NONE
