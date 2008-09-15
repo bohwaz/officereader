@@ -203,7 +203,7 @@ void CMobileOfficeAppUi::DynInitMenuPaneL(
 // ----------------------------------------------------
 //
 TKeyResponse CMobileOfficeAppUi::HandleKeyEventL(
-    const TKeyEvent& aKeyEvent,TEventCode aType)
+    const TKeyEvent& /*aKeyEvent*/,TEventCode /*aType*/)
     {
 		/*if ( iTabGroup == NULL )
         {
@@ -337,7 +337,7 @@ void CMobileOfficeAppUi::HandleCommandL(TInt aCommand)
  // tab has changed.
  // ----------------------------------------------------
  //
- void CMobileOfficeAppUi::TabChangedL(TInt aIndex)
+ void CMobileOfficeAppUi::TabChangedL(TInt /*aIndex*/)
      {
     // ActivateLocalViewL(TUid::Uid(iTabGroup->TabIdFromIndex(aIndex)));
      }

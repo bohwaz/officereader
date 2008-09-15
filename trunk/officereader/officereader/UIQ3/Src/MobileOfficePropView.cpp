@@ -269,7 +269,7 @@ void CMobileOfficePropView::ViewDeactivated()
 }
 
 
-CQikCommand *CMobileOfficePropView::DynInitOrDeleteCommandL(CQikCommand *aCommand, const CCoeControl &aControlAddingCommands)
+CQikCommand *CMobileOfficePropView::DynInitOrDeleteCommandL(CQikCommand *aCommand, const CCoeControl &/*aControlAddingCommands*/)
 {
 	if (aCommand->Type()==EQikCommandTypeItem)
 	{

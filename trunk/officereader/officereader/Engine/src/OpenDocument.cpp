@@ -62,12 +62,13 @@
 #include "sheet_model.h"
 #include "sheet_data.h"
 
-
+/*
 #ifdef __SERIES60_30__
 	#define NOTE_SIZE  300
 #else
 	#define NOTE_SIZE  120
 #endif
+*/
 
 #define NOTE_SIZE 200
 

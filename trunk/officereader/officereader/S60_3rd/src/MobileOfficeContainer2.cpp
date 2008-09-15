@@ -136,7 +136,7 @@ CCoeControl* CMobileOfficeContainer2::ComponentControl(TInt aIndex) const
 // CMobileOfficeContainer2::Draw(const TRect& aRect) const
 // ---------------------------------------------------------
 //
-void CMobileOfficeContainer2::Draw(const TRect& aRect) const
+void CMobileOfficeContainer2::Draw(const TRect& /*aRect*/) const
 {
 	/*CWindowGc& gc = SystemGc();
 	gc.SetPenStyle(CGraphicsContext::ENullPen);
