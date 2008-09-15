@@ -317,7 +317,7 @@ void CEditorViewView::HandleClientRectChange()
 // ---------------------------------------------------------
 //
 
-void CEditorViewView::DoActivateL(const TVwsViewId& /*aPrevViewId*/,TUid /*aCustomMessageId*/, const TDesC8& aCustomMessage)
+void CEditorViewView::DoActivateL(const TVwsViewId& /*aPrevViewId*/,TUid /*aCustomMessageId*/, const TDesC8& /*aCustomMessage*/)
     {
     if (!iContainer)
         {

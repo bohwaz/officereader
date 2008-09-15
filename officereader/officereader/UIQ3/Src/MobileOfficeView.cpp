@@ -110,10 +110,8 @@ void CMobileOfficeView::ViewConstructL()
 	ActivateTabL(1);
 
 
-	CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iEikonEnv->EikAppUi();
-
-	
 	#ifndef FREEVERSION
+		CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iEikonEnv->EikAppUi();
 		if (!app->Registered())
 		{
 			CQikCommandManager& cmdManager = CQikCommandManager::Static();
