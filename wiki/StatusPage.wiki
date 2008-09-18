@@ -25,7 +25,7 @@ Completion:		September 1st, 2008
   * ~~mailing list for commit notifcations~~
   * initial mail to project mailing list including introduction and links
   * setup of public available developer related tools (lxr)
-  * make source code warning free during compilation 
+  * ~~make source code warning free during compilation~~
 
 Completion:		October 1st, 2008
 
