@@ -63,11 +63,11 @@ TReal GetPtByDesC(const TDesC& aLength)
 		}
 		else if (aType==cm)
 		{
-			return len  * 10 * (72/25,4) * 1.25; //TODO:  ca. 1.5, how about 2nd edition?????????????????? TODO
+			return len  * 10 * (72/25.4) * 1.25; //TODO:  ca. 1.5, how about 2nd edition?????????????????? TODO
 		}
 		else if (aType==mm)
 		{
-			return len * (72/25,4);	//(25.40 mm = 1 Inch)
+			return len * (72/25.4);	//(25.40 mm = 1 Inch)
 		}
 		else if (aType==px)
 		{

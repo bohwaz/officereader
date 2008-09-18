@@ -1,4 +1,4 @@
-/*************************************************************************
+	/*************************************************************************
  *
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  * 
@@ -108,6 +108,7 @@ void CEncryptionData::SetCurrentFileSize(TInt aSize)
 					iStyleSize = aSize;
 					break; 
 				};
+		default: break;
 	};
 
 }
@@ -130,6 +131,7 @@ void CEncryptionData::SetInit(const TDesC& aInit)
 					iStyleInit->Des().Copy(aInit);
 					break;
 				};
+		default: break;
 	};
 }
 
@@ -151,6 +153,7 @@ void CEncryptionData::SetSalt(const TDesC& aSalt)
 					iStyleSalt->Des().Copy(aSalt);
 					break; 
 				};
+		default: break;
 	};
 }
 
@@ -173,6 +176,7 @@ void CEncryptionData::SetCheckSum(const TDesC& aCheckSum)
 					iStyleCheckSum->Des().Copy(aCheckSum);
 					break; 
 				};
+		default: break;
 	};
 }
 

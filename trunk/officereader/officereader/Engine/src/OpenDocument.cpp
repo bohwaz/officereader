@@ -1039,7 +1039,7 @@ void COpenDocument::AddCellFormat(void)
 	}
 }
 
-void COpenDocument::SetValueType(const TDesC& aType, TBool aName)
+void COpenDocument::SetValueType(const TDesC& aType, TBool /* aName */)
 {
 		_LIT(string,"string");
 //		_LIT(date,"date");

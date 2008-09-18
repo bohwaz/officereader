@@ -125,7 +125,7 @@ public: // Constructors and destructor
 	TPtrC Name(TInt);
 
 	TReal GetPtByDesC(const TDesC& aLength);
-	TReal GetTwipsByDesC(const TDesC& aLength);
+	TInt GetTwipsByDesC(const TDesC& aLength);
 
 	void ClearParas(void);
 	TBool IsText(void);
