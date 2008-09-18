@@ -58,9 +58,9 @@ TRgb GetColorByDesC(const TDesC& aColor)
 	return TRgb(aRed,aGreen,aBlue);
 }
 
-TReal CPara::GetTwipsByDesC(const TDesC& aLength)
+TInt CPara::GetTwipsByDesC(const TDesC& aLength)
 {
-	return FontUtils::TwipsFromPoints( GetPtByDesC(aLength) );
+	return FontUtils::TwipsFromPoints( TInt(GetPtByDesC(aLength)) );
 }
 TReal CPara::GetPtByDesC(const TDesC& aLength)
 {
@@ -104,11 +104,11 @@ TReal CPara::GetPtByDesC(const TDesC& aLength)
 		}
 		else if (aType==cm)
 		{
-			return len  * 10 * (72/25,4);
+			return len  * 10 * (72/25.4);
 		}
 		else if (aType==mm)
 		{
-			return len * (72/25,4);	//(25.40 mm = 1 Inch)
+			return len * (72/25.4);	//(25.40 mm = 1 Inch)
 		}
 		else if (aType==px)
 		{
@@ -458,7 +458,7 @@ void CPara::SetIndent(TInt aPt)
 
 void CPara::SetIndent(const TDesC& aIndent)	
 {
-	SetIndent( GetPtByDesC(aIndent) );
+	SetIndent( TInt(GetPtByDesC(aIndent)) );
 }
 
 
@@ -637,7 +637,7 @@ void CPara::SetHeight(const TDesC& aHeight)
 		nein.Num(GetPtByDesC(aHeight));
 		iFileLogger.Write(nein);
 	#endif
-	SetHeight( GetPtByDesC(aHeight) );
+	SetHeight( TInt(GetPtByDesC(aHeight)) );
 }
 
 void CPara::SetAlign(CParaFormat::TAlignment aAlign)
