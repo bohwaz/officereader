@@ -34,15 +34,14 @@
 #include <EIKSBOBS.H>
 #include <EIKSCRLB.H>
 
-
-//#define __UIQ__
-
 #include "sheet_drawer.h"
 
 class CSheetModel;
 class CSheetData;
 //class CSheetDrawer;
 class CSheetView;
+
+//#define __UIQ__
 
 #ifdef __UIQ__
 	class CSheetCtrl : public CCoeControl,MEikScrollBarObserver
