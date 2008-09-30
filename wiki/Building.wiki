@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Office Reader can be compiled just like any other Symbian OS project, there is nothing special about it. So if you are completly new to Symbian OS, reading some "Getting Started guides" first will help you a lot. 
+Office Reader can be compiled just like any other Symbian OS project, there is nothing special about it. So if you are completly new to Symbian OS, reading some "Getting Started" guides first will help you a lot. 
 
 
 = Getting the right SDK =
