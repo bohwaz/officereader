@@ -37,7 +37,9 @@ or this one for target device:
 This to commands have to be run in the following folders:
 
 SyExpat/Symbian  // compile SyExpat parser
+
 sheetcontrol/group // compile the sheet engine for ods files
+
 officereader/Engine/group // compile the OpenDocument Engine
 
 officereader\S60_3rd\group // compile application for S60 3rd
@@ -46,7 +48,6 @@ or
 
 officereader\UIQ3\group // compile application for UIQ3
 
-echo "Finished for S60 3nd Edition"
 
 
 = IDE's =
