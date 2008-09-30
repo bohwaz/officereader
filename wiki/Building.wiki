@@ -9,7 +9,7 @@ Office Reader can be compiled just like any other Symbian OS project, there is n
 
 Before you can compile Office Reader, you have to install the right SDKs.
 
-You have to download(free of charge) and install one of these two, or both of course:
+You have to download(free of charge) and install one of these two, or both of course, depending on your target platform:
 
   * S60 3rd Edition Maintanance Release: [http://www.forum.nokia.com/info/sw.nokia.com/id/4a7149a5-95a5-4726-913a-3c6f21eb65a5/S60-SDK-0616-3.0-mr.html Forum Nokia]
   * UIQ3 3.0 [http://developer.uiq.com/devtools_uiqsdk.html UIQ]
@@ -17,6 +17,14 @@ You have to download(free of charge) and install one of these two, or both of co
 Please note: later SDK's such as S60 3rd Edition FP X or UIQ3 3.x will work as well, but these builds will then not work on all available phones
 
 = Compiling by command line = 
+
+To compile the project, run these commands to build for emulator:
+
+bldmake bldfiles // this will prepare the workspace based on target
+ABLD.bat build winscw udeb // this wi
+
+or these ones for targte device:
+ABLD.bat build gcce urel
 
 = IDE's =
 
