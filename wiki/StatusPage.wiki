@@ -39,10 +39,10 @@ Completion:		January 1st, 2009
 
 =Milestone 4: End-user documentation and website=
   * finish of end user documentation
-  * finish of all websites related to the project 
+  * finish of website related to the project 
   * final cleanup and finish of the project
   * release new binaries for current Symbian versions with user documentation, version 1.0
-  * announce the project of opensourcing Mobile Office, new product based on the same code will be Office Reader
+  * make an official announcement of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
 
 Completion:		January 31th, 2009
