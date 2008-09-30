@@ -59,6 +59,12 @@ If you have build for emulator (winscw), you can now simply issue the command
 
 This will start the emulator, Office Reader can be found in the subfolder _Applications_
 
+For installing the application on target device, you first have to package it into a sis file. Run this command either in \officereader\S60_3rd\sis or \officereader\UIQ3\sis
+
+*makesis MobileOffice.pkg*
+
+After this, the created MobileOffice.sis file has to be signed just like any other Symbian application. This is explained very detailed in the SDK documentation, just look out for self-signing, as the application does not need any capabilities and does not need to be signed by another authority.
+
 = IDE's =
 
 Instead of compiling and packagin by command line, you can also use one of the available IDE's which will make your life a little bit easier:
