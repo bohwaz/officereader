@@ -17,10 +17,10 @@ The commercial product Mobile Office will be opensourced in several Milestones a
     * ~~ S60 3rd Edition and UIQ3 Edition application~~
   * ~~release binaries for current Symbian versions under new name, version 0.6~~
 
-Completion:		September 1st, 2008
+~~Completion:		September 1st, 2008~~
 
 =Milestone 2: Developer tools=
-  * developer documentation for building Mobile Office 
+  * ~~developer documentation for building Mobile Office~~
   * ~~main mailing list for the project~~
   * ~~mailing list for commit notifcations~~
   * ~~initial mail to project mailing list including introduction and links~~
