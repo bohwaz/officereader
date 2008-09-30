@@ -53,7 +53,11 @@ In the top source directory there are also two bat files, which will run these c
 
 = Running the application =
 
-If you have build for emulator ()
+If you have build for emulator (winscw), you can now simply issue the command
+
+*epoc*
+
+This will start the emulator, Office Reader can be found in the subfolder _Applications_
 
 = IDE's =
 
