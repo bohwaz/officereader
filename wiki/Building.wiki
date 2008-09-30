@@ -42,11 +42,11 @@ sheetcontrol/group // compile the sheet engine for ods files
 
 officereader/Engine/group // compile the OpenDocument Engine
 
-officereader\S60_3rd\group // compile application for S60 3rd
+officereader/S60_3rd/group // compile application for S60 3rd
 
 or 
 
-officereader\UIQ3\group // compile application for UIQ3
+officereader/UIQ3/group // compile application for UIQ3
 
 
 
