@@ -10,7 +10,7 @@ svn checkout http://officereader.googlecode.com/svn/trunk/ officereader-read-onl
 
 = Getting the right SDK =
 
-Before you can compile Office Reader, you have to install the right SDKs.
+Before you can compile Office Reader, you have to install the right SDK.
 
 You have to download(free of charge) and install one of these two, or both of course, depending on your target platform:
 
@@ -21,11 +21,11 @@ Please note: later SDK's such as S60 3rd Edition FP X or UIQ3 3.x will work as w
 
 = Compiling by command line = 
 
-To compile the project, run this command first to prepare the workspace based on target:
+To compile the project, you have to run these two commands several times:
 
-*bldmake bldfiles*
+*bldmake bldfiles* 
 
-Then either run for emulator build
+This will prepare the workspace based on target, then either run for emulator build
 
 *ABLD.bat build winscw udeb*
 
@@ -34,7 +34,7 @@ or this one for target device:
 *ABLD.bat build gcce urel*
 
 
-This to commands have to be run in the following folders:
+These two commands have to be run in the following folders:
 
 SyExpat/Symbian  // compile SyExpat parser
 
