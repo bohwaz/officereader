@@ -4,6 +4,6 @@
 
   * You can browse the latest source code here: http://code.google.com/p/officereader/source/browse/
 
-  * An OpenGrok installation, a fast and usable source code search and cross reference engine: [http://redhost.de:8180/source/ OpenGrok]
+  * An OpenGrok installation, a fast and usable source code search and cross reference engine: [http://officereader.sept-solutions.de/source/ OpenGrok]
 
   * commit and bug activities mailing list: http://groups.google.com/group/officereader_commits
