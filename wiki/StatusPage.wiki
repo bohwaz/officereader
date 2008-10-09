@@ -27,7 +27,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
   * ~~make source code warning free during compilation~~
   * ~~setup of public available opengrok~~
 
-Completion:		October 1st, 2008
+~~Completion:		October 1st, 2008~~
 
 =Milestone 3:  Improvement of code=
   * test ODF maturity against http://develop.opendocumentfellowship.com/testsuite and/or new Oasis test suite in areas of existing functionality  
