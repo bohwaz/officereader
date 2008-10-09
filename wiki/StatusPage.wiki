@@ -25,7 +25,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
   * ~~mailing list for commit notifcations~~
   * ~~initial mail to project mailing list including introduction and links~~
   * ~~make source code warning free during compilation~~
-  * setup of public available lxr
+  * ~~setup of public available opengrok~~
 
 Completion:		October 1st, 2008
 
