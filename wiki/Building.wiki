@@ -26,7 +26,7 @@ You have to fix some issues of the Symbian tooling:
 
 [http://www3.symbian.com/faq.nsf/AllByDate/E9DF3257FD565A658025733900805EA2?OpenDocument]
 
-[http://developer.uiq.com/devtools_other.html#sdk_30_missing_libs]
+[http://developer.uiq.com/devtools_other.html#sdk_30_missing_libs] (only if you are building for UIQ, this is not neccessary for S60 3rd Edition)
 
 = Compiling by command line = 
 
