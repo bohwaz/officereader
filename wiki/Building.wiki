@@ -19,6 +19,15 @@ You have to download(free of charge) and install one of these two, or both of co
 
 Please note: later SDK's such as S60 3rd Edition FP X or UIQ3 3.x will work as well, but these builds will then not work on all available phones
 
+
+= Fix some SDK tools = 
+
+You have to fix some issues of the Symbian tooling:
+
+[http://www3.symbian.com/faq.nsf/AllByDate/E9DF3257FD565A658025733900805EA2?OpenDocument]
+
+[http://developer.uiq.com/devtools_other.html#sdk_30_missing_libs]
+
 = Compiling by command line = 
 
 To compile the project, you have to run these two commands several times:
