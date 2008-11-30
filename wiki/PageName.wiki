@@ -8,7 +8,7 @@ Please note, that office reader is not a desktop application, but an application
 
 = Details =
 
-*General:*
+== General ==
 
 || *Group Name* || *Test Name* || *Pass* ||
 || Document Structure || Predefined Metadata || ||
@@ -17,7 +17,8 @@ Please note, that office reader is not a desktop application, but an application
 || || SingleDocumentContents || ||
 
 
-*Formatting Properties:*
+== Formatting Properties ==
+
 || *Group Name* || *Test Name* || *Pass* ||
 || ColumnFormattingProperties || Break before and break after || ||
 || || columnWidth || ||
@@ -115,7 +116,8 @@ Please note, that office reader is not a desktop application, but an application
 || || windowFontColor || ||
 || || Line through type || ||
 
-*Text Contents:*
+
+== Text Contents ==
 
 || *Group Name* || *Test Name* || *Pass* ||
 || Lists || bulletedList || ||
@@ -131,5 +133,7 @@ Please note, that office reader is not a desktop application, but an application
 || || fontColors || ||
 || || fontSize || ||
 || || Bold and Italic || ||
+
+== Results == 
 
 TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
