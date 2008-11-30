@@ -34,8 +34,6 @@ Please note, that office reader is not a desktop application, but an application
 || || dropCapsTextStyle || ||
 || || Fixed line height || ||
 || || Font-independent line spacing || ||
-
-
 || || justifySingleWord || ||
 || || Leader color || ||
 || || leaderStyle || ||
@@ -55,7 +53,6 @@ Please note, that office reader is not a desktop application, but an application
 || || paragraph Background Color || ||
 || || paragraphBackgroundImageOpacity || ||
 || || Paragraph background image position || ||
-
 || || paragraphBackgroundImageRepetition || ||
 || || punctuationWrap || ||
 || || Register true || ||
@@ -65,7 +62,6 @@ Please note, that office reader is not a desktop application, but an application
 || || Tab type || ||
 || || textAlign || ||
 || || Text align of last line || ||
-
 || || Text autospace || ||
 || || Widows || ||
 || || textIndent || ||
@@ -73,12 +69,7 @@ Please note, that office reader is not a desktop application, but an application
 || || Vertical Alignment || ||
 || || writingMode || ||
 || || keepTogether || ||
-
-
-|| || TableCellFormattingProperties (17) || ||
-
-
-|| || Border line width || ||
+|| || TableCellFormattingProperties (17)|| Border line width || ||
 || || cellBackground || ||
 || || cellBorder || ||
 || || cellProtect || ||
@@ -86,7 +77,6 @@ Please note, that office reader is not a desktop application, but an application
 || || diagonalLines || ||
 || || direction || ||
 || || padding || ||
-
 || || printContent || ||
 || || repeatContent || ||
 || || rotationAlign || ||
@@ -96,14 +86,9 @@ Please note, that office reader is not a desktop application, but an application
 || || verticalAlignment || ||
 || || verticalGlyphOrientation || ||
 || || Wrap option || ||
-
-
-|| || TextFormattingProperties (47) || ||
-
-|| || color || ||
+|| || TextFormattingProperties (47) || color || ||
 || || country || ||
 || || Font character set || ||
-
 || || fontFamily || ||
 || || fontFamilyGeneric || ||
 || || fontName || ||
@@ -113,7 +98,6 @@ Please note, that office reader is not a desktop application, but an application
 || || fontStyle || ||
 || || fontVariant || ||
 || || Font Weight || ||
-
 || || Hidden or conditional text || ||
 || || hyphenation || ||
 || || hyphenationPushCharCount || ||
@@ -123,7 +107,6 @@ Please note, that office reader is not a desktop application, but an application
 || || letterSpacing || ||
 || || lineThroughColor || ||
 || || lineThroughStyle || ||
-
 || || lineThroughText || ||
 || || lineThroughTextStyle || ||
 || || lineThrough Width || ||
@@ -133,7 +116,6 @@ Please note, that office reader is not a desktop application, but an application
 || || textBlinking || ||
 || || textCombine || ||
 || || textCombineStartAndEndCharacters || ||
-
 || || textEmphasis || ||
 || || textLineThroughWordMode || ||
 || || textLineTroughWordMode || ||
@@ -143,7 +125,6 @@ Please note, that office reader is not a desktop application, but an application
 || || Text Rotation and Scale || ||
 || || textScale || ||
 || || Text Shadow || ||
-
 || || textTransformations || ||
 || || textUnderlineWordMode || ||
 || || underlineColor || ||
@@ -156,31 +137,18 @@ Please note, that office reader is not a desktop application, but an application
 *Text Contents:*
 
 || *Group Name* || *Test Name* || *Pass* ||
-
-
-|| || Lists (6) || ||
-
-|| || bulletedList || ||
+|| Lists || bulletedList || ||
 || || continueNumbering || ||
 || || embededBulletedList || ||
 || || listHeader || ||
 || || numberedList || ||
 || || startValue || ||
-
-|| || Headings || ||
-|| || Paragraph (2) || ||
-
-
-|| || Bold and italic text in the middle of a paragraph || ||
+|| Headings || Headings ||
+|| || Paragraph || Bold and italic text in the middle of a paragraph || ||
 || || BasicContents || ||
-
-
-|| || textFormatting (4) || ||
-
-|| || Alignment || ||
+|| || textFormatting (4) || Alignment || ||
 || || fontColors || ||
 || || fontSize || ||
 || || Bold and Italic || ||
 
-
-|| || TableFormattingProperties (13) || ||, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this currently.
+TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
