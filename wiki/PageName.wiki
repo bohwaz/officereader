@@ -2,7 +2,7 @@
 
 = Introduction =
 
-To get a first overview of the completness of Office Reader, it was tested using this ODF _testsuite_: http://develop.opendocumentfellowship.com/testsuite/ 
+To get a first overview of the completness of Office Reader, it was tested using this ODF "testsuite": http://develop.opendocumentfellowship.com/testsuite/ 
 
 Please note, that office reader is not a desktop application, but an application for mobile devices. So in a lot of cases where a feature is not supported and the test fails, it would not even make sense to implement this on a mobile device.
 
