@@ -22,7 +22,6 @@ Please note, that office reader is not a desktop application, but an application
 || ColumnFormattingProperties || Break before and break after || ||
 || || columnWidth || ||
 || || Optimal table column width || ||
-
 || ParagraphFormattingProperties || automaticTextIndent || ||
 || || border || ||
 || || borderLineWidth || ||
@@ -43,7 +42,6 @@ Please note, that office reader is not a desktop application, but an application
 || || leaderWidth || ||
 || || Left and right margins || ||
 || || Line distance || ||
-
 || || Line number start value || ||
 || || Line numbering || ||
 || || Margins || ||
@@ -69,24 +67,7 @@ Please note, that office reader is not a desktop application, but an application
 || || Vertical Alignment || ||
 || || writingMode || ||
 || || keepTogether || ||
-|| || TableCellFormattingProperties (17)|| Border line width || ||
-|| || cellBackground || ||
-|| || cellBorder || ||
-|| || cellProtect || ||
-|| || Cell shadow || ||
-|| || diagonalLines || ||
-|| || direction || ||
-|| || padding || ||
-|| || printContent || ||
-|| || repeatContent || ||
-|| || rotationAlign || ||
-|| || rotationAngle || ||
-|| || shrinkToFit || ||
-|| || textAlignSource || ||
-|| || verticalAlignment || ||
-|| || verticalGlyphOrientation || ||
-|| || Wrap option || ||
-|| || TextFormattingProperties (47) || color || ||
+|| TextFormattingProperties || color || ||
 || || country || ||
 || || Font character set || ||
 || || fontFamily || ||
@@ -143,10 +124,10 @@ Please note, that office reader is not a desktop application, but an application
 || || listHeader || ||
 || || numberedList || ||
 || || startValue || ||
-|| Headings || Headings ||
-|| || Paragraph || Bold and italic text in the middle of a paragraph || ||
+|| Headings || Headings || ||
+|| Paragraph || Bold and italic text in the middle of a paragraph || ||
 || || BasicContents || ||
-|| || textFormatting (4) || Alignment || ||
+|| textFormatting || Alignment || ||
 || || fontColors || ||
 || || fontSize || ||
 || || Bold and Italic || ||
