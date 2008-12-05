@@ -1,4 +1,4 @@
-#summary Testresults for
+#summary Testresults for Testsuite testing
 
 = Introduction =
 
@@ -10,116 +10,116 @@ Please note, that office reader is not a desktop application, but an application
 
 == General ==
 
-|| *Group Name* || *Test Name* || *Pass* ||
-|| Document Structure || Predefined Metadata || ||
-|| || User defined Metadata || ||
-|| || Multiple Document Contents || ||
-|| || SingleDocumentContents || ||
+|| *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
+|| Document Structure || Predefined Metadata || || ||
+|| || User defined Metadata || || ||
+|| || Multiple Document Contents || || ||
+|| || SingleDocumentContents || || ||
 
 
 == Formatting Properties ==
 
-|| *Group Name* || *Test Name* || *Pass* ||
-|| ColumnFormattingProperties || Break before and break after || ||
-|| || columnWidth || ||
-|| || Optimal table column width || ||
-|| ParagraphFormattingProperties || automaticTextIndent || ||
-|| || border || ||
-|| || borderLineWidth || ||
-|| || Break before and break after || ||
-|| || delimiterCharacter || ||
-|| || Drop caps distance || ||
-|| || Drop caps length || ||
-|| || dropCapsLines || ||
-|| || dropCapsTextStyle || ||
-|| || Fixed line height || ||
-|| || Font-independent line spacing || ||
-|| || justifySingleWord || ||
-|| || Leader color || ||
-|| || leaderStyle || ||
-|| || leaderText || ||
-|| || leaderTextStyle || ||
-|| || leaderType || ||
-|| || leaderWidth || ||
-|| || Left and right margins || ||
-|| || Line distance || ||
-|| || Line number start value || ||
-|| || Line numbering || ||
-|| || Margins || ||
-|| || minimumLineHeight || ||
-|| || Orphans || ||
-|| || padding || ||
-|| || paragraph Background Color || ||
-|| || paragraphBackgroundImageOpacity || ||
-|| || Paragraph background image position || ||
-|| || paragraphBackgroundImageRepetition || ||
-|| || punctuationWrap || ||
-|| || Register true || ||
-|| || shadow || ||
-|| || Tab Position || ||
-|| || tabStopDistance || ||
-|| || Tab type || ||
-|| || textAlign || ||
-|| || Text align of last line || ||
-|| || Text autospace || ||
-|| || Widows || ||
-|| || textIndent || ||
-|| || Top and Bottom Margins || ||
-|| || Vertical Alignment || ||
-|| || writingMode || ||
-|| || keepTogether || ||
-|| TextFormattingProperties || color || ||
-|| || country || ||
-|| || Font character set || ||
-|| || fontFamily || ||
-|| || fontFamilyGeneric || ||
-|| || fontName || ||
-|| || fontPitch || ||
-|| || fontRelief || ||
-|| || fontSize || ||
-|| || fontStyle || ||
-|| || fontVariant || ||
-|| || Font Weight || ||
-|| || Hidden or conditional text || ||
-|| || hyphenation || ||
-|| || hyphenationPushCharCount || ||
-|| || hyphenationRemainCharCount || ||
-|| || language || ||
-|| || letterKerning || ||
-|| || letterSpacing || ||
-|| || lineThroughColor || ||
-|| || lineThroughStyle || ||
-|| || lineThroughText || ||
-|| || lineThroughTextStyle || ||
-|| || lineThrough Width || ||
-|| || relativeFontSize || ||
-|| || scriptType || ||
-|| || textBackgroundColor || ||
-|| || textBlinking || ||
-|| || textCombine || ||
-|| || textCombineStartAndEndCharacters || ||
-|| || textEmphasis || ||
-|| || textLineThroughWordMode || ||
-|| || textLineTroughWordMode || ||
-|| || textOutline || ||
-|| || textPosition || ||
-|| || textRotationAngle || ||
-|| || Text Rotation and Scale || ||
-|| || textScale || ||
-|| || Text Shadow || ||
-|| || textTransformations || ||
-|| || textUnderlineWordMode || ||
-|| || underlineColor || ||
-|| || underliningStyle || ||
-|| || underliningType || ||
-|| || underliningWidth || ||
-|| || windowFontColor || ||
+|| *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
+|| ColumnFormattingProperties || Break before and break after || || ||
+|| || columnWidth || || || ||
+|| || Optimal table column width || || ||
+|| ParagraphFormattingProperties || automaticTextIndent || || ||
+|| || border || || ||
+|| || borderLineWidth || || ||
+|| || Break before and break after || || ||
+|| || delimiterCharacter || || ||
+|| || Drop caps distance || || ||
+|| || Drop caps length || || ||
+|| || dropCapsLines || || ||
+|| || dropCapsTextStyle || | |||
+|| || Fixed line height || || ||
+|| || Font-independent line spacing || || ||
+|| || justifySingleWord || || ||
+|| || Leader color || || ||
+|| || leaderStyle || || ||
+|| || leaderText || || ||
+|| || leaderTextStyle || || ||
+|| || leaderType || || ||
+|| || leaderWidth || || ||
+|| || Left and right margins || || ||
+|| || Line distance || || ||
+|| || Line number start value || || ||
+|| || Line numbering || || ||
+|| || Margins || || ||
+|| || minimumLineHeight || || ||
+|| || Orphans || || ||
+|| || padding || || ||
+|| || paragraph Background Color || || ||
+|| || paragraphBackgroundImageOpacity || || ||
+|| || Paragraph background image position || || ||
+|| || paragraphBackgroundImageRepetition || || ||
+|| || punctuationWrap || || ||
+|| || Register true || || ||
+|| || shadow || || ||
+|| || Tab Position || || ||
+|| || tabStopDistance || || ||
+|| || Tab type || || ||
+|| || textAlign || || ||
+|| || Text align of last line || || ||
+|| || Text autospace || || ||
+|| || Widows || || ||
+|| || textIndent || || ||
+|| || Top and Bottom Margins || || ||
+|| || Vertical Alignment || || ||
+|| || writingMode || || ||
+|| || keepTogether || || ||
+|| TextFormattingProperties || color || || ||
+|| || country || || ||
+|| || Font character set || || ||
+|| || fontFamily || || ||
+|| || fontFamilyGeneric || || ||
+|| || fontName || || ||
+|| || fontPitch || || ||
+|| || fontRelief || || ||
+|| || fontSize || || ||
+|| || fontStyle || || ||
+|| || fontVariant || || ||
+|| || Font Weight || || ||
+|| || Hidden or conditional text || || ||
+|| || hyphenation || || ||
+|| || hyphenationPushCharCount || || ||
+|| || hyphenationRemainCharCount || || ||
+|| || language || || ||
+|| || letterKerning || || ||
+|| || letterSpacing || || ||
+|| || lineThroughColor || || ||
+|| || lineThroughStyle || || ||
+|| || lineThroughText || || ||
+|| || lineThroughTextStyle || || ||
+|| || lineThrough Width || || ||
+|| || relativeFontSize || || ||
+|| || scriptType || || ||
+|| || textBackgroundColor || || ||
+|| || textBlinking || || ||
+|| || textCombine || || ||
+|| || textCombineStartAndEndCharacters || || ||
+|| || textEmphasis || || ||
+|| || textLineThroughWordMode || || ||
+|| || textLineTroughWordMode || || ||
+|| || textOutline || || ||
+|| || textPosition || || ||
+|| || textRotationAngle || || ||
+|| || Text Rotation and Scale || || ||
+|| || textScale || || ||
+|| || Text Shadow || || ||
+|| || textTransformations || || ||
+|| || textUnderlineWordMode || || ||
+|| || underlineColor || || ||
+|| || underliningStyle || || ||
+|| || underliningType || || ||
+|| || underliningWidth || || ||
+|| || windowFontColor || || ||
 || || Line through type || ||
 
 
 == Text Contents ==
 
-|| *Group Name* || *Test Name* || *Pass* ||
+|| *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
 || Lists || bulletedList || ||
 || || continueNumbering || ||
 || || embededBulletedList || ||
@@ -136,7 +136,13 @@ Please note, that office reader is not a desktop application, but an application
 
 == Results == 
 
-|| *Section* || *Total* || *Pass* || *Fail* || *%* || 
+|| *Section* || *Total* || *Pass Version 0.6* || *Fail* || *%* || 
+|| General || 4 || || || ||    
+|| Formatting Properties || 90 || || || || 
+|| Text Contents || 13 || || || || 
+
+
+|| *Section* || *Total* || *Pass Version 1.0* || *Fail* || *%* || 
 || General || 4 || || || ||    
 || Formatting Properties || 90 || || || || 
 || Text Contents || 13 || || || || 
