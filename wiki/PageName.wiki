@@ -21,7 +21,7 @@ Please note, that office reader is not a desktop application, but an application
 
 || *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
 || ColumnFormattingProperties || Break before and break after || || ||
-|| || columnWidth || || || ||
+|| || columnWidth || || ||
 || || Optimal table column width || || 
 || ParagraphFormattingProperties || automaticTextIndent || || ||
 || || border || || ||
@@ -31,7 +31,7 @@ Please note, that office reader is not a desktop application, but an application
 || || Drop caps distance || || ||
 || || Drop caps length || || ||
 || || dropCapsLines || || ||
-|| || dropCapsTextStyle || | |||
+|| || dropCapsTextStyle || || ||
 || || Fixed line height || || ||
 || || Font-independent line spacing || || ||
 || || justifySingleWord || || ||
