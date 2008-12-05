@@ -22,7 +22,7 @@ Please note, that office reader is not a desktop application, but an application
 || *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
 || ColumnFormattingProperties || Break before and break after || || ||
 || || columnWidth || || || ||
-|| || Optimal table column width || || ||
+|| || Optimal table column width || || 
 || ParagraphFormattingProperties || automaticTextIndent || || ||
 || || border || || ||
 || || borderLineWidth || || ||
@@ -114,25 +114,25 @@ Please note, that office reader is not a desktop application, but an application
 || || underliningType || || ||
 || || underliningWidth || || ||
 || || windowFontColor || || ||
-|| || Line through type || ||
+|| || Line through type || || ||
 
 
 == Text Contents ==
 
 || *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
-|| Lists || bulletedList || ||
-|| || continueNumbering || ||
-|| || embededBulletedList || ||
-|| || listHeader || ||
-|| || numberedList || ||
-|| || startValue || ||
-|| Headings || Headings || ||
-|| Paragraph || Bold and italic text in the middle of a paragraph || ||
-|| || BasicContents || ||
-|| textFormatting || Alignment || ||
-|| || fontColors || ||
-|| || fontSize || ||
-|| || Bold and Italic || ||
+|| Lists || bulletedList || || ||
+|| || continueNumbering || || ||
+|| || embededBulletedList || || ||
+|| || listHeader || || ||
+|| || numberedList || || ||
+|| || startValue || || ||
+|| Headings || Headings || || ||
+|| Paragraph || Bold and italic text in the middle of a paragraph || || ||
+|| || BasicContents || || ||
+|| textFormatting || Alignment || || ||
+|| || fontColors || || ||
+|| || fontSize || || ||
+|| || Bold and Italic || || ||
 
 == Results == 
 
