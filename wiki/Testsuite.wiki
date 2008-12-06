@@ -11,10 +11,10 @@ Please note, that office reader is not a desktop application, but an application
 == General ==
 
 || *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
-|| Document Structure || Predefined Metadata || || ||
-|| || User defined Metadata || || ||
-|| || Multiple Document Contents || || ||
-|| || SingleDocumentContents || || ||
+|| Document Structure || Predefined Metadata ||  || o ||
+|| || User defined Metadata || ||  ||
+|| || Multiple Document Contents || x || ||
+|| || SingleDocumentContents || ||  o ||
 
 
 == Formatting Properties ==
@@ -120,17 +120,17 @@ Please note, that office reader is not a desktop application, but an application
 == Text Contents ==
 
 || *Group Name* || *Test Name* || *Pass Version 0.6* || *Pass Version 1.0* ||
-|| Lists || bulletedList || || ||
-|| || continueNumbering || || ||
-|| || embededBulletedList || || ||
-|| || listHeader || || ||
-|| || numberedList || || ||
-|| || startValue || || ||
+|| Lists || bulletedList || x || ||
+|| || continueNumbering || x || ||
+|| || embededBulletedList || x || ||
+|| || listHeader || x || ||
+|| || numberedList || x || ||
+|| || startValue || || O ||
 || Headings || Headings || || ||
-|| Paragraph || Bold and italic text in the middle of a paragraph || || ||
+|| Paragraph || Bold and italic text in the middle of a paragraph || || O ||
 || || BasicContents || || ||
-|| textFormatting || Alignment || || ||
-|| || fontColors || || ||
+|| textFormatting || Alignment || x || ||
+|| || fontColors || x || ||
 || || fontSize || || ||
 || || Bold and Italic || || ||
 
