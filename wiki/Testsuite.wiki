@@ -13,8 +13,8 @@ Please note, that office reader is not a desktop application, but an application
 || *Group Name* || *Test Name* || *Pass* ||
 || Document Structure || Predefined Metadata ||  ||
 || || User defined Metadata || || 
-|| || Multiple Document Contents || ||
-|| || SingleDocumentContents || ||
+|| || Multiple Document Contents || x ||
+|| || SingleDocumentContents || x ||
 
 
 == Formatting Properties ==
