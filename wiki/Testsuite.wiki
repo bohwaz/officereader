@@ -148,7 +148,4 @@ Please note, that office reader is not a desktop application, but an application
 || Text Contents || 13 || || || || 
 
 
-x = pass
-p = partial pass
-
 TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
