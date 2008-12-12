@@ -17,7 +17,7 @@ Please note, that office reader is not a desktop application, but an application
 || || SingleDocumentContents || ||
 
 
-== Formatting Properties ==ftext
+== Formatting Properties ==
 
 || *Group Name* || *Test Name* || *Pass*||
 || ColumnFormattingProperties || Break before and break after || ||
@@ -90,31 +90,31 @@ Please note, that office reader is not a desktop application, but an application
 || || lineThroughColor || ||
 || || lineThroughStyle || ||
 || || lineThroughText || ||
-|| || lineThroughTextStyle || || ||
-|| || lineThrough Width || || ||
-|| || relativeFontSize || || ||
-|| || scriptType || || ||
-|| || textBackgroundColor || || ||
-|| || textBlinking || || ||
-|| || textCombine || || ||
-|| || textCombineStartAndEndCharacters || || ||
-|| || textEmphasis || || ||
-|| || textLineThroughWordMode || || ||
-|| || textLineTroughWordMode || || ||
-|| || textOutline || || ||
-|| || textPosition || || ||
-|| || textRotationAngle || || ||
-|| || Text Rotation and Scale || || ||
-|| || textScale || || ||
-|| || Text Shadow || || ||
-|| || textTransformations || || ||
-|| || textUnderlineWordMode || || ||
-|| || underlineColor || || ||
-|| || underliningStyle || || ||
-|| || underliningType || || ||
-|| || underliningWidth || || ||
-|| || windowFontColor || || ||
-|| || Line through type || || ||
+|| || lineThroughTextStyle || ||
+|| || lineThrough Width || ||
+|| || relativeFontSize || ||
+|| || scriptType || ||
+|| || textBackgroundColor || ||
+|| || textBlinking || ||
+|| || textCombine || ||
+|| || textCombineStartAndEndCharacters || ||
+|| || textEmphasis || ||
+|| || textLineThroughWordMode || ||
+|| || textLineTroughWordMode || ||
+|| || textOutline || ||
+|| || textPosition || ||
+|| || textRotationAngle || ||
+|| || Text Rotation and Scale || ||
+|| || textScale || ||
+|| || Text Shadow || ||
+|| || textTransformations || ||
+|| || textUnderlineWordMode || ||
+|| || underlineColor || ||
+|| || underliningStyle || ||
+|| || underliningType || ||
+|| || underliningWidth || ||
+|| || windowFontColor || ||
+|| || Line through type || ||
 
 
 == Text Contents ==
