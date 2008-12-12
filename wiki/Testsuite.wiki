@@ -127,7 +127,7 @@ Please note, that office reader is not a desktop application, but an application
 || || numberedList || x ||
 || || startValue || ||
 || Headings || Headings || ||
-|| Paragraph || Bold and italic text in the middle of a paragraph ||
+|| Paragraph || Bold and italic text in the middle of a paragraph || ||
 || || BasicContents || ||
 || textFormatting || Alignment || x ||
 || || fontColors || x ||
