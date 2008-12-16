@@ -20,9 +20,6 @@ Please note, that office reader is not a desktop application, but an application
 == Formatting Properties ==
 
 || *Group Name* || *Test Name* || *Pass*||
-|| ColumnFormattingProperties || Break before and break after || ||
-|| || columnWidth || ||
-|| || Optimal table column width || ||
 || ParagraphFormattingProperties || automaticTextIndent || ||
 || || border || ||
 || || borderLineWidth || ||
@@ -148,4 +145,4 @@ Please note, that office reader is not a desktop application, but an application
 || Text Contents || 13 || || || || 
 
 
-TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
+ColumnFormattingProperties, TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
