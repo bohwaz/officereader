@@ -122,7 +122,7 @@ Please note, that office reader is not a desktop application, but an application
 || || embededBulletedList || x ||
 || || listHeader || x ||
 || || numberedList || x ||
-|| || startValue || x (basically supported, but only numbers with one digit can be shown on Symbian)||
+|| || startValue || x ||
 || Headings || Headings || x ||
 || Paragraph || Bold and italic text in the middle of a paragraph || x ||
 || || BasicContents || x ||
