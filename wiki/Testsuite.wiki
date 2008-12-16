@@ -4,7 +4,7 @@
 
 To get a first overview of the completness of Office Reader, it was tested using this ODF "testsuite": http://develop.opendocumentfellowship.com/testsuite/ 
 
-Please note, that office reader is not a desktop application, but an application for mobile devices. So in a lot of cases where a feature is not supported and the test fails, it would not even make sense to implement this on a mobile device.
+Please note, that office reader is not a desktop application, but an application for mobile devices. So in a lot of cases where a feature is not supported and the test fails, it would not even make sense to implement this on a mobile device. A lot of tests fail as well, because the Symbian Editor component does not support this feature.
 
 = Details =
 
@@ -65,7 +65,7 @@ Please note, that office reader is not a desktop application, but an application
 || || Vertical Alignment || ||
 || || writingMode || ||
 || || keepTogether || ||
-|| TextFormattingProperties || color || ||
+|| TextFormattingProperties || color || x ||
 || || country || ||
 || || Font character set || ||
 || || fontFamily || ||
@@ -73,10 +73,10 @@ Please note, that office reader is not a desktop application, but an application
 || || fontName || ||
 || || fontPitch || ||
 || || fontRelief || ||
-|| || fontSize || ||
-|| || fontStyle || ||
+|| || fontSize || x ||
+|| || fontStyle || x ||
 || || fontVariant || ||
-|| || Font Weight || ||
+|| || Font Weight || x ||
 || || Hidden or conditional text || ||
 || || hyphenation || ||
 || || hyphenationPushCharCount || ||
@@ -91,7 +91,7 @@ Please note, that office reader is not a desktop application, but an application
 || || lineThrough Width || ||
 || || relativeFontSize || ||
 || || scriptType || ||
-|| || textBackgroundColor || ||
+|| || textBackgroundColor || x ||
 || || textBlinking || ||
 || || textCombine || ||
 || || textCombineStartAndEndCharacters || ||
@@ -107,11 +107,11 @@ Please note, that office reader is not a desktop application, but an application
 || || textTransformations || ||
 || || textUnderlineWordMode || ||
 || || underlineColor || ||
-|| || underliningStyle || ||
-|| || underliningType || ||
+|| || underliningStyle || x ||
+|| || underliningType || x ||
 || || underliningWidth || ||
 || || windowFontColor || ||
-|| || Line through type || ||
+|| || Line through type || x ||
 
 
 == Text Contents ==
