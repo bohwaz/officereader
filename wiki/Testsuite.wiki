@@ -21,10 +21,10 @@ Please note, that office reader is not a desktop application, but an application
 
 || *Group Name* || *Test Name* || *Pass*||
 || ParagraphFormattingProperties || automaticTextIndent || ||
-|| || border || ||
+|| || border || x ||
 || || borderLineWidth || ||
 || || Break before and break after || ||
-|| || delimiterCharacter || ||
+|| || delimiterCharacter || x ||
 || || Drop caps distance || ||
 || || Drop caps length || ||
 || || dropCapsLines || ||
@@ -38,7 +38,7 @@ Please note, that office reader is not a desktop application, but an application
 || || leaderTextStyle || ||
 || || leaderType || ||
 || || leaderWidth || ||
-|| || Left and right margins || ||
+|| || Left and right margins || x ||
 || || Line distance || ||
 || || Line number start value || ||
 || || Line numbering || ||
@@ -46,7 +46,7 @@ Please note, that office reader is not a desktop application, but an application
 || || minimumLineHeight || ||
 || || Orphans || ||
 || || padding || ||
-|| || paragraph Background Color || ||
+|| || paragraph Background Color || x ||
 || || paragraphBackgroundImageOpacity || ||
 || || Paragraph background image position || ||
 || || paragraphBackgroundImageRepetition || ||
@@ -56,12 +56,12 @@ Please note, that office reader is not a desktop application, but an application
 || || Tab Position || ||
 || || tabStopDistance || ||
 || || Tab type || ||
-|| || textAlign || ||
+|| || textAlign || x ||
 || || Text align of last line || ||
 || || Text autospace || ||
 || || Widows || ||
-|| || textIndent || ||
-|| || Top and Bottom Margins || ||
+|| || textIndent || x ||
+|| || Top and Bottom Margins || x ||
 || || Vertical Alignment || ||
 || || writingMode || ||
 || || keepTogether || ||
