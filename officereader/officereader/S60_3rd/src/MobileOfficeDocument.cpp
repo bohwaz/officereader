@@ -42,6 +42,7 @@ CMobileOfficeDocument::CMobileOfficeDocument(CEikApplication& aApp)
     {
     }
 
+
 // destructor
 CMobileOfficeDocument::~CMobileOfficeDocument()
     {
