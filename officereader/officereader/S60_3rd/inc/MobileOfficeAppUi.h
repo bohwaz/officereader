@@ -90,6 +90,7 @@ class CMobileOfficeAppUi : public CAknViewAppUi, MAknTabObserver
         */
 		void TabChangedL(TInt aIndex);
 		void HandleCommandL(TInt aCommand);	
+		CArrayFix<TCoeHelpContext>* HelpContextL() const;
 
     private:
         // From MEikMenuObserver

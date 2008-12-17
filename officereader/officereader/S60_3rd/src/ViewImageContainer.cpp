@@ -37,6 +37,7 @@
 #include "OpenDocument.h"
 
 #include "MobileOfficeAppUi.h"
+#include "MobileOfficeApp.h"
 #include <e32base.h>
 #include <gdi.h>
 
@@ -167,6 +168,12 @@ void CViewImageContainer::HandleResourceChange(TInt aType)
 		AknLayoutUtils::LayoutMetricsRect(AknLayoutUtils::EMainPane,aRect);
 		SetRect(aRect);
 	}
+}
+
+void CViewImageContainer::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Thumbnail");
+	aContext.iMajor = KUidMobileOffice;
 }
 
 

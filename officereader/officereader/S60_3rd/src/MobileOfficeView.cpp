@@ -110,14 +110,14 @@ void CMobileOfficeView::HandleCommandL(TInt aCommand)
 			}
 		case EMobileOfficeCmdRefresh:
 			{
-					app->CheckDemo();	
+				app->CheckDemo();	
 				iContainer->ClearListbox();
 				iContainer->Search();
 				break;
 			}
 		case EMobileOfficeCmdDelete:
 			{
-					app->CheckDemo();
+				app->CheckDemo();
 				if(ListCount>0)
 				{
 					iContainer->Delete();
@@ -137,7 +137,8 @@ void CMobileOfficeView::HandleCommandL(TInt aCommand)
             }
         default:
             {
-				if ( (aCommand==EMobileOfficeCmdAppAbout) || (aCommand==EMobileOfficeCmdRegister))
+				if ( (aCommand==EMobileOfficeCmdAppAbout) || (aCommand==EMobileOfficeCmdRegister) || 
+					 (aCommand==EMobileOfficeCmdHelp) )
 				{
 					AppUi()->HandleCommandL( aCommand );
 				}

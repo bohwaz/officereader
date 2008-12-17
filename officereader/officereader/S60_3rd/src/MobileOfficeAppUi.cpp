@@ -29,6 +29,7 @@
 
 // INCLUDE FILES
 #include "MobileOfficeAppui.h"
+#include "MobileOfficeApp.h"
 #include <MobileOffice.rsg>
 #include "MobileOffice.hrh"
 
@@ -42,11 +43,10 @@
 #include <stringloader.h>
 #include <aknmessagequerydialog.h> 
 #include <avkon.hrh>
-
-#include <APGCLI.H> //löschen
+#include <HLPLCH.H>
+#include <APGCLI.H> 
 #include <APMSTD.H>
 #include <APMREC.H>
-
 #include <apparc.h>
 
 
@@ -326,6 +326,11 @@ void CMobileOfficeAppUi::HandleCommandL(TInt aCommand)
 				break;
 			
 			}
+		case EMobileOfficeCmdHelp:
+			{
+				CArrayFix<TCoeHelpContext>* buf = AppHelpContextL();
+				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+			}
         default:
             break;      
         }
@@ -432,4 +437,13 @@ TBool CMobileOfficeAppUi::Registered()
 COpenDocument* CMobileOfficeAppUi::OpenDocument()
 {
 	return iOpenDocument;
+}
+
+CArrayFix<TCoeHelpContext>* CMobileOfficeAppUi::HelpContextL() const
+{
+	CArrayFixFlat<TCoeHelpContext>* array = new(ELeave)CArrayFixFlat<TCoeHelpContext>(1);
+	CleanupStack::PushL(array);
+	array->AppendL(TCoeHelpContext(KUidMobileOffice, _L("Introduction")));
+	CleanupStack::Pop(array);
+	return array;
 }

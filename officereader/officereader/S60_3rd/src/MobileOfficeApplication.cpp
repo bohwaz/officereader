@@ -30,13 +30,9 @@
 // INCLUDE FILES
 #include "MobileOfficeDocument.h"
 #include "MobileOfficeApplication.h"
+#include "MobileOfficeApp.h"
 
 // ============================ MEMBER FUNCTIONS ===============================
-
-// UID for the application;
-// this should correspond to the uid defined in the mmp file
-const TUid KUidMobileOfficeApp = { 0xa00005b5 };
-
 // -----------------------------------------------------------------------------
 // CMobileOfficeApplication::CreateDocumentL()
 // Creates CApaDocument object
@@ -57,7 +53,7 @@ CApaDocument* CMobileOfficeApplication::CreateDocumentL()
 TUid CMobileOfficeApplication::AppDllUid() const
     {
     // Return the UID for the MobileOffice application
-    return KUidMobileOfficeApp;
+    return KUidMobileOffice;
     }
 
 

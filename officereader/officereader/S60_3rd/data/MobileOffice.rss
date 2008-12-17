@@ -118,8 +118,9 @@ RESOURCE MENU_PANE r_mobileoffice_view1_menu
         MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; },
         MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; },
         MENU_ITEM { command = EMobileOfficeCmdRefresh; txt = qtn_view1_refresh; },
+        MENU_ITEM { command = EMobileOfficeCmdRegister; txt = qtn_view1_reg; },
 //        MENU_ITEM { command = EMobileOfficeCmdNewText; txt = qtn_list_newwriter; },
-        MENU_ITEM { command = EMobileOfficeCmdRegister; txt = qtn_view1_reg; }
+        MENU_ITEM { command = EMobileOfficeCmdHelp; txt = qtn_help; }
         };
     }
 
@@ -162,7 +163,8 @@ RESOURCE MENU_PANE r_mobileoffice_view2_menu
     items =
         {
         MENU_ITEM { command = EMobileOfficeCmdOpen; txt = qtn_open; },
-        MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; }
+        MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; },
+        MENU_ITEM { command = EMobileOfficeCmdHelp; txt = qtn_help; }
         };
     }
 
@@ -287,6 +289,7 @@ RESOURCE MENU_PANE r_mobileoffice_editorview_menu
 			MENU_ITEM { command = EMobileOfficeCmdSheet;txt = r_adjust ; },
 			MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; },
 			MENU_ITEM { command = EMobileOfficeCmdPicture; txt = qtn_view1_picture; },
+			MENU_ITEM { command = EMobileOfficeCmdHelp; txt = qtn_help; },
 			MENU_ITEM { command = EMobileOfficeCmdAppAbout; txt = qtn_appl_option_item; },
 			MENU_ITEM { command = EEikCmdExit; txt = qtn_appl_exit; }
         
@@ -354,7 +357,8 @@ RESOURCE MENU_PANE r_mobileoffice_viewimage_menu
     items =
         {
 				MENU_ITEM { command = EMobileOfficeCmdOpen; txt = qtn_open; },
-        		MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; }
+        		MENU_ITEM { command = EMobileOfficeCmdProp; txt = qtn_view1_prop; },
+        		MENU_ITEM { command = EMobileOfficeCmdHelp; txt = qtn_help; }
         };
     }
 

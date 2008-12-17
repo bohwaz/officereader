@@ -26,7 +26,6 @@
  * see <http://www.gnu.org/licenses/>.
  *
  ************************************************************************/
-
 TARGET                                  MobileOffice.exe 
 TARGETTYPE                              exe 
 UID                                     0x0 0xa00005b5 
@@ -42,17 +41,8 @@ START RESOURCE MobileOffice_reg.rss
   TARGETPATH                              \private\10003a3f\apps 
 END  
 
-MACRO						    FREEVERSION
-#define 		      		FREEVERSION
 
 SOURCEPATH                              ..\src 
-
-#ifndef FREEVERSION
-SOURCE                                  LicenseManager.cpp 
-SOURCE                                  CIMEI.cpp 
-SOURCE                                  genericCfg.cpp 
-#endif
-
 SOURCE                                  ViewImageView.cpp 
 SOURCE                                  ViewImageContainer.cpp 
 SOURCE                                  EditorViewView.cpp 
@@ -66,11 +56,19 @@ SOURCE                                  MobileOfficeView2.cpp
 SOURCE                                  MobileOfficeContainer.cpp 
 SOURCE                                  MobileOfficeContainer2.cpp 
 
+MACRO                                   FREEVERSION 
+#ifndef FREEVERSION  
+  // [-]    SOURCEPATH                              ..\src 
+  // [-]    SOURCE                        CIMEI.cpp 
+  // [-]    SOURCE                        genericCfg.cpp 
+
+#endif  
+
 USERINCLUDE                             ..\..\..\sheetcontrol\inc 
 USERINCLUDE                             ..\..\Engine\inc 
 USERINCLUDE                             ..\inc 
 SYSTEMINCLUDE                           \epoc32\include 
-LIBRARY		                       PlatformEnv.lib 
+LIBRARY                                 PlatformEnv.lib 
 LIBRARY                                 etel3rdparty.lib 
 LIBRARY                                 form.lib 
 STATICLIBRARY                           sheet.lib 
@@ -91,6 +89,7 @@ LIBRARY                                 commonengine.lib
 LIBRARY                                 efsrv.lib 
 LIBRARY                                 estor.lib 
 LIBRARY                                 eikcoctl.lib 
+LIBRARY                                 hlplch.lib 
 LANG                                    SC 
 VENDORID                                0 
 capability                              NONE 

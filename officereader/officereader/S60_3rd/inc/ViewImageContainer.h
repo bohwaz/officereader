@@ -65,6 +65,7 @@ class CViewImageContainer : public CCoeControl, MCoeControlObserver
 
     public: // Functions from base classes
 		TTypeUid::Ptr MopSupplyObject(TTypeUid aId);
+		void GetHelpContext(TCoeHelpContext &aContext) const;
     private: // Functions from base classes
 
        /**

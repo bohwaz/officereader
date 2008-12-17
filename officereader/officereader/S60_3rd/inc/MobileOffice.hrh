@@ -55,7 +55,8 @@ enum TMobileOfficeCommandIds
     EMobileOfficeCmdRegister = 21,
     EMobileOfficeCmdDelete = 22,
     EMobileOfficeCmdNewText = 23,
-    EMobileOfficeCmdSave
+    EMobileOfficeCmdSave = 24,
+    EMobileOfficeCmdHelp
     };
     
 enum TMobileOfficeTabViewId
