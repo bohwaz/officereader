@@ -54,8 +54,6 @@
 #include "EncryptDecrypt.h"
 
 
-//Series80: techview\eikmenup.h 
-
 #include "sheet_view.h"
 #include "sheet_ctrl.h"
 #include "cell.h"
