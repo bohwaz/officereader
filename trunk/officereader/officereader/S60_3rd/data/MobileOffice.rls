@@ -15,6 +15,7 @@ rls_string qtn_view2_tab "View2"
 
 #define qtn_appl_test "Test"
 
+#define qtn_help "Help"
 #define qtn_open "Open"
 #define qtn_delete "Delete"
 #define qtn_view1_prop	"Properties"

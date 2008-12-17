@@ -31,6 +31,7 @@
 #include "MobileOfficeContainer.h"
 #include "MobileOfficeAppUi.h"
 #include "MobileOffice.hrh"
+#include "MobileOfficeApp.h"
 #include <MobileOffice.rsg> // resources
 
 #include <eikclbd.h> 
@@ -434,4 +435,10 @@ void CMobileOfficeContainer::ShowTab()
 void CMobileOfficeContainer::HideTab()
 {
 	iNaviPane->Pop();
+}
+
+void CMobileOfficeContainer::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("File_Overview");
+	aContext.iMajor = KUidMobileOffice;
 }

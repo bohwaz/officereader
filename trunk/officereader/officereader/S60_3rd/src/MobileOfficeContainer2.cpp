@@ -30,6 +30,7 @@
 // INCLUDE FILES
 #include "MobileOfficeContainer2.h"
 #include "MobileOfficeAppUi.h"
+#include "MobileOfficeApp.h"
 
 #include <eiklabel.h>  // for example label control
 #include <eikclbd.h> //marquee
@@ -250,4 +251,9 @@ void CMobileOfficeContainer2::HandleResourceChange(TInt aType)
 	}
 }
 
+void CMobileOfficeContainer2::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Properties");
+	aContext.iMajor = KUidMobileOffice;
+}
   

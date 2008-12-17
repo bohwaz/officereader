@@ -78,6 +78,8 @@ class CMobileOfficeContainer : public CCoeControl, MCoeControlObserver
 
     public: // New functions
 
+		void GetHelpContext(TCoeHelpContext &aContext) const;
+
 		void SearchFiles(RFs& aFs,const TDesC& aPath, const TDesC& aWild);
 		void ScanDirL(RFs& aFs, const TDesC& aDir, const TDesC& aWild) ;
 		
@@ -129,7 +131,7 @@ class CMobileOfficeContainer : public CCoeControl, MCoeControlObserver
 		CAknNavigationControlContainer* iNaviPane;
 		CAknNavigationDecorator* 		iNaviDecorator;
 	private: //data
-		CAknSearchField* 			iFindbox;	
+		//CAknSearchField* 			iFindbox;	
     
     };		
 

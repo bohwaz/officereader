@@ -60,6 +60,7 @@ class CMobileOfficeContainer2 : public CCoeControl, MCoeControlObserver
 		void ShowMeta(void);
 
     public: // Functions from base classes
+		void GetHelpContext(TCoeHelpContext &aContext) const;
 
     private: // Functions from base classes
 

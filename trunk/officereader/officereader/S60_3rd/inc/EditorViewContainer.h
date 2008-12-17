@@ -74,6 +74,7 @@ class CEditorViewContainer : public CCoeControl, MCoeControlObserver
 		
 
     public: // Functions from base classes
+		void GetHelpContext(TCoeHelpContext &aContext) const;
 
 	private:
 	

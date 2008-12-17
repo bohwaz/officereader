@@ -39,6 +39,7 @@
 #include "MobileOfficeAppUi.h"
 #include  "EditorViewView.h"
 #include  "MobileOffice.hrh"
+#include "MobileOfficeApp.h"
 #include <MobileOffice.rsg> // resources
 
 
@@ -362,8 +363,6 @@ CSheetCtrl* CEditorViewContainer::Sheet()
 	return iSheet;
 }
 
-
-
 void CEditorViewContainer::HandleResourceChange(TInt aType)
 {
 	CCoeControl::HandleResourceChange(aType);
@@ -381,6 +380,12 @@ void CEditorViewContainer::HandleResourceChange(TInt aType)
 			*/
 	}	
 
+}
+
+void CEditorViewContainer::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Viewing_a_file");
+	aContext.iMajor = KUidMobileOffice;
 }
 
 // End of File  
