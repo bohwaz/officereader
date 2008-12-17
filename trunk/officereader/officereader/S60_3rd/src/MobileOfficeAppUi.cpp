@@ -56,11 +56,9 @@
 #endif
 
 /*
-
 #include <rsendasmessage.h>
 #include <rsendas.h>
 #include <senduiconsts.h>
-
 
 void SendFileL(const TDesC& aFilename)
     {
@@ -103,6 +101,8 @@ void CMobileOfficeAppUi::ConstructL()
 {
 	BaseConstructL(EAknEnableSkin);
 
+	iOpenDocument = COpenDocument::NewL();
+	
 	#ifndef FREEVERSION
 		TBuf<50> nein;
 		#ifndef __WINSCW__
@@ -163,12 +163,8 @@ void CMobileOfficeAppUi::ConstructL()
     AddViewL( view4 );      // transfer ownership to CAknViewAppUi
     CleanupStack::Pop();    // view2
 
-
     SetDefaultViewL(*view1);
-	
-    iOpenDocument = COpenDocument::NewL();
-
-    CheckDemo();
+	CheckDemo();
 }
 
 // ----------------------------------------------------
@@ -258,17 +254,11 @@ void CMobileOfficeAppUi::HandleCommandL(TInt aCommand)
 				*/
 				CAknMessageQueryDialog* dlg = CAknMessageQueryDialog::NewL( *messageText );
 				dlg->PrepareLC(R_MESSAGE_QUERY);
-
-				HBufC* aboutTitleText = StringLoader::LoadLC( R_MOBILESEARCH_ABOUTTITLE );
-					
-					dlg->QueryHeading()->SetTextL( *aboutTitleText );
-
+				HBufC* aboutTitleText = StringLoader::LoadLC( R_MOBILESEARCH_ABOUTTITLE );	
+				dlg->QueryHeading()->SetTextL( *aboutTitleText );
 				CleanupStack::PopAndDestroy( aboutTitleText );
-				
 				dlg->RunLD();
-
 				CleanupStack::PopAndDestroy( messageText );
-				
 				break;
             }
 		case EMobileOfficeCmdOpen:
@@ -362,7 +352,7 @@ void CMobileOfficeAppUi::HandleCommandL(TInt aCommand)
 
 void CMobileOfficeAppUi::CheckDemo()
 {
-#ifndef FREEVERSION
+	#ifndef FREEVERSION
 	if( licMan.Is_dm_1() )
 	{
 		HBufC* mobileSearchText = StringLoader::LoadLC( R_MOBILESEARCH_MOBILESEARCH );

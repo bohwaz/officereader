@@ -386,7 +386,6 @@ void CPara::AddTextItem(TBool aInit,HBufC* aName)//,TCharFormat aFormat,TCharFor
 
 void CPara::Initialise(void)
 {
-
 	_LIT(length, "0cm");
 
 	//TODO: default-style auslesen, Standard erbt davon
@@ -661,7 +660,6 @@ void CPara::SetRightMargin(const TDesC& aRight)
 
 void CPara::SetAlign(const TDesC& aAlign)
 {
-	
 	_LIT(end,"end");
 	_LIT(center,"center");
 
@@ -904,10 +902,14 @@ void CPara::SetBorder(const TDesC& aLocation,const TDesC& aBorder)
 			aType.Set(aToken.NextToken());
 			aColor.Set(aToken.NextToken());
 			
-			aParaBorder.iColor = GetColorByDesC( aColor.Right(6) );
 			aParaBorder.iThickness = 20; //FontUtils::TwipsFromPoints( GetPtByDesC(*aWidth) );
-			aParaBorder.iAutoColor = EFalse;
-
+			if ((aColor.Length()>=6) && (aColor.Length()<=aBorder.Length()))
+			{
+				aParaBorder.iColor = GetColorByDesC( aColor.Right(6) );
+				aParaBorder.iAutoColor = EFalse;
+			}
+			else
+				aParaBorder.iAutoColor = ETrue;
 			
 			if (aType==doubl)
 			{
@@ -1051,12 +1053,16 @@ void CPara::GetBulletIndex(const TDesC& aName)
 
 void CPara::IncBulletLevel()
 {
-	(*iBullets)[iBulletPos]->IncLevel();
+	// list header does not have style
+	if (iBulletPos != -1)
+		(*iBullets)[iBulletPos]->IncLevel();
 }
 
 void CPara::DecBulletLevel()
 {
-	(*iBullets)[iBulletPos]->DecLevel();
+	// list header does not have style
+	if (iBulletPos != -1)
+		(*iBullets)[iBulletPos]->DecLevel();
 }
 
 void CPara::SetBulletChar()

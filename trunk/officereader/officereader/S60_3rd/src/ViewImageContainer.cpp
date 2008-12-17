@@ -175,6 +175,4 @@ void CViewImageContainer::GetHelpContext(TCoeHelpContext &aContext) const
 	aContext.iContext = _L("Thumbnail");
 	aContext.iMajor = KUidMobileOffice;
 }
-
-
 // End of File  

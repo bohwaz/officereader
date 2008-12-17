@@ -258,6 +258,7 @@ void CEncryptDecrypt::PBKDF2 (const TDesC8& P, const TInt c)
   @Param IniVector Input Initialization Vector Obtained via encrypt
   @Return Buffer with ENcrypted text of the same length as input text freeng the buffer is calle's responsibility
   */
+
 HBufC8* CEncryptDecrypt::Decrypt(const TDesC8& password, const TDesC8& Message, const TDesC8& Salt, const TDesC8& IniVector)
 {
 	iSalt = HBufC8::NewL(64/*Salt.Size() + 4*//*for adding the block number*/);

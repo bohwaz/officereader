@@ -76,7 +76,7 @@ class CMobileOfficeAppUi : public CAknViewAppUi, MAknTabObserver
     public: // New functions
 
 		COpenDocument* OpenDocument();
-		 TFileName GetAppPath();
+		TFileName GetAppPath();
 		void CheckDemo();
 #ifndef FREEVERSION
 		 bool Register();

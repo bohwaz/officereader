@@ -711,8 +711,7 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 	{
 		if (aName.iPrefix==style)
 		{
-
-			if ( (aName.iLocalName==style) || (aName.iLocalName==default_style) )
+			if ( (aName.iLocalName==style) || (aName.iLocalName==default_style) || (aName.iLocalName==master_page) )
 			{
 				HBufC* value = NULL;
 
@@ -726,7 +725,7 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 						value = aAttributes[i].iValue.AllocL();
 					}
 					else
-					if (aName==family )
+					if ( (aName==family) || (aName==page_layout_name))
 					{
 						TPtrC familyvalue = aAttributes[i].iValue;
 						
@@ -800,6 +799,11 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 					}
 					else
 					if (name == text_underline_style)
+					{
+						iOpenDocument->Para()->SetUnderline(aAttributes[i].iValue);
+					}
+					else
+					if (name == text_underline_type)
 					{
 						iOpenDocument->Para()->SetUnderline(aAttributes[i].iValue);
 					}
@@ -928,7 +932,8 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 			if (aName.iLocalName == span)
 			{
 				//<text:span text:style-name="T1">
-				iOpenDocument->Para()->GetIndexByName(aAttributes[0].iValue,EFalse);
+				if (aAttributes.Count()>0)
+					iOpenDocument->Para()->GetIndexByName(aAttributes[0].iValue,EFalse);
 			}
 			else
 			if (aName.iLocalName == h)
@@ -1089,7 +1094,7 @@ void CTextXML::StartElement(const TQualified& aName, const RArray< ::TAttribute>
 					iFileLogger.Write(_L(""));
 				#endif
 				
-					/* VERY IMPOIRTANT TODO TODO*/
+					/* TODO TODO*/
 				if (iWidth && iHeight)
 					iOpenDocument->GetPicture(aAttributes[0].iValue, TSize(TInt(GetPtByDesC(*iWidth)) ,TInt(GetPtByDesC(*iHeight)) ));     //20,50));
 			}

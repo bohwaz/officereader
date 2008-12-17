@@ -47,8 +47,10 @@ _LIT(manifest_xml,"META-INF\\manifest.xml");
 
 //style
 _LIT(style,"style");
-
 _LIT(default_style,"default-style");
+_LIT(master_page,"master-page");
+_LIT(page_layout_name,"page-layout-name");
+
 _LIT(name,"name");
 _LIT(family,"family");
 _LIT(text,"text");
@@ -67,6 +69,7 @@ _LIT(background_color,"background-color");
 _LIT(font_weight,"font-weight");
 _LIT(font_style,"font-style");
 _LIT(text_underline_style,"text-underline-style");
+_LIT(text_underline_type,"text-underline-type");
 _LIT(text_line_through_style,"text-line-through-style");
 
 _LIT(transparent,"transparent");

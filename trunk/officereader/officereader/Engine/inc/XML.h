@@ -36,7 +36,6 @@
 #include <txtetext.h>  //ELineBreak
 #include <txtrich.h>  //Richtext
 
-
 #include "OpenDocument.h"
 
 #include <SyExpat.h>
@@ -45,11 +44,10 @@
 
 #ifdef _log_
 	#include <flogger.h>
-#endif	
+#endif
 
 class CTags: public CBase
 {
-
 	public:
 	
 		~CTags();
@@ -66,7 +64,7 @@ class CTags: public CBase
 		TBool IsNote();
 		TBool IsText();
 		TBool IsNoteCitation();
-		TBool IsFooter();	
+		TBool IsFooter();
 		TBool IsHeader();
 		TBool IsAnnotation();
 		TBool IsTrackedChanges();

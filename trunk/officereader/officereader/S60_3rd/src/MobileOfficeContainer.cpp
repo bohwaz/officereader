@@ -172,10 +172,18 @@ void CMobileOfficeContainer::HandleControlEventL(
 
 void CMobileOfficeContainer::AddItem(TDes& Text)
 {	
+	TBool bAdd = ETrue;
+	COpenDocument* iDoc = STATIC_CAST(CMobileOfficeAppUi*,iEikonEnv->EikAppUi())->OpenDocument();
 	CDesC16Array * list_array = ( CDesC16Array * ) iListbox->Model()->ItemTextArray();
-	Text.Insert(0,_L("\t"));
-	list_array->AppendL(Text);
-    iListbox->HandleItemAdditionL();
+
+	if ( (Text.Find(_L(".pdf")) != KErrNotFound) && !iDoc->IsHybridPDF(Text) )
+			bAdd = EFalse;
+	if (bAdd)
+	{
+		Text.Insert(0,_L("\t"));
+		list_array->AppendL(Text);
+		iListbox->HandleItemAdditionL();
+	}
 }
 
 void CMobileOfficeContainer::ClearListbox(void)
@@ -187,11 +195,13 @@ void CMobileOfficeContainer::ClearListbox(void)
 
 TKeyResponse CMobileOfficeContainer::OfferKeyEventL(const TKeyEvent& aKeyEvent,TEventCode aType)
 {
+
 	CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iAvkonAppUi;
+ 
 	CAknTabGroup* iTabGroup = (CAknTabGroup*) iNaviDecorator->DecoratedControl();
 	if ( iTabGroup )
 	{
-		TInt active = iTabGroup->ActiveTabIndex(); 
+		TInt active = iTabGroup->ActiveTabIndex();
 		switch ( aKeyEvent.iCode )
 			{
 				case EKeyLeftArrow:
@@ -262,19 +272,19 @@ TKeyResponse CMobileOfficeContainer::OfferKeyEventL(const TKeyEvent& aKeyEvent,T
 		/*
 		if ( iFindbox )
 		{
-	            TBool needRefresh( EFalse );
-        	    
-	            // Offers the key event to find box.
-        	    if ( AknFind::HandleFindOfferKeyEventL( aKeyEvent, aType, this, iListbox, iFindbox,EFalse, needRefresh ) == EKeyWasConsumed )
-	            {
-	               	if ( needRefresh )
-        	        {
-              		    SizeChanged();
-                  		DrawNow();
-	                }
+           TBool needRefresh( EFalse );
+            
+            // Offers the key event to find box.
+            if ( AknFind::HandleFindOfferKeyEventL( aKeyEvent, aType, this, iListbox, iFindbox,EFalse, needRefresh ) == EKeyWasConsumed )
+            {
+               	if ( needRefresh )
+                {
+              	    SizeChanged();
+                  	DrawNow();
+                }
  
- 	              	return EKeyWasConsumed;
-        	    }
+               	return EKeyWasConsumed;
+            }
 		}
 		*/
 		return iListbox->OfferKeyEventL(aKeyEvent,aType);
@@ -326,6 +336,7 @@ void CMobileOfficeContainer::Search(void)
 			ScanDirL(iCoeEnv->FsSession(),_L("C:\\"),_L("*.ots"));
 			ScanDirL(iCoeEnv->FsSession(),_L("C:\\"),_L("*.odp"));
 			ScanDirL(iCoeEnv->FsSession(),_L("C:\\"),_L("*.otp"));
+			ScanDirL(iCoeEnv->FsSession(),_L("C:\\"),_L("*.pdf"));
 
 			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.odt"));
 			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.ott"));
@@ -333,6 +344,7 @@ void CMobileOfficeContainer::Search(void)
 			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.ots"));
 			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.odp"));
 			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.otp"));
+			SearchFiles(iCoeEnv->FsSession(),PathInfo::PhoneMemoryRootPath(),_L("*.pdf"));
 			break;
 		}
 		case 1: 
@@ -343,6 +355,7 @@ void CMobileOfficeContainer::Search(void)
 			ScanDirL(iCoeEnv->FsSession(),PathInfo::MemoryCardRootPath(),_L("*.ots"));
 			ScanDirL(iCoeEnv->FsSession(),PathInfo::MemoryCardRootPath(),_L("*.odp"));
 			ScanDirL(iCoeEnv->FsSession(),PathInfo::MemoryCardRootPath(),_L("*.otp"));
+			ScanDirL(iCoeEnv->FsSession(),PathInfo::MemoryCardRootPath(),_L("*.pdf"));
 
 			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.odt"));
 			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.ott"));
@@ -350,6 +363,7 @@ void CMobileOfficeContainer::Search(void)
 			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.ots"));
 			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.odp"));
 			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.otp"));
+			ScanDirL(iCoeEnv->FsSession(),_L("E:\\Documents\\"),_L("*.pdf"));
 
 			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.odt"));
 			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.ott"));
@@ -357,6 +371,7 @@ void CMobileOfficeContainer::Search(void)
 			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.ots"));
 			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.odp"));
 			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.otp"));
+			SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.pdf"));
 			break;
 		}
 	}

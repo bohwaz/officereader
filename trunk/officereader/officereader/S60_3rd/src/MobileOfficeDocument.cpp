@@ -41,8 +41,7 @@ CMobileOfficeDocument::CMobileOfficeDocument(CEikApplication& aApp)
 : CAknDocument(aApp)    
     {
     }
-
-
+    
 // destructor
 CMobileOfficeDocument::~CMobileOfficeDocument()
     {
