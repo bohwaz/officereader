@@ -33,7 +33,7 @@
 #include <txtetext.h>  //ELineBreak
 #include <txtrich.h>  //Richtext
 #include <eikmenup.h> //menubar
-
+#include <BAUTILS.H>
 #include <utf.h>
 
 #include "Xml.h"
@@ -54,6 +54,11 @@
 #include "EncryptDecrypt.h"
 
 
+#ifdef _log_
+	#include <flogger.h>	
+#endif
+
+
 #include "sheet_view.h"
 #include "sheet_ctrl.h"
 #include "cell.h"
@@ -70,6 +75,25 @@
 
 #define NOTE_SIZE 200
 
+TPtrC8 getNextLink(TLex8 &aLex)
+{
+	aLex.Mark();
+	aLex.SkipCharacters();
+	aLex.SkipSpace();
+	aLex.SkipCharacters();
+	aLex.SkipSpace();
+	return aLex.MarkedToken();
+};
+
+TInt findNextPos(TPtrC8 &aPtr, TDesC8 &aBuf )
+{
+	TBuf8<100> aLink;
+	aLink.Append(aPtr);
+	aLink.Append(_L8("obj"));
+	TInt aEmbFilePos = aBuf.Find(aLink);
+    
+	return aEmbFilePos + aLink.Length() + 1; 	   
+}
 
 CGraphicsContext::TTextAlign GetGraphicAlign(TCellAlign aAlign)
 {
@@ -91,6 +115,13 @@ COpenDocument::COpenDocument()
 EXPORT_C COpenDocument::~COpenDocument()
 {
 
+	#ifdef _log_
+	  iFileLogger.CloseLog();
+	  iFileLogger.Close();
+	#endif
+
+	if (iHybridPDF)
+		BaflUtils::DeleteFile(iRfs,iFileName);
 	iRfs.Close();
 
 	delete iPassword;
@@ -161,6 +192,7 @@ void COpenDocument::ConstructL()
 	 iEncrypted = EFalse;
 	 iEditable = EFalse;
 	 iFloating = NULL;
+	 iHybridPDF = EFalse;
 
 	 xml = NULL;
 	 xml2 = NULL;
@@ -184,6 +216,11 @@ void COpenDocument::ConstructL()
 	 iTables = new (ELeave) RPointerArray<HBufC>;
 
    	 ClearMeta();	
+
+	 #ifdef _log_
+		User::LeaveIfError(iFileLogger.Connect());
+		iFileLogger.CreateLog(_L("Office"),_L("odf.txt"),EFileLoggingModeOverwrite);
+	#endif	
 }
 
 void COpenDocument::ClearContent()
@@ -342,99 +379,102 @@ void COpenDocument::GetContent(const TDesC& aFile, TXMLMode aMode, HBufC* aTable
 
 	xml =iZip->GetFileText(iRfs,iFileName,aFile);
 
-	switch ( iODFType )
-	{
-		case ODP: 
-		case OTP: 
-		case OTT: 
-		case ODT: 
-			{ 
-				parser = CTextXML::NewL(this);
-				break;
-			
-			}
-		case ODS: 
-		case OTS: 
-			{ 
-				parser = CTableXML::NewL(this); 
-				((CTableXML*)parser)->iTable = aTable;
-				break;
-			}
-		default:{ 
-				break;
-			} 
-	}
-
-
-	if (iEncrypted)
-	{
-
-		// todo: dynamisch		
-		TBuf8<200> salt;
-		TBuf8<200> init;
-		
-		TImCodecB64 base64;
-		base64.Initialise();
-		if (aFile==content)
-		{
-			base64.Decode(iEncryptData->SaltContent(),salt);
-			base64.Decode(iEncryptData->InitContent(),init);
-			xml3 = HBufC8::NewL(iEncryptData->ContentSize());	
-			xml3->Des().SetLength(iEncryptData->ContentSize());		
-		}
-		else
-		{
-			base64.Decode(iEncryptData->SaltStyle(),salt);
-			base64.Decode(iEncryptData->InitStyle(),init);
-			xml3 = HBufC8::NewL(iEncryptData->StyleSize());	
-			xml3->Des().SetLength(iEncryptData->StyleSize());		
-			
-		}
-
-
-		object = CEncryptDecrypt::NewL();				
-		xml2 = object->Decrypt(*iPassword,*xml,salt	,init);
-		
-		CEZDecompressor* decompress = CEZDecompressor::NewL(*this,-CEZDecompressor::EMaxWBits);
-		TRAPD(err,decompress->InflateL());				
-		delete decompress;
-	}
-
-	if (parser)
-	{
-		if (iEncrypted)
-			parser->SetParseDataL(*xml3);
-		else
-			parser->SetParseDataL(*xml);
-		parser->SetMode(aMode);
-		parser->GetContent();
-		delete parser;
-	}	
-
-
 	if (xml)
 	{
-		delete xml;
-		xml = NULL;
-	}
 
-	if (xml2)
-	{
-		delete xml2;
-		xml2 = NULL;
-	}
-	if (xml3)
-	{
-		delete xml3;
-		xml3 = NULL;
-	}
+		switch ( iODFType )
+		{
+			case ODP: 
+			case OTP: 
+			case OTT: 
+			case ODT: 
+				{ 
+					parser = CTextXML::NewL(this);
+					break;
+				
+				}
+			case ODS: 
+			case OTS: 
+				{ 
+					parser = CTableXML::NewL(this); 
+					((CTableXML*)parser)->iTable = aTable;
+					break;
+				}
+		}
 
-	if (object)
-	{
-		delete object;
-		object = NULL;
-	}
+		if (iEncrypted)
+		{
+			// todo: dynamisch		
+			TBuf8<200> salt;
+			TBuf8<200> init;
+			
+			TImCodecB64 base64;
+			base64.Initialise();
+			if (aFile==content)
+			{
+				base64.Decode(iEncryptData->SaltContent(),salt);
+				base64.Decode(iEncryptData->InitContent(),init);
+				xml3 = HBufC8::NewL(iEncryptData->ContentSize());	
+				xml3->Des().SetLength(iEncryptData->ContentSize());		
+			}
+			else
+			{
+				base64.Decode(iEncryptData->SaltStyle(),salt);
+				base64.Decode(iEncryptData->InitStyle(),init);
+				xml3 = HBufC8::NewL(iEncryptData->StyleSize());	
+				xml3->Des().SetLength(iEncryptData->StyleSize());		
+				
+			}
 
+			object = CEncryptDecrypt::NewL();				
+			xml2 = object->Decrypt(*iPassword,*xml,salt	,init);
+	           				
+			CEZDecompressor* decompress = CEZDecompressor::NewL(*this,-CEZDecompressor::EMaxWBits);
+			TRAPD(err,decompress->InflateL());				
+
+			//TODO: set length xml3??
+			delete decompress;
+		}
+
+		
+		if (parser)
+		{
+			if (iEncrypted)
+			{
+				parser->SetParseDataL(*xml3);
+			}
+			else
+			{
+				parser->SetParseDataL(*xml);
+			}
+			parser->SetMode(aMode);
+			parser->GetContent();
+			delete parser;
+		}	
+
+		if (xml)
+		{
+			delete xml;
+			xml = NULL;
+		}
+
+		if (xml2)
+		{
+			delete xml2;
+			xml2 = NULL;
+		}
+		if (xml3)
+		{
+			delete xml3;
+			xml3 = NULL;
+		}
+
+		if (object)
+		{
+			delete object;
+			object = NULL;
+		}
+	}
 }
 CCZip* COpenDocument::Zip()
 {
@@ -457,12 +497,125 @@ EXPORT_C TDes& COpenDocument::Filename()
 	return iFileName;
 }
 
-EXPORT_C void COpenDocument::SetFileName(const TDesC& aFileName)
+EXPORT_C TBool COpenDocument::IsHybridPDF(const TDesC& aFileName)
 {
-	iFileName = aFileName;
+	_LIT8(writer,"application#2Fvnd#2Eoasis#2Eopendocument#2Etext");
+	_LIT8(spread,"application#2Fvnd#2Eoasis#2Eopendocument#2Espreadsheet");
+	_LIT8(presentation,"application#2Fvnd#2Eoasis#2Eopendocument#2Epresentation");
+	_LIT8(text_template,"application#2Fvnd#2Eoasis#2Eopendocument#2Etext-template");
+	_LIT8(spread_template,"application#2Fvnd#2Eoasis#2Eopendocument#2Espreadsheet-template");
+	_LIT8(presentation_template,"application#2Fvnd#2Eoasis#2Eopendocument#2Epresentation-template");
+
+	TBool aReturn = EFalse;
+	RFile file ;
+	file.Open(iRfs,aFileName,EFileRead) ;
+	CleanupClosePushL(file);
+
+	TInt iSize ;   
+	file.Size(iSize) ;
+	HBufC8* buf = HBufC8::NewL(iSize) ;
+	TPtr8  pBuf = buf->Des() ;
+	file.Read(pBuf) ;
+
+	TInt aPosStream = buf->Find(_L8("/AdditionalStreams"));
+	if (aPosStream !=KErrNotFound)
+	{
+
+		TLex8 aLex(buf->Mid(aPosStream,iSize-aPosStream));
+		TPtrC8 aPtr = aLex.NextToken();
+		aLex.Inc();
+		aLex.Inc();
+		aLex.Inc();
+		    
+		TPtrC8 aMime(aLex.NextToken());
+		aReturn =  ( (aMime.Compare(writer)==0) ||
+			(aMime.Compare(spread)==0) ||
+			(aMime.Compare(presentation)==0) ||
+			(aMime.Compare(text_template)==0) ||
+			(aMime.Compare(spread_template)==0) ||
+			(aMime.Compare(presentation_template)==0) ) ? ETrue : EFalse;
+	}
+	else
+		aReturn = EFalse;
+
+	delete buf;
+	CleanupStack::PopAndDestroy() ; //file
+	return aReturn;
 
 }
 
+EXPORT_C void COpenDocument::SetFileName(const TDesC& aFileName)
+{
+	_LIT(pdf,".pdf");
+	if (iHybridPDF)
+	{
+		// delete old temp file
+		BaflUtils::DeleteFile(iRfs,iFileName);
+		iHybridPDF = EFalse;
+	}
+	if (aFileName.Find(pdf) != KErrNotFound)
+	{
+		iFileName = GetODFFileFromPDF(aFileName);
+		iHybridPDF = ETrue;
+	}
+	else
+		iFileName = aFileName;
+}
+
+TFileName COpenDocument::GetODFFileFromPDF(const TFileName aFileName)
+{
+	_LIT(pdftmp,"pdftmp");
+	TFileName aName = aFileName;
+	aName.Append(pdftmp);
+	
+	RFile file ;
+	file.Open(iRfs,aFileName,EFileRead) ;
+	CleanupClosePushL(file);
+
+	TInt iSize ;   
+	file.Size(iSize) ;
+	HBufC8* buf = HBufC8::NewL(iSize) ;
+	TPtr8  pBuf = buf->Des() ;
+	file.Read(pBuf) ;
+
+	TInt aPosStream = buf->Find(_L8("/AdditionalStreams"));
+
+	TLex8 aLex(buf->Mid(aPosStream,iSize-aPosStream));
+	TPtrC8 aPtr = aLex.NextToken();
+	aLex.Inc();
+	aLex.Inc();
+	aLex.Inc();
+
+	// skip /AdditionalStreams
+	aLex.SkipCharacters();
+	aLex.SkipSpace();
+	// get link 
+	//KErrNotFound
+	TPtrC8 aPtr4 = getNextLink(aLex);
+	TInt aNextPos = findNextPos(aPtr4,*buf);
+	TInt start = buf->Mid(aNextPos,iSize-aNextPos).Find(_L8("stream"));
+	start += aNextPos + 7;
+
+	TLex8 aEmbFile(buf->Mid(aNextPos,buf->Mid(aNextPos,iSize-aNextPos).Locate(TChar(10))));
+	// skip length
+	aEmbFile.SkipCharacters();
+	aEmbFile.SkipSpace();
+
+	TPtrC8 aPtr5 = getNextLink(aEmbFile);
+	TInt aNextPos2 = findNextPos(aPtr5,*buf);
+	TLex8 aEmbFile2(buf->Mid(aNextPos2,buf->Mid(aNextPos2,iSize-aNextPos2).Locate(TChar(10))));
+	TInt aSize;
+	aEmbFile2.Val(aSize);
+		
+	RFile write ;
+	write.Replace(iRfs, aName ,EFileWrite) ;
+	write.Write(buf->Mid(start,aSize));
+	write.Close();
+
+	delete buf;
+	CleanupStack::PopAndDestroy() ; // file 
+	return aName;
+}
 
 EXPORT_C TBool COpenDocument::Editable()
 {
@@ -501,7 +654,6 @@ void COpenDocument::AddTextL(const TDesC& aText,TBool aIsList)
 		if (iPara->IsText())
 		{
 			iRichText->ApplyCharFormatL(iPara->CharFormat(iPara->GetGlobalPos()), iPara->CharFormatMask(iPara->GetGlobalPos()),documentLength,aText.Length());
-			
 		}
 		iRichText->ApplyParaFormatL(iPara->ParaFormat(iPara->GetGlobalPos()), iPara->ParaFormatMask(iPara->GetGlobalPos()),documentLength,aText.Length());
 		iRichText->ApplyCharFormatL(iPara->CharFormat(iPara->GetPos()), iPara->CharFormatMask(iPara->GetPos()),documentLength,aText.Length());
@@ -555,9 +707,9 @@ void COpenDocument::DeleteL()
 void COpenDocument::AddTabL()
 {
 	TInt documentLength = iRichText->DocumentLength();
-
 	iRichText->InsertL(iRichText->DocumentLength(), CEditableText::ETabCharacter);
-	iRichText->ApplyCharFormatL(iPara->CharFormat(iPara->GetGlobalPos()), iPara->CharFormatMask(iPara->GetGlobalPos()),documentLength,1);
+	if (iPara->GetGlobalPos()>-1)
+		iRichText->ApplyCharFormatL(iPara->CharFormat(iPara->GetGlobalPos()), iPara->CharFormatMask(iPara->GetGlobalPos()),documentLength,1);
 }
 
 
@@ -738,7 +890,6 @@ EXPORT_C void COpenDocument::GetPicture(const TDesC& aFile,TSize aSize)
 	{
 		aSize.iWidth = iEditor->Size().iWidth - 20;
 	}
-
 	
 	if (aSize.iHeight > iEditor->Size().iHeight)
 	{
@@ -768,9 +919,6 @@ EXPORT_C void COpenDocument::GetPicture(const TDesC& aFile,TSize aSize)
 	}
 	*/
 	
-	
-	
-
 	CCImageEngine* aEngine = new (ELeave) CCImageEngine(iRfs);
 	if (!aEngine->GetImage(this,TDMImage,aSize, iRichText->DocumentLength() ,aFile))
 	{
@@ -1114,8 +1262,8 @@ void COpenDocument::InitializeL(CEZZStream &aZStream)
 	
 	TPtr8 ptr_xml = xml3->Des();
 	aZStream.SetOutput(ptr_xml);
-
 }
+
 void COpenDocument::NeedInputL(CEZZStream &/*aZStream*/)	{}
 void COpenDocument::NeedOutputL(CEZZStream &/*aZStream*/) 	{}
 void COpenDocument::FinalizeL(CEZZStream &/*aZStream*/)		{}

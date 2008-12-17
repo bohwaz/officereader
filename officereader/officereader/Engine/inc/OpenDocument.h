@@ -89,7 +89,7 @@ class COpenDocument: public MEZBufferManager
     public:     // new functions
         IMPORT_C static COpenDocument* NewL();
         IMPORT_C static COpenDocument* NewLC();
-        IMPORT_C virtual ~COpenDocument();
+        IMPORT_C ~COpenDocument();
 
     public:     
         IMPORT_C TVersion Version() const;
@@ -134,6 +134,9 @@ class COpenDocument: public MEZBufferManager
 		void DeleteL();
 		void AddFootnoteLink(const TDesC& aLink);
 		void AddTrackedChangeInsertion(const TDesC& aInsert);
+
+		IMPORT_C TBool IsHybridPDF(const TDesC& aFileName);
+		TFileName GetODFFileFromPDF(const TFileName aFileName);
 
 		//Writing ODF files
 		IMPORT_C void WriteFile(const TDesC& aFileName);
@@ -212,6 +215,7 @@ class COpenDocument: public MEZBufferManager
 		TPoint iPosition;
 
 		TFileName iFileName;
+		TBool iHybridPDF;
 		TBool iEditable;
 		TBool iFileModified;
 		HBufC8* iPassword;
