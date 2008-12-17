@@ -138,11 +138,4 @@ Please note, that office reader is not a desktop application, but an application
 || Formatting Properties || 90 || || || || 
 || Text Contents || 13 || || || || 
 
-
-|| *Section* || *Total* || *Pass* || *Fail* || *%* || 
-|| General || 4 || || || ||    
-|| Formatting Properties || 90 || || || || 
-|| Text Contents || 13 || || || || 
-
-
 ColumnFormattingProperties, TableFormattingProperties, TableCellFormattingProperties, TableRowFormattingProperties, Text Frames, Drawing Content and Presentation content testcases were not checked, as Office Reader does not support this completly currently.
