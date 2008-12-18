@@ -371,7 +371,7 @@ void CEditorViewView::DynInitMenuPaneL(TInt aResourceId, CEikMenuPane *aMenuPane
 			else
 			{
 				// it is not editable, so we do not want the save button
-				aMenuPane->DeleteMenuItem( EMobileOfficeCmdSave );	
+				//aMenuPane->DeleteMenuItem( EMobileOfficeCmdSave );	
 			}
 		}		
 	}
