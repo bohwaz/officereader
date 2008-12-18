@@ -35,7 +35,7 @@ rls_string qtn_view2_tab "View2"
 #define qtn_appl_exit "Exit"
 
 
-#define qtn_about				"Office Reader 0.6\r\nSource Code available under GPLv3\r\nCopyright by Max Odendahl\r\nSponsored by Odendahl SEPT-Solutions and NLnet Foundation\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader/"
+#define qtn_about				"Office Reader 1.0\r\nSource Code available freely under GPLv3 and LGPLv3\r\nCopyright by Max Odendahl\r\nSponsored by Odendahl SEPT-Solutions and NLnet Foundation\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader/"
 #define qtn_abouttitle			"Info"
 
 
