@@ -23,6 +23,7 @@ public:
 
 	TFileName GetAppPath();
 
+	CArrayFix<TCoeHelpContext>* HelpContextL() const;
 	void CheckDemo();
 	#ifndef FREEVERSION
 		 bool Register();

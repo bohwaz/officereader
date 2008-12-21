@@ -16,6 +16,7 @@ rls_string STRING_r_listbox_listview_cmd_close_debug_shorttext "Close"
 #define qtn_view_worksheets "Worksheet"
 #define qtn_view1_picture "Thumbnail"
 #define qtn_view1_refresh "Refresh"
+#define qtn_help "Help"
 
 #define qtn_list_newwriter "TP: New Text Document"
 
@@ -31,7 +32,7 @@ rls_string STRING_r_listbox_listview_cmd_close_debug_shorttext "Close"
 #define r_findquestion "Please enter your text:"
 #define r_delete "Would you like to delete this file?"
 
-#define qtn_about				"Office Reader 0.6\r\nSource Code available under GPLv3\r\nCopyright by Max Odendahl\r\nSponsored by Odendahl SEPT-Solutions and NLnet Foundation\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader/"
+#define qtn_about				"Office Reader 1.0\r\nSource Code available under GPLv3\r\nCopyright by Max Odendahl\r\nSponsored by Odendahl SEPT-Solutions and NLnet Foundation\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader/"
 #define qtn_abouttitle			"Info"
 
 

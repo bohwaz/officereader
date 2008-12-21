@@ -68,6 +68,7 @@ RESOURCE QIK_COMMAND_LIST r_mobileoffice_mobileofficeimageview_commands
 			type = EQikCommandTypeScreen;
 			text = qtn_view1_prop; 
 			},
+		QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
 		QIK_COMMAND 
 			{ 
 			id = EMobileOfficeCmdAppAbout; 

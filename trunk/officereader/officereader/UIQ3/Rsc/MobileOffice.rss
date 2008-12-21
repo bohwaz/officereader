@@ -105,8 +105,9 @@ RESOURCE QIK_COMMAND_LIST r_mobileoffice_commands
         QIK_COMMAND { id = EMobileOfficeCmdPicture; text = qtn_view1_picture; },
         QIK_COMMAND { id = EMobileOfficeCmdRefresh; text = qtn_view1_refresh; },
         QIK_COMMAND { id = EMobileOfficeCmdRegister; text = qtn_view1_reg; },
-//        QIK_COMMAND { id = EMobileOfficeCmdNewText; text = qtn_list_newwriter; },
-        QIK_COMMAND 
+		//QIK_COMMAND { id = EMobileOfficeCmdNewText; text = qtn_list_newwriter; },
+		QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
+		QIK_COMMAND 
 			{ 
 			id = EMobileOfficeCmdAppAbout; 
 			type = EQikCommandTypeScreen;

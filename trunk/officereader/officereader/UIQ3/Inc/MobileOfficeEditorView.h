@@ -27,6 +27,7 @@ public:
 
 	// from CQikViewBase
 	TVwsViewId ViewId()const;
+	void GetHelpContext(TCoeHelpContext &aContext) const; 
 
 	void ViewActivatedL(   
         const TVwsViewId& /*aPrevViewId*/,
