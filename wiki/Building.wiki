@@ -28,6 +28,8 @@ You have to fix some issues of the Symbian tooling:
 
 [http://developer.uiq.com/devtools_other.html#sdk_30_missing_libs] (only if you are building for UIQ, this is not neccessary for S60 3rd Edition)
 
+http://www3.symbian.com/faq.nsf/0/E9DF3257FD565A658025733900805EA2?OpenDocument
+
 = Compiling by command line = 
 
 To compile the project, you have to run these two commands several times:
