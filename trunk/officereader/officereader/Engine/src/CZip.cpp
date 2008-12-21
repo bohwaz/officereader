@@ -66,7 +66,6 @@ HBufC* ConvertTo16BitL(const TDesC8& aDes8)
    return myBuf;
 }
 
-
 HBufC8* CCZip::GetFileText(RFs aRFs,const TDesC& aContainer, const TDesC& aFile)
 {
 	CZipFile* zipFile = CZipFile::NewL(aRFs, aContainer);

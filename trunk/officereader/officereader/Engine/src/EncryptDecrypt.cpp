@@ -266,6 +266,7 @@ HBufC8* CEncryptDecrypt::Decrypt(const TDesC8& password, const TDesC8& Message, 
 	iIniVector = HBufC8::NewL(IniVector.Size());
 	iIniVector->Des().Copy(IniVector);
 	PBKDF2 (password, NR_OF_ITER);
+	
 	BlowFish blowfish(iKey->Des().Ptr(),iKey->Size());
 	HBufC8* outbuff = HBufC8::NewL(Message.Size());
 	TInt n = Message.Size();
