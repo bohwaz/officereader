@@ -20,6 +20,8 @@
 "C:\Symbian\UIQ3SDK\Epoc32\release\gcce\UREL\OpenDocument.dll"-"!:\sys\bin\OpenDocument.dll"
 "C:\Symbian\UIQ3SDK\Epoc32\release\gcce\UREL\SyExpat.dll"-"!:\sys\bin\SyExpat.dll"
 
+"C:\Symbian\UIQ3SDK\epoc32\winscw\c\resource\help\officereader.hlp"-"!:\resource\help\officereader.hlp"
+
 ""-"c:\private\A00005B5\mobileoffice.cfg",FN
 
 
