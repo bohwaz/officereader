@@ -400,6 +400,7 @@ void COpenDocument::GetContent(const TDesC& aFile, TXMLMode aMode, HBufC* aTable
 					((CTableXML*)parser)->iTable = aTable;
 					break;
 				}
+			default: break;
 		}
 
 		if (iEncrypted)
@@ -508,7 +509,9 @@ EXPORT_C TBool COpenDocument::IsHybridPDF(const TDesC& aFileName)
 
 	TBool aReturn = EFalse;
 	RFile file ;
-	file.Open(iRfs,aFileName,EFileRead) ;
+	if (file.Open(iRfs,aFileName,EFileRead)==KErrNone)
+	{
+	
 	CleanupClosePushL(file);
 
 	TInt iSize ;   
@@ -533,15 +536,14 @@ EXPORT_C TBool COpenDocument::IsHybridPDF(const TDesC& aFileName)
 			(aMime.Compare(presentation)==0) ||
 			(aMime.Compare(text_template)==0) ||
 			(aMime.Compare(spread_template)==0) ||
-			(aMime.Compare(presentation_template)==0) ) ? ETrue : EFalse;
+			(aMime.Compare(presentation_template)==0) ) ? (TBool)ETrue : (TBool)EFalse;
 	}
-	else
-		aReturn = EFalse;
-
+	
 	delete buf;
 	CleanupStack::PopAndDestroy() ; //file
-	return aReturn;
+	}
 
+	return aReturn;
 }
 
 EXPORT_C void COpenDocument::SetFileName(const TDesC& aFileName)
@@ -936,7 +938,6 @@ RFs COpenDocument::RF()
 {
 	return iRfs;
 }
-
 
 void COpenDocument::AddPictureL()//CCoeEnv* aCoe,const TDesC& aFile,TCursorSelection aPos)
 {

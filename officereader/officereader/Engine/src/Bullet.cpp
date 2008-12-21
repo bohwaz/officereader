@@ -229,3 +229,4 @@ void CBullets::ResetBullet(TChar aValue)
 {
 	(*iBullets)[iLevel]->ResetChar(aValue);
 }
+
