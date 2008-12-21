@@ -18,6 +18,8 @@ public:
 
 	// from CQikViewBase
 	TVwsViewId ViewId()const;
+	void GetHelpContext(TCoeHelpContext &aContext) const; 
+
 	void HandleCommandL(CQikCommand& aCommand);
 	TVwsViewIdAndMessage ViewScreenDeviceChangedL();
 

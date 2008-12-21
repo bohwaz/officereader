@@ -12,6 +12,8 @@
 #include <QikListBoxLayoutPair.h>
 
 #include <QikSimpleDialog.h>
+#include <GDI.H>
+#include <HLPLCH.H>
 
 
 /**
@@ -136,6 +138,12 @@ void CMobileOfficePropView::HandleCommandL(CQikCommand& aCommand)
 					iEikonEnv->EikAppUi()->ActivateViewL(TVwsViewId(KUidMobileOfficeApp,KUidMobileOfficePropView));
 					break;
 				}
+			case EMobileOfficeCmdHelp:
+			{
+				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
+				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				break;
+			}
 			case EMobileOfficeCmdAppAbout:
 				{
 					CQikSimpleDialog* dialog = new(ELeave) CQikSimpleDialog;
@@ -192,9 +200,28 @@ void CMobileOfficePropView::ViewActivatedL(  const TVwsViewId& /*aPrevViewId*/,T
 
 
 	COpenDocument* doc = STATIC_CAST(CMobileOfficeAppUi* ,iEikonEnv->EikAppUi())->OpenDocument();
-	doc->LoadMetaInfomation();
+	if (doc->Encrypted())
+	{
+		CQikSimpleDialog* dialog = new(ELeave) CQikSimpleDialog;
+		dialog->PrepareLC(R_MY_SIMPLE_DIALOG);
+		TInt ret = dialog->RunL();
+		if(ret == EEikBidYes)
+		{
+			CEikEdwin* edwin = dialog->LocateControlByUniqueHandle<CEikEdwin>(ESimpleDialogEdwin);
+			HBufC *text = HBufC::NewL(edwin->TextLength());
+			TPtr ptr_text = text->Des();
+			edwin->Text()->Extract(ptr_text);
+			doc->SetPassword(*text);
+			delete text;
+			doc->LoadMetaInfomation();
+		}
+		CleanupStack::PopAndDestroy(dialog);			
+	}
+	else
+	{
+			doc->LoadMetaInfomation();
+	}
 
-	
 
 	TBuf<10> Dateiname1;
 	HBufC* Dateiname2;
@@ -286,3 +313,8 @@ TVwsViewIdAndMessage CMobileOfficePropView::ViewScreenDeviceChangedL()
 	return TVwsViewIdAndMessage(ViewId());
 }
 
+void CMobileOfficePropView::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Properties");
+	aContext.iMajor = KUidMobileOfficeApp;
+}

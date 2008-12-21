@@ -16,7 +16,7 @@
 #include <QFiles.mbg>
 
 #include <apparc.h>
-
+#include <HLPLCH.H>
 
 /** Max size for TInt in text. */
 const TInt KMaxSizeOfTIntInBytes = 11;
@@ -111,12 +111,12 @@ void CMobileOfficeView::ViewConstructL()
 
 
 	#ifndef FREEVERSION
-		CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iEikonEnv->EikAppUi();
-		if (!app->Registered())
-		{
-			CQikCommandManager& cmdManager = CQikCommandManager::Static();
-			cmdManager.SetInvisible(*this,EMobileOfficeCmdRegister,ETrue);
-		}
+	CMobileOfficeAppUi* app = (CMobileOfficeAppUi*)iEikonEnv->EikAppUi();
+	if (!app->Registered())
+	{
+		CQikCommandManager& cmdManager = CQikCommandManager::Static();
+		cmdManager.SetInvisible(*this,EMobileOfficeCmdRegister,ETrue);
+	}
 	#else
 		CQikCommandManager& cmdManager = CQikCommandManager::Static();
 		cmdManager.SetInvisible(*this,EMobileOfficeCmdRegister,ETrue);
@@ -125,11 +125,22 @@ void CMobileOfficeView::ViewConstructL()
 
 void CMobileOfficeView::AddItem(const TDesC& Text)
 {
+	COpenDocument* iDoc = STATIC_CAST(CMobileOfficeAppUi*,iEikonEnv->EikAppUi())->OpenDocument();
+	TFileName aFileName;
+	if (ActiveTabId() ==1)
+		aFileName.Insert(0,c);
+	else
+		aFileName.Insert(0,d);
+	aFileName.Append(Text);
+
+	if ( (Text.Find(_L(".pdf")) != KErrNotFound) && !iDoc->IsHybridPDF(aFileName) )
+			return;
+	
 	const CQikListBox* listBox = LocateControlByUniqueHandle<const CQikListBox>(EListBoxListViewListCtrl);
 	MQikListBoxModel& model(listBox->Model());
 
 	//model.ModelBeginUpdateLC();
-
+	
 	// Create a listBoxData item, the data returned is Open().
 	MQikListBoxData* listBoxData = model.NewDataL(MQikListBoxModel::EDataNormal);
 	// Pushes the data onto the cleanup stack. 
@@ -146,7 +157,6 @@ void CMobileOfficeView::AddItem(const TDesC& Text)
 	//model.ModelEndUpdateL();
 	
 }
-
 
 /**
 Returns the view Id
@@ -274,6 +284,12 @@ void CMobileOfficeView::HandleCommandL(CQikCommand& aCommand)
 			
 			}
 #endif
+			case EMobileOfficeCmdHelp:
+			{
+				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
+				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				break;
+			}
 			case EMobileOfficeCmdAppAbout:
 				{
 					CQikSimpleDialog* dialog = new(ELeave) CQikSimpleDialog;
@@ -312,6 +328,7 @@ void CMobileOfficeView::SearchC(void)
 	ScanDirL(iCoeEnv->FsSession(),_L("C:\\Media files\\Document\\"),_L("*.ots"));
 	ScanDirL(iCoeEnv->FsSession(),_L("C:\\Media files\\Document\\"),_L("*.odp"));
 	ScanDirL(iCoeEnv->FsSession(),_L("C:\\Media files\\Document\\"),_L("*.otp"));
+	ScanDirL(iCoeEnv->FsSession(),_L("C:\\Media files\\Document\\"),_L("*.pdf"));
 
 	/*
 	ScanDirL(iCoeEnv->FsSession(),_L("C:\\"),_L("*.odt"));
@@ -346,6 +363,7 @@ void CMobileOfficeView::SearchE(void)
 	ScanDirL(iCoeEnv->FsSession(),_L("D:\\Document\\"),_L("*.ots"));
 	ScanDirL(iCoeEnv->FsSession(),_L("D:\\Document\\"),_L("*.odp"));
 	ScanDirL(iCoeEnv->FsSession(),_L("D:\\Document\\"),_L("*.otp"));
+	ScanDirL(iCoeEnv->FsSession(),_L("D:\\Document\\"),_L("*.pdf"));
 
 	/*
 	SearchFiles(iCoeEnv->FsSession(),_L("E:\\Data\\"),_L("*.odt"));
@@ -535,4 +553,10 @@ void CMobileOfficeView::TabActivatedL(TInt aTabId)
 		{
 			SearchE();
 		}
+}
+
+void CMobileOfficeView::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Properties");
+	aContext.iMajor = KUidMobileOfficeApp;
 }

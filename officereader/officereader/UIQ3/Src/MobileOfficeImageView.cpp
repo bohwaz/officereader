@@ -14,6 +14,7 @@
 
 #include "MobileOfficeAppUi.h"
 
+#include <HLPLCH.H>
 
 /**
 Creates and constructs the view.
@@ -116,6 +117,12 @@ void CMobileOfficeImageView::HandleCommandL(CQikCommand& aCommand)
 					iEikonEnv->EikAppUi()->ActivateViewL(TVwsViewId(KUidMobileOfficeApp,KUidMobileOfficeEditorView));
 					break;
 				}
+		case EMobileOfficeCmdHelp:
+			{
+				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
+				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				break;
+			}
 		case EMobileOfficeCmdAppAbout:
 				{
 					CQikSimpleDialog* dialog = new(ELeave) CQikSimpleDialog;
@@ -165,4 +172,10 @@ void CMobileOfficeImageView::ViewActivatedL(   const TVwsViewId& /*aPrevViewId*/
 TVwsViewIdAndMessage CMobileOfficeImageView::ViewScreenDeviceChangedL()
 {
 	return TVwsViewIdAndMessage(ViewId());
+}
+
+void CMobileOfficeImageView::GetHelpContext(TCoeHelpContext &aContext) const
+{
+	aContext.iContext = _L("Properties");
+	aContext.iMajor = KUidMobileOfficeApp;
 }

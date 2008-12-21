@@ -4,25 +4,27 @@
 #include "MobileOfficeEditorView.h"
 #include "MobileOfficeImageView.h"
 #include "MobileOfficePropView.h"
+#include "MobileOfficeExternalInterface.h"
 #include <MobileOffice.rsg>
 
 #include <EIKAPP.H>
 #include <QikSimpleDialog.h>
-#include "MobileOffice.hrh"
+#include <MobileOffice.hrh>
 
 #include <EIKFUTIL.H>
-
+#include <HLPLCH.H>
 
 #ifndef FREEVERSION
 	#include "CIMEI.h"
 #endif
 
-
 void CMobileOfficeAppUi::ConstructL()
 	{
 	// Calls ConstructL that initiate the standard values.
-
 	CQikAppUi::ConstructL();
+	
+	iOpenDocument = COpenDocument::NewL();
+	
 	#ifndef FREEVERSION
 		TBuf<50> nein;
 		#ifndef __WINSCW__
@@ -52,10 +54,8 @@ void CMobileOfficeAppUi::ConstructL()
 	
 	SetDefaultViewL(*mobileofficeView);
 
-	iOpenDocument = COpenDocument::NewL();
-
 	CheckDemo();
-	}
+}
 
 CMobileOfficeAppUi::~CMobileOfficeAppUi()
 {
@@ -106,7 +106,6 @@ void CMobileOfficeAppUi::CheckDemo()
 bool CMobileOfficeAppUi::Register()
 {
     TBuf <64> buff;
-
 	CQikSimpleDialog* dialog = new(ELeave) CQikSimpleDialog;
 	dialog->PrepareLC(R_MY_SIMPLE_DIALOG_REG);
 	TInt ret = dialog->RunL();
@@ -197,5 +196,14 @@ CLicenseManager CMobileOfficeAppUi::LicMan()
 { 
 	return licMan;
 }
-
 #endif
+
+CArrayFix<TCoeHelpContext>* CMobileOfficeAppUi::HelpContextL() const
+{
+	CArrayFixFlat<TCoeHelpContext>* array = new(ELeave)CArrayFixFlat<TCoeHelpContext>(1);
+	CleanupStack::PushL(array);
+	array->AppendL(TCoeHelpContext(KUidMobileOfficeApp, _L("Introduction")));
+	CleanupStack::Pop(array);
+	return array;
+}
+
