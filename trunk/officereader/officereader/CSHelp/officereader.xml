@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE cshproj SYSTEM "C:\Symbian\9.1\S60_3rd_MR\Epoc32\tools\cshlpcmp\dtd/cshproj.dtd">
+<?xml:stylesheet href="C:\Symbian\9.1\S60_3rd_MR\Epoc32\tools\cshlpcmp\xsl/CSHproj.xsl" title="CS-Help project" type="text/xsl"?>
+
+<cshproj>
+<helpfileUID>0xa00005b5</helpfileUID>
+<directories>
+ <input></input>
+ <output>C:\Symbian\9.1\S60_3rd_MR\Epoc32\winscw\c\resource\help\</output> 
+ <graphics>pictures\</graphics>
+ <working>temp\</working>
+</directories>
+<files>
+ <source>
+ <file>officereader.rtf</file>
+ </source>
+ <destination>officereader.hlp</destination>
+ <customization>custom.xml</customization>
+</files>
+</cshproj>
