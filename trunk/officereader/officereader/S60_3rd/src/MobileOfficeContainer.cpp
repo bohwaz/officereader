@@ -172,18 +172,13 @@ void CMobileOfficeContainer::HandleControlEventL(
 
 void CMobileOfficeContainer::AddItem(TDes& Text)
 {	
-	TBool bAdd = ETrue;
 	COpenDocument* iDoc = STATIC_CAST(CMobileOfficeAppUi*,iEikonEnv->EikAppUi())->OpenDocument();
-	CDesC16Array * list_array = ( CDesC16Array * ) iListbox->Model()->ItemTextArray();
-
 	if ( (Text.Find(_L(".pdf")) != KErrNotFound) && !iDoc->IsHybridPDF(Text) )
-			bAdd = EFalse;
-	if (bAdd)
-	{
-		Text.Insert(0,_L("\t"));
-		list_array->AppendL(Text);
-		iListbox->HandleItemAdditionL();
-	}
+			return;
+	CDesC16Array * list_array = ( CDesC16Array * ) iListbox->Model()->ItemTextArray();
+	Text.Insert(0,_L("\t"));
+	list_array->AppendL(Text);
+	iListbox->HandleItemAdditionL();
 }
 
 void CMobileOfficeContainer::ClearListbox(void)
