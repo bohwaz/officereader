@@ -37,7 +37,7 @@ The commercial product Mobile Office will be opensourced in several Milestones a
 Completion:		January 1st, 2009
 
 =Milestone 4: End-user documentation and website=
-  * finish of end user documentation
+  * ~~finish of end user documentation~~
   * ~~finish of website related to the project~~ 
   * ~~final cleanup and finish of the project~~
   * release new binaries for current Symbian versions with user documentation, version 1.0
