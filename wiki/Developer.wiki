@@ -1,4 +1,7 @@
 #summary Developer links, tools and information
+= Building =
+
+[Building]
 
 = Tools =
 
@@ -7,3 +10,5 @@
   * An OpenGrok installation, a fast and usable source code search and cross reference engine: [http://officereader.sept-solutions.de/source/ OpenGrok]
 
   * commit and bug activities mailing list: http://groups.google.com/group/officereader_commits
+
+= Contributing =
