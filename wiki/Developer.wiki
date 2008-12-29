@@ -11,4 +11,9 @@
 
   * commit and bug activities mailing list: http://groups.google.com/group/officereader_commits
 
+
 = Contributing =
+
+If you would like to submit patches, please create a new ticket and attach the patch, please use diff -upN to create it. For inclution of the patch, a [copyright agreement] must be signed first.
+
+After several patches, read/write svn rights will be granted for direct access.
