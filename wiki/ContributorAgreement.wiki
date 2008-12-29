@@ -1,0 +1,11 @@
+#summary Contributor Agreement information
+
+= Questions and Answers =
+
+
+# Why is a copyright assignment required for officereader?
+
+      Many open source projects require a copyright assignment so that the code base can be legally protected as a whole by one entity without having to worry about the copyrights for different pieces. Other prominent examples of projects requiring copyright assignment are the Mono project and the Evolution project, which both require assigning the copyright to Novell and  the OpenOffice.org project, which require the same to Sun Microsystems. The Red Hat Directory Server project requires assigning the copyright to Red Hat. The Contributor Agreement is very liberal, as it requires sharing the copyright instead of fully transferring it and also guarantees that published contributions will remain under an open source license forever.
+# Do I have to fill out a SCA?
+
+      Yes, if you intend to contribute source code or other materials which are intended to be compiled or otherwise integrated with the officereader product, regardless of the size of the contribution (e.g., including contributions of 10 lines or less).
