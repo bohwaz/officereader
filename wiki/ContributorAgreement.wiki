@@ -25,11 +25,17 @@ agreement carefully before signing.
 
 
 Your username: 
+
 Your name: 
+
 Your company's name (if applicable): 
+
 Mailing address: 
+
 Telephone, Fax and Email: 
+
 Your signature: 
+
 Date: 
 
 To deliver these terms to us, print, sign, scan and attach it to a new issue
