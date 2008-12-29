@@ -557,6 +557,6 @@ void CMobileOfficeView::TabActivatedL(TInt aTabId)
 
 void CMobileOfficeView::GetHelpContext(TCoeHelpContext &aContext) const
 {
-	aContext.iContext = _L("Properties");
+	aContext.iContext = _L("File_Overview");
 	aContext.iMajor = KUidMobileOfficeApp;
 }

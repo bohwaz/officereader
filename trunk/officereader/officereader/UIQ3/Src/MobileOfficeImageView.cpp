@@ -176,6 +176,6 @@ TVwsViewIdAndMessage CMobileOfficeImageView::ViewScreenDeviceChangedL()
 
 void CMobileOfficeImageView::GetHelpContext(TCoeHelpContext &aContext) const
 {
-	aContext.iContext = _L("Properties");
+	aContext.iContext = _L("Thumbnail");
 	aContext.iMajor = KUidMobileOfficeApp;
 }

@@ -725,6 +725,6 @@ TVwsViewIdAndMessage CMobileOfficeEditorView::ViewScreenDeviceChangedL()
 
 void CMobileOfficeEditorView::GetHelpContext(TCoeHelpContext &aContext) const
 {
-	aContext.iContext = _L("Properties");
+	aContext.iContext = _L("Viewing_a_file");
 	aContext.iMajor = KUidMobileOfficeApp;
 }
