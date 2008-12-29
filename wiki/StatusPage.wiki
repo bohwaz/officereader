@@ -32,14 +32,14 @@ The commercial product Mobile Office will be opensourced in several Milestones a
 =Milestone 3:  Improvement of code=
   * ~~test ODF maturity against http://develop.opendocumentfellowship.com/testsuite and/or new Oasis test suite in areas of existing functionality~~  
   * ~~fix all known crashes and other major/urgent issues within existing functionality with respect to interoperability with OpenOffice.org 3.0 and one other major ODF implementation~~
-  * support for hybrid PDF's 
+  * ~~support for hybrid PDF's~~ 
 
 Completion:		January 1st, 2009
 
 =Milestone 4: End-user documentation and website=
   * finish of end user documentation
-  * finish of website related to the project 
-  * final cleanup and finish of the project
+  * ~~finish of website related to the project~~ 
+  * ~~final cleanup and finish of the project~~
   * release new binaries for current Symbian versions with user documentation, version 1.0
   * make an official announcement of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
