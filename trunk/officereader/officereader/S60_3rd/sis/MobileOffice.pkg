@@ -2,7 +2,7 @@
 &EN
 
 ; Header
-#{"Office Reader"},(0xa00005b5), 0, 6, 1
+#{"Office Reader"},(0xa00005b5), 1, 0, 1
 
 ; Platform compatibility
 [0x101F7961], 0, 0, 0,{"Series60ProductID"}

@@ -2,7 +2,7 @@
 #include <e32base.h>
 #include <gdi.h>
 #include <QikSimpleDialog.h>
-
+#include <QikHelpLauncher.h>
 
 #include <MobileOffice.rsg>
 
@@ -119,8 +119,8 @@ void CMobileOfficeImageView::HandleCommandL(CQikCommand& aCommand)
 				}
 		case EMobileOfficeCmdHelp:
 			{
-				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
-				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				TCoeHelpContext helpContext(KUidMobileOfficeApp,_L("Thumbnail"));
+				CQikHelpLauncher::LaunchLD(helpContext);
 				break;
 			}
 		case EMobileOfficeCmdAppAbout:

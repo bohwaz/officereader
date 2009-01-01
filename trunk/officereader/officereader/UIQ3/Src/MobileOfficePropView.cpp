@@ -10,7 +10,7 @@
 #include <QikListBoxLayoutElement.h>
 #include <QikListBoxLayoutProperties.h>
 #include <QikListBoxLayoutPair.h>
-
+#include <QikHelpLauncher.h>
 #include <QikSimpleDialog.h>
 #include <GDI.H>
 #include <HLPLCH.H>
@@ -140,8 +140,8 @@ void CMobileOfficePropView::HandleCommandL(CQikCommand& aCommand)
 				}
 			case EMobileOfficeCmdHelp:
 			{
-				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
-				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				TCoeHelpContext helpContext(KUidMobileOfficeApp,_L("Properties"));
+				CQikHelpLauncher::LaunchLD(helpContext);
 				break;
 			}
 			case EMobileOfficeCmdAppAbout:
@@ -281,12 +281,7 @@ void CMobileOfficePropView::ViewActivatedL(  const TVwsViewId& /*aPrevViewId*/,T
 	AddItem(Pages1,Pages2);
 	//delete Pages2;
 
-	
-
-
 	listBox->Model().ModelEndUpdateL();
-	
-
 }
 
 void CMobileOfficePropView::ViewDeactivated()

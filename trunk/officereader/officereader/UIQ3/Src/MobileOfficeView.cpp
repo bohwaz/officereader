@@ -5,7 +5,7 @@
 #include <BAUTILS.H>	// delete file
 #include <QikSimpleDialog.h>
 #include <EIKAPPUI.H>
-
+#include <QikHelpLauncher.h>
 
 #include <MobileOffice.rsg>
 #include "MobileOfficeAppUi.h"
@@ -286,8 +286,8 @@ void CMobileOfficeView::HandleCommandL(CQikCommand& aCommand)
 #endif
 			case EMobileOfficeCmdHelp:
 			{
-				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
-				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				TCoeHelpContext helpContext(KUidMobileOfficeApp,_L("File_Overview"));
+				CQikHelpLauncher::LaunchLD(helpContext);
 				break;
 			}
 			case EMobileOfficeCmdAppAbout:
@@ -535,7 +535,6 @@ void CMobileOfficeView::HandleListBoxEventL(CQikListBox*,TQikListBoxEvent aEvent
 		
 	}
 }
-
 
 TVwsViewIdAndMessage CMobileOfficeView::ViewScreenDeviceChangedL()
 {
