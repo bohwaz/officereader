@@ -40,7 +40,7 @@ Completion:		January 1st, 2009
   * ~~finish of end user documentation~~
   * ~~finish of website related to the project~~ 
   * ~~final cleanup and finish of the project~~
-  * release new binaries for current Symbian versions with user documentation, version 1.0
+  * ~~release new binaries for current Symbian versions with user documentation, version 1.0~~
   * make an official announcement of opensourcing Mobile Office, new product based on the same code will be Office Reader
 
 
