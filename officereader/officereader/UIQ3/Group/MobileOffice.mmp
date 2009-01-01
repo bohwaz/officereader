@@ -42,7 +42,7 @@ USERINCLUDE                             ..\..\..\sheetcontrol\inc
 USERINCLUDE                             ..\..\Engine\inc 
 USERINCLUDE                             ..\Inc 
 SYSTEMINCLUDE                           \EPOC32\INCLUDE 
-/* [+] */ LIBRARY                       hlplch.lib 
+LIBRARY                       			qikutils.lib 
 LIBRARY                                 etel3rdparty.lib 
 LIBRARY                                 fbscli.lib 
 LIBRARY                                 quiconfigclient.lib 
@@ -63,7 +63,7 @@ LIBRARY                                 apparc.lib
 LIBRARY                                 cone.lib 
 LIBRARY                                 eikcore.lib 
 LIBRARY                                 eikcoctl.lib 
-LIBRARY									qikcore.lib 
+LIBRARY                                 qikcore.lib 
 STATICLIBRARY                           qikalloc.lib 
 LIBRARY                                 qikallocdll.lib 
 START BITMAP MobileOfficeAppIcon.mbm 

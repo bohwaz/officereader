@@ -6,7 +6,7 @@
 #include <QikMultiPageViewBase.h>
 #include <QikUiConfigDataTypes.h>
 #include <QikFullscreenFloatingMenu.h>
-
+#include <QikHelpLauncher.h>
 #include <QikSimpleDialog.h>
 #include <GDI.H>
 
@@ -258,8 +258,8 @@ void CMobileOfficeEditorView::HandleCommandL(CQikCommand& aCommand)
 		}
 		case EMobileOfficeCmdHelp:
 			{
-				CArrayFix<TCoeHelpContext>* buf = iEikonEnv->EikAppUi()->AppHelpContextL();
-				HlpLauncher::LaunchHelpApplicationL(iEikonEnv->WsSession(), buf);
+				TCoeHelpContext helpContext(KUidMobileOfficeApp,_L("Viewing_a_file"));
+				CQikHelpLauncher::LaunchLD(helpContext);
 				break;
 			}
 		case EMobileOfficeCmdAppAbout:
