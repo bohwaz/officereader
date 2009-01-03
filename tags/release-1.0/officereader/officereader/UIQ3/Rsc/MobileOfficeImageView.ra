@@ -1,0 +1,116 @@
+//----------------------------------------------------
+//-------------- CONFIGURATION FOR VIEW --------------
+//----------------------------------------------------
+// A view shall use the QIK_VIEW_CONFIGURATIONS resource struct to define which 
+// UI configurations it supports. Can also use QIK_VIEW_CONFIGURATIONS to setup 
+// the view to switch layout and command list automatically when changes of UI 
+// configuration occur. This is done with the view and command_list members of 
+// the QIK_VIEW_CONFIGURATIONS.
+
+// The application supports the reference UI Configurations that are supported
+// in the UIQ 3 SDK. Use the UiqEnv tool, to change the UI Configuration in the
+// emulator in order to develop and test the application with varying UI styles.
+RESOURCE QIK_VIEW_CONFIGURATIONS r_mobileoffice_mobileofficeimageview_ui_configurations
+	{
+	configurations = 
+		{
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficeimageview_commands;
+			view = r_mobileoffice_mobileofficeimageview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchLandscape;
+			command_list = r_mobileoffice_mobileofficeimageview_commands;
+			view = r_mobileoffice_mobileofficeimageview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficeimageview_commands;
+			view = r_mobileoffice_mobileofficeimageview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStylePortrait;
+			command_list = r_mobileoffice_mobileofficeimageview_commands;
+			view = r_mobileoffice_mobileofficeimageview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleSmallPortrait;
+			command_list = r_mobileoffice_mobileofficeimageview_commands;
+			view = r_mobileoffice_mobileofficeimageview_layout;
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------ VIEW COMMANDS -------------------
+//----------------------------------------------------
+// Commands are defined with the QIK_COMMAND_LIST struct, 
+// commands can also be created in code by instantiating CQikCommand.
+RESOURCE QIK_COMMAND_LIST r_mobileoffice_mobileofficeimageview_commands
+	{
+	items =
+		{	
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdOpen; 
+			type = EQikCommandTypeDone;
+			text = qtn_open; 
+			},
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdProp; 
+			type = EQikCommandTypeScreen;
+			text = qtn_view1_prop; 
+			},
+		QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdAppAbout; 
+			type = EQikCommandTypeScreen;
+			text = qtn_abouttitle; 
+			},
+		QIK_COMMAND
+			{
+			id = EEikCmdExit;
+			type = EQikCommandTypeScreen;
+			// Indicate that this command will only be visible in debug
+			stateFlags = EQikCmdFlagDebugOnly;
+			text = "Close";
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------- VIEW LAYOUT --------------------
+//----------------------------------------------------
+// Defines the view by linking to the pages.
+RESOURCE QIK_VIEW r_mobileoffice_mobileofficeimageview_layout
+	{
+	pages = r_mobileoffice_mobileofficeimageview_layout_pages;
+	}
+
+// Defines the pages of a view. 
+/**
+Need to add the control enums in the hrh file:
+EMobileOfficeImageViewPage
+*/
+RESOURCE QIK_VIEW_PAGES r_mobileoffice_mobileofficeimageview_layout_pages
+	{
+	pages = 
+		{
+		QIK_VIEW_PAGE
+			{
+			// Page id. Must be unique within a view
+			page_id = EMobileOfficeImageViewPage;
+
+			// Add the content of the page.
+			// page_content = -1;
+			}
+		};
+	}

@@ -1,0 +1,56 @@
+// All registration files need to #include appinfo.rh. 
+#include <AppInfo.rh>
+
+// All registration files must define UID2, which is always 
+// KUidAppRegistrationResourceFile, and UID3, which is the application's UID.
+UID2 KUidAppRegistrationResourceFile
+UID3 0xa00005b5 // application UID
+
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file = "MobileOffice"; // filename of application binary (minus extension)
+	localisable_resource_file = "\\Resource\\Apps\\MobileOffice_loc";
+	embeddability=KAppEmbeddable;
+	newfile=KAppSupportsNewFile;
+  
+	  hidden=KAppNotHidden; // MIME types application supports
+	
+	
+	
+	  datatype_list= 
+	{ 
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.text";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.spreadsheet";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.presentation";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.text-template";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.spreadsheet-template";
+		},
+		DATATYPE
+		{
+		priority = EDataTypePriorityHigh;
+		type = "application/vnd.oasis.opendocument.presentation-template";
+		}
+	 
+	 };
+
+	}
+

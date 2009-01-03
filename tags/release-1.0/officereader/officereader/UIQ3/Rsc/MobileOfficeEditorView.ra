@@ -1,0 +1,262 @@
+//----------------------------------------------------
+//-------------- CONFIGURATION FOR VIEW --------------
+//----------------------------------------------------
+// A view shall use the QIK_VIEW_CONFIGURATIONS resource struct to define which 
+// UI configurations it supports. Can also use QIK_VIEW_CONFIGURATIONS to setup 
+// the view to switch layout and command list automatically when changes of UI 
+// configuration occur. This is done with the view and command_list members of 
+// the QIK_VIEW_CONFIGURATIONS.
+
+// The application supports the reference UI Configurations that are supported
+// in the UIQ 3 SDK. Use the UiqEnv tool, to change the UI Configuration in the
+// emulator in order to develop and test the application with varying UI styles.
+RESOURCE QIK_VIEW_CONFIGURATIONS r_mobileoffice_mobileofficeeditorview_ui_configurations
+	{
+	configurations = 
+		{
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficeeditorview_commands;
+			view = r_mobileoffice_mobileofficeeditorview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchLandscape;
+			command_list = r_mobileoffice_mobileofficeeditorview_commands;
+			view = r_mobileoffice_mobileofficeeditorview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficeeditorview_commands;
+			view = r_mobileoffice_mobileofficeeditorview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStylePortrait;
+			command_list = r_mobileoffice_mobileofficeeditorview_commands;
+			view = r_mobileoffice_mobileofficeeditorview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleSmallPortrait;
+			command_list = r_mobileoffice_mobileofficeeditorview_commands;
+			view = r_mobileoffice_mobileofficeeditorview_layout;
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------ VIEW COMMANDS -------------------
+//----------------------------------------------------
+// Commands are defined with the QIK_COMMAND_LIST struct, 
+// commands can also be created in code by instantiating CQikCommand.
+RESOURCE QIK_COMMAND_LIST r_mobileoffice_mobileofficeeditorview_commands
+	{
+	items =
+		{
+			//QIK_COMMAND { id = EQikCmdGoBack;text = "Back";type = EQikCommandTypeDone;cpfFlags = EQikCpfFlagDuplicateInMenuPane;}	,
+			QIK_COMMAND { id = EMobileOfficeCmdTable; namedGroupLinkId = EMobileOfficeCmdTable;text = qtn_view_worksheets;}, //cascade = r_mobileoffice_editorview_table; },
+			
+			QIK_COMMAND { id = EMobileOfficeCmdGoto;namedGroupLinkId = EMobileOfficeCmdGoto; text = qtn_view_goto; }, 
+			QIK_COMMAND { id = EMobileOfficeCmdStart;namedGroupId = EMobileOfficeCmdGoto;text = qtn_start; },
+			QIK_COMMAND { id = EMobileOfficeCmdEnd; namedGroupId = EMobileOfficeCmdGoto;text = qtn_end; },
+			
+			QIK_COMMAND { id = EMobileOfficeCmdFind;namedGroupLinkId=EMobileOfficeCmdFind;text = r_find; }, 
+			QIK_COMMAND { id = EMobileOfficeCmdFindFirst;namedGroupId =EMobileOfficeCmdFind ;text = r_find; },
+			QIK_COMMAND { id = EMobileOfficeCmdFindAgain;namedGroupId =EMobileOfficeCmdFind; text = r_findagain; },
+
+			QIK_COMMAND { id = EMobileOfficeCmdZoom;namedGroupLinkId=EMobileOfficeCmdZoom; text = r_zoom; },
+			QIK_COMMAND { id = EMobileOfficeCmdZoomNormal; namedGroupId = EMobileOfficeCmdZoom; text = r_zoom_normal; },
+			QIK_COMMAND { id = EMobileOfficeCmdZoomMedium; namedGroupId = EMobileOfficeCmdZoom; text = r_zoom_medium; },
+			QIK_COMMAND { id = EMobileOfficeCmdZoomLarge; namedGroupId = EMobileOfficeCmdZoom; text = r_zoom_large; },
+
+
+			QIK_COMMAND { id = EMobileOfficeCmdFull; text = r_full;},
+			QIK_COMMAND { id = EMobileOfficeCmdSheet;text = r_adjust ; },
+			QIK_COMMAND { id = EMobileOfficeCmdProp; text = qtn_view1_prop; },
+			QIK_COMMAND { id = EMobileOfficeCmdPicture; text = qtn_view1_picture; },
+			QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
+			QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdAppAbout; 
+			type = EQikCommandTypeScreen;
+			text = qtn_abouttitle; 
+			},
+		QIK_COMMAND
+			{
+			id = EEikCmdExit;
+			type = EQikCommandTypeScreen;
+			// Indicate that this command will only be visible in debug
+			stateFlags = EQikCmdFlagDebugOnly;
+			text = "Close";
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------- VIEW LAYOUT --------------------
+//----------------------------------------------------
+// Defines the view by linking to the pages.
+RESOURCE QIK_VIEW r_mobileoffice_mobileofficeeditorview_layout
+	{
+	pages = r_mobileoffice_mobileofficeeditorview_layout_pages;
+	}
+
+// Defines the pages of a view. 
+/**
+Need to add the control enums in the hrh file:
+EMobileOfficeEditorViewPage
+*/
+RESOURCE QIK_VIEW_PAGES r_mobileoffice_mobileofficeeditorview_layout_pages
+	{
+	pages = 
+		{
+		QIK_VIEW_PAGE
+			{
+			// Page id. Must be unique within a view
+			page_id = EMobileOfficeEditorViewPage;
+
+			// Add the content of the page.
+			//page_content = r_editor_page_control;
+			}
+		};
+	}
+
+
+// The page contains a list box that fills the whole application space.
+RESOURCE QIK_CONTAINER_SETTINGS r_editor_page_control
+	{
+	layout_manager_type = EQikRowLayoutManager;
+	layout_manager = r_editor_row_layout_manager_default;
+	controls = 
+		{
+		QIK_CONTAINER_ITEM_CI_LI
+			{ 
+			unique_handle = EEditorListCtrl;
+			type = EEikCtRichTextEditor; 
+			control = r_richtext_editor;
+			layout_data = r_editor_row_layout_data_fill;
+			}
+		};
+	
+	}
+	
+	RESOURCE RTXTED r_richtext_editor
+{
+	numlines = 1000;
+	width=1000;
+	 height=1000; 
+	flags = EEikEdwinResizable | EEikEdwinReadOnly|EEikEdwinDisplayOnly ;
+//	        EEikEdwinIgnoreVirtualCursor |ETextParsers|
+//	        EEikEdwinDisplayOnly | EEikEdwinAllowPictures;
+	        // | 0x80000000 // EEikEdwin::EDisableSkinning
+//	        ;
+}
+
+
+//----------------------------------------------------
+//--------------- ROW LAYOUT MANAGER -----------------
+//----------------------------------------------------
+RESOURCE QIK_ROW_LAYOUT_MANAGER r_editor_row_layout_manager_default
+	{
+	default_layout_data = QIK_ROW_LAYOUT_DATA {};
+	}
+
+//----------------------------------------------------
+//----------------- ROW LAYOUT DATA ------------------
+//----------------------------------------------------
+RESOURCE QIK_ROW_LAYOUT_DATA r_editor_row_layout_data_fill
+	{
+	vertical_alignment = EQikLayoutVAlignFill;
+	vertical_excess_grab_weight = 1;
+	}
+
+
+
+//---------------------------- simple dialog
+
+RESOURCE QIK_DIALOG r_my_simple_dialog 
+    {
+    title = r_findquestion;
+    configurations = 
+        {
+        QIK_DIALOG_CONFIGURATION
+            {
+            ui_config_mode = 0;
+            container = r_my_simple_dialog_container;
+            command_list = r_my_simple_dialog_commands;
+            }
+        };
+    controls = r_my_simple_dialog_controls;
+    }
+
+RESOURCE QIK_CONTROL_COLLECTION r_my_simple_dialog_controls
+    {
+    items = 
+        {
+        
+        QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogBB;
+            type = EQikCtIconCaptionedOnelineBuildingBlock;
+            control = r_my_simple_dialog_building_block;
+            },
+        QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogEdwin;
+            type = EEikCtEdwin;
+            control = r_my_simple_dialog_edwin;
+            }
+        };
+    }
+
+RESOURCE QIK_SCROLLABLE_CONTAINER_SETTINGS r_my_simple_dialog_container
+    {
+    controls = 
+        {
+        QIK_CONTAINER_ITEM
+            {
+            unique_handle = ESimpleDialogBB;
+            }
+        };
+    }
+    
+RESOURCE QIK_SYSTEM_BUILDING_BLOCK r_my_simple_dialog_building_block
+    {
+    content =
+        {
+        QIK_SLOT_CONTENT
+            {
+            slot_id = EQikItemSlot1;
+            unique_handle = ESimpleDialogEdwin;
+            }
+        };
+    }
+   
+    
+RESOURCE EDWIN r_my_simple_dialog_edwin
+    {
+    }
+    
+    
+    RESOURCE QIK_COMMAND_LIST r_my_simple_dialog_commands
+    {
+    items=
+        {
+        QIK_COMMAND
+         {
+         id = EEikBidYes;
+         type = EQikCommandTypeYes;
+         text = "Done";
+         },
+        QIK_COMMAND
+         {
+         id = EEikBidNo;
+         type = EQikCommandTypeNo;
+         text = "Cancel";
+         }
+        };
+    }
+    

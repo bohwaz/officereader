@@ -1,0 +1,152 @@
+
+//----------------------------------------------------
+//-------------- CONFIGURATION FOR VIEW --------------
+//----------------------------------------------------
+// A view shall use the QIK_VIEW_CONFIGURATIONS resource struct to define which 
+// UI configurations it supports. Can also use QIK_VIEW_CONFIGURATIONS to setup 
+// the view to switch layout and command list automatically when changes of UI 
+// configuration occur. This is done with the view and command_list members of 
+// the QIK_VIEW_CONFIGURATIONS.
+
+// The application supports the reference UI Configurations that are supported
+// in the UIQ 3 SDK. Use the UiqEnv tool, to change the UI Configuration in the
+// emulator in order to develop and test the application with varying UI styles.
+RESOURCE QIK_VIEW_CONFIGURATIONS r_mobileoffice_mobileofficepropview_ui_configurations
+	{
+	configurations = 
+		{
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficepropview_commands;
+			view = r_mobileoffice_mobileofficepropview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchLandscape;
+			command_list = r_mobileoffice_mobileofficepropview_commands;
+			view = r_mobileoffice_mobileofficepropview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleTouchPortrait;
+			command_list = r_mobileoffice_mobileofficepropview_commands;
+			view = r_mobileoffice_mobileofficepropview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStylePortrait;
+			command_list = r_mobileoffice_mobileofficepropview_commands;
+			view = r_mobileoffice_mobileofficepropview_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleSmallPortrait;
+			command_list = r_mobileoffice_mobileofficepropview_commands;
+			view = r_mobileoffice_mobileofficepropview_layout;
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------ VIEW COMMANDS -------------------
+//----------------------------------------------------
+// Commands are defined with the QIK_COMMAND_LIST struct, 
+// commands can also be created in code by instantiating CQikCommand.
+RESOURCE QIK_COMMAND_LIST r_mobileoffice_mobileofficepropview_commands
+	{
+	items =
+		{
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdOpen; 
+			type = EQikCommandTypeDone;
+			text = qtn_open; 
+			},
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdPicture; 
+			type = EQikCommandTypeScreen;
+			text = qtn_view1_picture;
+			},
+		QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdAppAbout; 
+			type = EQikCommandTypeScreen;
+			text = qtn_abouttitle; 
+			},
+		QIK_COMMAND
+			{
+			id = EEikCmdExit;
+			type = EQikCommandTypeScreen;
+			// Indicate that this command will only be visible in debug
+			stateFlags = EQikCmdFlagDebugOnly;
+			text = "Close";
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------- VIEW LAYOUT --------------------
+//----------------------------------------------------
+// Defines the view by linking to the pages.
+RESOURCE QIK_VIEW r_mobileoffice_mobileofficepropview_layout
+	{
+	pages = r_mobileoffice_mobileofficepropview_layout_pages;
+	}
+
+// Defines the pages of a view. 
+/**
+Need to add the control enums in the hrh file:
+EMobileOfficePropViewPage
+*/
+RESOURCE QIK_VIEW_PAGES r_mobileoffice_mobileofficepropview_layout_pages
+	{
+	pages = 
+		{
+		QIK_VIEW_PAGE
+			{
+			// Page id. Must be unique within a view
+			page_id = EMobileOfficePropViewPage;
+
+			// Add the content of the page.
+			// page_content = -1;
+			page_content = r_listbox_listview_page_control2;
+			}
+		};
+	}
+	
+	// The page contains a list box that fills the whole application space.
+RESOURCE QIK_CONTAINER_SETTINGS r_listbox_listview_page_control2
+	{
+	layout_manager_type = EQikRowLayoutManager;
+	layout_manager = r_listbox_row_layout_manager_default;
+	controls = 
+		{
+		QIK_CONTAINER_ITEM_CI_LI
+			{ 
+			unique_handle = EListBoxListViewListCtrl2;
+			type = EQikCtListBox; 
+			control = r_listbox_listview_listbox2;
+			// This will make it so that the list box fills the whole 
+			// application space.
+			layout_data = r_listbox_row_layout_data_fill;
+			}
+		};
+	}
+
+
+RESOURCE QIK_LISTBOX r_listbox_listview_listbox2
+	{
+	layouts = { r_listbox_listview_normal_layout_pair2 };
+	}
+
+// Layouts are always added in layout pair to the list box. A layout pair 
+// consists of one mandatory normal layout and an optional highlight layout.
+// Normal layout - The layout used when an item is not highlighted, or is 
+// highlighted but has no additional highlight layout.
+RESOURCE QIK_LISTBOX_LAYOUT_PAIR r_listbox_listview_normal_layout_pair2
+	{
+	standard_normal_layout = EQikListBoxIconTwoLines;
+	}		

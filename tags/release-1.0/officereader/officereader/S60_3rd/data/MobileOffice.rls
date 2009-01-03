@@ -1,0 +1,60 @@
+//  LOCALISATION STRINGS
+
+rls_string qtn_app_caption_string "Office Reader"
+rls_string qtn_app_short_caption_string "Office Reader"
+
+rls_string qtn_appl_test "Test"
+rls_string qtn_appl_exit "Exit"
+
+rls_string qtn_appl_option_item "<Application menu item>"
+rls_string qtn_view1_option_item "<View1 menu item>"
+rls_string qtn_view2_option_item "<View2 menu item>"
+rls_string qtn_view1_tab "View1"
+rls_string qtn_view2_tab "View2"
+
+
+#define qtn_appl_test "Test"
+
+#define qtn_help "Help"
+#define qtn_open "Open"
+#define qtn_delete "Delete"
+#define qtn_view1_prop	"Properties"
+#define qtn_view_goto "Goto"
+#define qtn_view1_reg "Register"
+#define qtn_start "Start"
+#define qtn_end "End"
+#define qtn_view_worksheets "Worksheet"
+#define qtn_view1_picture "Thumbnail"
+#define qtn_view1_refresh "Refresh"
+
+#define qtn_list_newwriter "TP: New Text Document"
+#define r_save "Save"
+
+
+#define qtn_appl_option_item "Info"
+#define qtn_appl_exit "Exit"
+
+
+#define qtn_about				"Office Reader 1.0\r\nSource Code available freely under GPLv3 and LGPLv3\r\nCopyright by Max Odendahl\r\nSponsored by Odendahl SEPT-Solutions and NLnet Foundation\r\n\r\nFor information, updates and more \r\nhttp://code.google.com/p/officereader/"
+#define qtn_abouttitle			"Info"
+
+
+#define qtn_find_query "Enter search text:"
+#define qtn_password_query "Please enter password:"
+
+#define r_zoom "Zoom"
+#define r_zoom_normal "Normal"
+#define r_zoom_medium "Medium"
+#define r_zoom_large "Large"
+#define r_adjust "Adjust Cell/Row Size"
+#define r_find "Find"
+#define r_findagain "Find again"
+#define r_full "Toggle Full Screen"
+
+
+#define qtn_error			"Error"
+#define qtn_invalidcode			"Invalid code"
+#define qtn_correctcode			"Correct code"
+#define qtn_thanks			"Thanks for buying"
+#define qtn_mobileoffice		"Mobile Office"
+#define qtn_demo			"Demonstration Version"

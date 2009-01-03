@@ -1,0 +1,49 @@
+/*************************************************************************
+ *
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ * 
+ * Copyright 2008,2009,2010 by ODENDAHL SEPT-Solutions
+ *
+ * Office Reader - a OpenDocument viewer for Symbian OS
+ *
+ * $Id : XXXXXX $
+ *
+ * This file is part of Office Reader
+ *
+ * Office Reader is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3 or GNU 
+ * General Lesser Public License version 3 , as published by the Free Software 
+ * Foundation.
+ *
+ * Office Reader is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General (Lesser) Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU (Lesser) General Public License
+ * version 3 along with Office Reader.  If not, 
+ * see <http://www.gnu.org/licenses/>.
+ *
+ ************************************************************************/
+
+
+TARGET                                  sheet.lib 
+TARGETTYPE                              lib 
+uid                                     0x1000008d 0xA00005B7 
+EXPORTUNFROZEN                           
+USERINCLUDE                             ..\inc 
+SYSTEMINCLUDE                           \epoc32\include 
+SOURCEPATH                              ..\src 
+SOURCE		                      sheet_trace.cpp 
+SOURCE                                  sheet_model.cpp 
+SOURCE                                  sheet_lib.cpp 
+SOURCE                                  sheet_drawer.cpp 
+SOURCE                                  sheet_data.cpp 
+SOURCE                                  sheet_ctrl.cpp 
+SOURCE                                  cell_array.cpp 
+SOURCE                                  cell.cpp 
+SOURCE                                  sheet_view.cpp 
+
+LIBRARY                                 euser.lib 
+MACRO 					    __UIQ__

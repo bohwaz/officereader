@@ -1,0 +1,450 @@
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <qikon.rh>
+#include <qikon.hrh>
+#include <uikon.rh>
+#include <uikon.hrh>
+
+#include <QikCommand.rh>
+#include <QikListBox.rh>
+#include <QikListBoxStandardLayouts.hrh>
+
+
+#include "MobileOffice.hrh" // Application specific commands
+// Strings that should be localised should not be defined in the resource file itself, 
+// but in separate files with the extension .rls. 
+#include "MobileOffice.rls" // Defines localisable strings
+
+
+// Use this statement to ensure that the resources in the file have a unique ID
+// so that an application can use multiple resource files without resource ID
+// conflict. This statement must be the first non-comment statement in the file.
+NAME SKEL
+
+// The three following resources are mandatory fields and need to be the 
+// first resource fields in the resource file. Need to be defined in this order.
+// These resources don't need to contain any useful info, just need to be there.
+
+// RSS_SIGNATURE can be used to specify version information
+RESOURCE RSS_SIGNATURE { }
+
+// Defines the name of the default file the application framework creates.
+// This resource must always be the second resource in the resource file.
+RESOURCE TBUF { buf = "MobileOffice"; }
+
+// This resource is used to define an application's GUI. 
+// Although it's not used directly by UIQ, its declaration is mandatory.
+RESOURCE EIK_APP_INFO {	}
+
+
+//----------------------------------------------------
+//-------------- CONFIGURATION FOR VIEW --------------
+//----------------------------------------------------
+// A view shall use the QIK_VIEW_CONFIGURATIONS resource struct to define which 
+// UI configurations it supports. Can also use QIK_VIEW_CONFIGURATIONS to setup 
+// the view to switch layout and command list automatically when changes of UI 
+// configuration occur. This is done with the view and command_list members of 
+// the QIK_VIEW_CONFIGURATIONS.
+
+// The application supports the reference UI Configurations that are supported
+// in the UIQ 3 SDK. Use the UiqEnv tool, to change the UI Configuration in the
+// emulator in order to develop and test the application with varying phone styles.
+RESOURCE QIK_VIEW_CONFIGURATIONS r_mobileoffice_ui_configurations
+	{
+	configurations = 
+		{
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchPortrait;
+			command_list = r_mobileoffice_commands;
+			view = r_mobileoffice_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikPenStyleTouchLandscape;
+			command_list = r_mobileoffice_commands;
+			view = r_mobileoffice_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleTouchPortrait;
+			command_list = r_mobileoffice_commands;
+			view = r_mobileoffice_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStylePortrait;
+			command_list = r_mobileoffice_commands;
+			view = r_mobileoffice_layout;
+			},
+		QIK_VIEW_CONFIGURATION
+			{
+			ui_config_mode = KQikSoftkeyStyleSmallPortrait;
+			command_list = r_mobileoffice_commands;
+			view = r_mobileoffice_layout;
+			}
+		};
+	}
+
+//----------------------------------------------------
+//------------------ VIEW COMMANDS -------------------
+//----------------------------------------------------
+// Commands are defined with the QIK_COMMAND_LIST struct, 
+// commands can also be created in code by instantiating CQikCommand.
+// The control command id for debug command is a reserved id from uikon.hrh.
+// The id for each infoprint command is defined in the MobileOffice.hrh file.
+// The string for each command is defined in the MobileOffice.rls file, 
+// due to localisation.
+RESOURCE QIK_COMMAND_LIST r_mobileoffice_commands
+	{
+	items =
+		{
+		QIK_COMMAND { id = EMobileOfficeCmdOpen; text = qtn_open; },
+        QIK_COMMAND { id = EMobileOfficeCmdDelete; text = qtn_delete; },
+        QIK_COMMAND { id = EMobileOfficeCmdProp; text = qtn_view1_prop; },
+        QIK_COMMAND { id = EMobileOfficeCmdPicture; text = qtn_view1_picture; },
+        QIK_COMMAND { id = EMobileOfficeCmdRefresh; text = qtn_view1_refresh; },
+        QIK_COMMAND { id = EMobileOfficeCmdRegister; text = qtn_view1_reg; },
+		//QIK_COMMAND { id = EMobileOfficeCmdNewText; text = qtn_list_newwriter; },
+		QIK_COMMAND { id = EMobileOfficeCmdHelp; text = qtn_help; },
+		QIK_COMMAND 
+			{ 
+			id = EMobileOfficeCmdAppAbout; 
+			type = EQikCommandTypeScreen;
+			text = qtn_abouttitle; 
+			},
+     
+		
+		// This command shall only be visible in debug mode because it is only 
+		// used to find memory leaks during development of the application.
+		QIK_COMMAND
+			{
+			id = EEikCmdExit;
+			type = EQikCommandTypeScreen;
+			// Indicate that this command will only be visible in debug
+			stateFlags = EQikCmdFlagDebugOnly;
+			text = STRING_r_mobileoffice_close_debug_cmd;
+			}
+		};
+	}	
+//----------------------------------------------------
+//------------------- VIEW LAYOUT --------------------
+//----------------------------------------------------
+// Defines the view by linking to the pages.
+RESOURCE QIK_VIEW r_mobileoffice_layout
+	{
+	pages = r_mobileoffice_layout_pages;
+	}
+
+// Defines the pages of a view. 
+// In this application there only exist one page for the label to be displayed in.
+RESOURCE QIK_VIEW_PAGES r_mobileoffice_layout_pages
+	{
+	pages = 
+		{
+		QIK_VIEW_PAGE
+			{
+			page_id = EMobileOfficeViewPage;
+			// Define the content in the page in a QIK_CONTAINER_SETTINGS or 
+			// QIK_SCROLLABLE_CONTAINER_SETTINGS and add a link to the page
+			// content here.
+			page_content = r_listbox_listview_page_control;
+			}
+		};
+	}
+
+
+// The page contains a list box that fills the whole application space.
+RESOURCE QIK_CONTAINER_SETTINGS r_listbox_listview_page_control
+	{
+	layout_manager_type = EQikRowLayoutManager;
+	layout_manager = r_listbox_row_layout_manager_default;
+	controls = 
+		{
+		QIK_CONTAINER_ITEM_CI_LI
+			{ 
+			unique_handle = EListBoxListViewListCtrl;
+			type = EQikCtListBox; 
+			control = r_listbox_listview_listbox;
+			// This will make it so that the list box fills the whole 
+			// application space.
+			layout_data = r_listbox_row_layout_data_fill;
+			}
+		};
+	}
+
+//----------------------------------------------------
+//----------- LISTVIEW CONTROL: LISTBOX --------------
+//----------------------------------------------------
+// The list box structs type property default to EQikRowListBox, so we need to 
+// redefine it. As we want default values for the QIK_LISTBOX_ROW_VIEW struct, 
+// we do not need to declare such a resource and link to it, since the default 
+// behavior is to load a resource for the row view which already has all 
+// properties set to default. All we really have to do is to define our layout 
+// pair and add them to the list box.
+RESOURCE QIK_LISTBOX r_listbox_listview_listbox
+	{
+	layouts = { r_listbox_listview_normal_layout_pair };
+	}
+
+// Layouts are always added in layout pair to the list box. A layout pair 
+// consists of one mandatory normal layout and an optional highlight layout.
+// Normal layout - The layout used when an item is not highlighted, or is 
+// highlighted but has no additional highlight layout.
+RESOURCE QIK_LISTBOX_LAYOUT_PAIR r_listbox_listview_normal_layout_pair
+	{
+	//standard_normal_layout = EQikListBoxLine;
+	 custom_normal_layout = r_normal_layout;
+	}
+
+RESOURCE QIK_LISTBOX_LAYOUT r_normal_layout
+    {
+    columns=
+        {
+        QIK_LISTBOX_COLUMN
+            {
+            // Set the text to be scrolled/swapped if it does not fit
+            type=QIK_LISTBOX_TEXT_TYPE{scroll=EQikListBoxTextScrollWhenHighlighted;};
+            width_type=EQikListBoxColWidthGrab;
+            width_value=1;
+            slot_id=EQikListBoxSlotText1;
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+//--------------- ROW LAYOUT MANAGER -----------------
+//----------------------------------------------------
+RESOURCE QIK_ROW_LAYOUT_MANAGER r_listbox_row_layout_manager_default
+	{
+	default_layout_data= QIK_ROW_LAYOUT_DATA {};
+	}
+
+//----------------------------------------------------
+//----------------- ROW LAYOUT DATA ------------------
+//----------------------------------------------------
+RESOURCE QIK_ROW_LAYOUT_DATA r_listbox_row_layout_data_fill
+	{
+	vertical_alignment = EQikLayoutVAlignFill;
+	vertical_excess_grab_weight = 1;
+	}
+	
+	
+	
+	//---------------------------- simple multileine dialog
+
+RESOURCE QIK_DIALOG r_my_simple_about_dialog 
+    {
+    title = qtn_abouttitle;
+    configurations = 
+        {
+        QIK_DIALOG_CONFIGURATION
+            {
+            ui_config_mode = 0;
+            container = r_my_simple_dialog_container_about;
+            command_list = r_my_simple_dialog_commands_about;
+            }
+        };
+    controls = r_my_simple_dialog_controls_about;
+    }
+
+RESOURCE QIK_CONTROL_COLLECTION r_my_simple_dialog_controls_about
+    {
+    items = 
+        {
+           QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogBB_about;
+            type = EQikCtManylinesBuildingBlock;
+            control = r_my_simple_dialog_building_block_about;
+            },
+     
+        QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogLabel;
+            type = EEikCtLabel;
+            control = r_my_simple_dialog_edwin_about;
+            }
+        };
+    }
+
+RESOURCE QIK_SCROLLABLE_CONTAINER_SETTINGS r_my_simple_dialog_container_about
+    {
+    controls = 
+        {
+        QIK_CONTAINER_ITEM
+            {
+            unique_handle = ESimpleDialogBB_about;
+            }
+        };
+    }
+    
+RESOURCE QIK_SYSTEM_BUILDING_BLOCK r_my_simple_dialog_building_block_about
+    {
+    content =
+        {
+        QIK_SLOT_CONTENT
+            {
+            slot_id = EQikItemSlot1;
+            unique_handle = ESimpleDialogLabel;
+            }
+        };
+    }
+   
+    
+RESOURCE LABEL r_my_simple_dialog_edwin_about
+    {
+		txt = qtn_about;
+		flags = EikLabelOverrideAutoWrapping | EikLabelAutoWrappingOn ;
+    }
+    
+    
+    RESOURCE QIK_COMMAND_LIST r_my_simple_dialog_commands_about
+    {
+    items=
+        {
+        QIK_COMMAND
+         {
+         id = EEikBidYes;
+         type = EQikCommandTypeDone;
+         text = "Done";
+         }
+        };
+    }
+    
+    
+//---------------------------- simple delete querydialog
+
+RESOURCE QIK_DIALOG r_my_simple_dialog_delete
+    {
+    title = "sdsdsd";//r_delete;
+    configurations = 
+        {
+        QIK_DIALOG_CONFIGURATION
+            {
+            ui_config_mode = 0;
+   //         container = r_my_simple_dialog_container_delete;
+            command_list = r_my_simple_dialog_commands_delete;
+            }
+        };
+ //   controls = r_my_simple_dialog_controls_delete;
+    }
+  
+    RESOURCE QIK_COMMAND_LIST r_my_simple_dialog_commands_delete
+    {
+    items=
+        {
+        QIK_COMMAND
+         {
+         id = EEikBidYes;
+         type = EQikCommandTypeYes;
+         text = "Yes";
+         },
+        QIK_COMMAND
+         {
+         id = EEikBidNo;
+         type = EQikCommandTypeNo;
+         text = "No";
+         }
+        };
+    }
+    
+    
+  //---------------------------- simple dialog for reg-code
+
+RESOURCE QIK_DIALOG r_my_simple_dialog_reg 
+    {
+    title = "Please enter your registration code:";
+    configurations = 
+        {
+        QIK_DIALOG_CONFIGURATION
+            {
+            ui_config_mode = 0;
+            container = r_my_simple_dialog_container_reg;
+            command_list = r_my_simple_dialog_commands_reg;
+            }
+        };
+    controls = r_my_simple_dialog_controls_reg;
+    }
+
+RESOURCE QIK_CONTROL_COLLECTION r_my_simple_dialog_controls_reg
+    {
+    items = 
+        {
+        
+        QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogBB_reg;
+            type = EQikCtIconCaptionedOnelineBuildingBlock;
+            control = r_my_simple_dialog_building_block_reg;
+            },
+        QIK_CONTROL
+            {
+            unique_handle = ESimpleDialogEdwin;
+            type = EEikCtEdwin;
+            control = r_my_simple_dialog_edwin_reg;
+            }
+        };
+    }
+
+RESOURCE QIK_SCROLLABLE_CONTAINER_SETTINGS r_my_simple_dialog_container_reg
+    {
+    controls = 
+        {
+        QIK_CONTAINER_ITEM
+            {
+            unique_handle = ESimpleDialogBB_reg;
+            }
+        };
+    }
+    
+RESOURCE QIK_SYSTEM_BUILDING_BLOCK r_my_simple_dialog_building_block_reg
+    {
+    content =
+        {
+        QIK_SLOT_CONTENT
+            {
+            slot_id = EQikItemSlot1;
+            unique_handle = ESimpleDialogEdwin;
+            }
+        };
+    }
+   
+    
+RESOURCE EDWIN r_my_simple_dialog_edwin_reg
+    {
+     maxlength=60;
+    }
+    
+    
+    RESOURCE QIK_COMMAND_LIST r_my_simple_dialog_commands_reg
+    {
+    items=
+        {
+        QIK_COMMAND
+         {
+         id = EEikBidYes;
+         type = EQikCommandTypeYes;
+         text = "Done";
+         },
+        QIK_COMMAND
+         {
+         id = EEikBidNo;
+         type = EQikCommandTypeNo;
+         text = "Cancel";
+         }
+        };
+    }
+
+
+
+
+// Need to include the view, can be done in the end of the rss file.
+#include "MobileOfficeEditorView.ra"
+
+// Need to include the view, can be done in the end of the rss file.
+#include "MobileOfficeImageView.ra"
+
+// Need to include the view, can be done in the end of the rss file.
+#include "MobileOfficePropView.ra"

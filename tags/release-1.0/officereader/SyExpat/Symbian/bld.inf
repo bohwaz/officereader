@@ -1,0 +1,24 @@
+// BLD.INF
+// Component description file
+
+#ifdef EKA2
+
+PRJ_PLATFORMS
+WINSCW ARMI THUMB gcce
+
+PRJ_MMPFILES
+SyExpat_v9.mmp
+
+#else
+
+PRJ_PLATFORMS
+WINSCW ARMI THUMB
+
+PRJ_MMPFILES
+SyExpat.mmp
+
+#endif
+
+
+PRJ_EXPORTS
+SyExpat.h
