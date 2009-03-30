@@ -30,6 +30,7 @@
 // INCLUDE FILES
 #include "MobileOfficeAppui.h"
 #include "MobileOfficeApp.h"
+#include "MobileOfficeDocument.h"
 #include <MobileOffice.rsg>
 #include "MobileOffice.hrh"
 
@@ -48,7 +49,7 @@
 #include <APMSTD.H>
 #include <APMREC.H>
 #include <apparc.h>
-
+#include <EIKAPPUI.H>
 
 
 #ifndef FREEVERSION
@@ -437,3 +438,9 @@ CArrayFix<TCoeHelpContext>* CMobileOfficeAppUi::HelpContextL() const
 	CleanupStack::Pop(array);
 	return array;
 }
+
+void CMobileOfficeAppUi::OpenFileL( const TDesC& aFileName )
+   {
+   CMobileOfficeDocument* doc = static_cast<CMobileOfficeDocument*>( Document() );
+   doc->OpenFileL( ETrue, aFileName, iEikonEnv->FsSession() );
+   }

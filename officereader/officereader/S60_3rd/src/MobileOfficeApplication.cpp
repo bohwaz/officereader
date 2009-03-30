@@ -56,6 +56,35 @@ TUid CMobileOfficeApplication::AppDllUid() const
     return KUidMobileOffice;
     }
 
+void CMobileOfficeApplication::PreDocConstructL()
+   {
+   CEikonEnv* env = CEikonEnv::Static();
+   
+   // Check that this app is started as stand-alone
+   if (!env->StartedAsServerApp() && !env->EikAppUi())
+     {
+     RWsSession& ws = env->WsSession();
+     const TInt myWgId = env->RootWin().Identifier();
+     TInt wgId = 0;  
+     TUid uid(AppDllUid());
+   
+     // Look for another instance of this app
+     while (wgId >= 0)
+       {
+       if (wgId && wgId != myWgId) // Another instance found -> close it
+         {
+         TApaTask other(ws);
+         other.SetWgId(wgId);
+         other.EndTask();          // Requires SwEvent capability
+         }
+       CApaWindowGroupName::FindByAppUid(uid, ws, wgId);
+       }
+     }
+   
+   // call PreDocConstructL from base class
+   CEikApplication::PreDocConstructL();
+   }
+
 
 
 // End of File

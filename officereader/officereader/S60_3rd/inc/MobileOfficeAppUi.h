@@ -36,6 +36,7 @@
 #include <akntabgrp.h>
 #include <aknnavide.h>
 
+
 #include <akntabobserver.h>
 
 #ifndef FREEVERSION
@@ -90,6 +91,7 @@ class CMobileOfficeAppUi : public CAknViewAppUi, MAknTabObserver
         */
 		void TabChangedL(TInt aIndex);
 		void HandleCommandL(TInt aCommand);	
+	void OpenFileL( const TDesC& aFileName );
 		CArrayFix<TCoeHelpContext>* HelpContextL() const;
 
     private:

@@ -90,6 +90,7 @@ LIBRARY                                 efsrv.lib
 LIBRARY                                 estor.lib 
 LIBRARY                                 eikcoctl.lib 
 LIBRARY                                 hlplch.lib 
+LIBRARY					    ws32.lib
 LANG                                    SC 
 VENDORID                                0 
 capability                              NONE 

@@ -433,7 +433,7 @@ TKeyResponse CSheetCtrl::OfferKeyEventL( const TKeyEvent& KeyEvent, TEventCode T
 }
 
 
-#ifdef __SERIES60_30__
+#ifdef __SERIES60_3X__
 	#include <akndef.h>
 #elif defined __S60_2ND_FP2__
 	#include <eikdef.h>
