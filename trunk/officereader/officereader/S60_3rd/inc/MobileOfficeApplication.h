@@ -34,6 +34,10 @@
 #include <aknapp.h>
 
 
+#include <EIKENV.H>
+#include <APGTASK.H>
+#include <APGWGNAM.H>
+
 // CLASS DECLARATION
 
 /**
@@ -51,6 +55,7 @@ class CMobileOfficeApplication : public CAknApplication
         * @return Application's UID (KUidMobileOfficeApp).
         */
         TUid AppDllUid() const;
+		void PreDocConstructL();
 
     protected: // Functions from base classes
 
