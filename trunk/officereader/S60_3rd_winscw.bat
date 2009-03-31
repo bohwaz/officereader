@@ -29,7 +29,8 @@
 
 
 echo "Compiling for S60 3nd Edition"
-devices -setdefault @S60_3rd_MR:com.nokia.s60
+devices -setdefault @S60_3rd_MR_2:com.nokia.s60
+#devices -setdefault @S60_5th_Edition_SDK_v1.0:com.nokia.s60
 
 cd SyExpat/Symbian
 bldmake bldfiles
