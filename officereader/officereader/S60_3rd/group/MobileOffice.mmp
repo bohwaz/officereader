@@ -57,12 +57,11 @@ SOURCE                                  MobileOfficeContainer.cpp
 SOURCE                                  MobileOfficeContainer2.cpp 
 
 MACRO                                   FREEVERSION 
-#ifndef FREEVERSION  
-  // [-]    SOURCEPATH                              ..\src 
-  // [-]    SOURCE                        CIMEI.cpp 
-  // [-]    SOURCE                        genericCfg.cpp 
-
-#endif  
+//ifndef FREEVERSION  
+//  SOURCE                        CIMEI.cpp 
+//  SOURCE                        genericCfg.cpp
+//  SOURCE                        LicenseManager.cpp  
+//endif  
 
 USERINCLUDE                             ..\..\..\sheetcontrol\inc 
 USERINCLUDE                             ..\..\Engine\inc 

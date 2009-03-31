@@ -235,7 +235,7 @@ void CMobileOfficeAppUi::HandleCommandL(TInt aCommand)
 				if (iDoorObserver)
 					iDoorObserver->NotifyExit( MApaEmbeddedDocObserver::ENoChanges );
 				#ifndef FREEVERSION
-					licMan1.End();
+					licMan.End();
 				#endif
 				Exit();
 				break;
