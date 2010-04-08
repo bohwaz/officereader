@@ -299,7 +299,6 @@ void CSheetData::UpdateFonts()
 {
 	ReleaseFonts();
 
-#ifdef __SERIES60_3X__ 
 	static const TInt ANNOTATION_FONT_HEIGHT_176_X_208 = 10;
 	static const TInt NORMAL_FONT_HEIGHT_176_X_208     = 14;
 	static const TInt TITLE_FONT_HEIGHT_176_X_208      = 17;
@@ -336,30 +335,10 @@ void CSheetData::UpdateFonts()
 
 	CEikonEnv::Static()->ScreenDevice()->GetNearestFontInTwips( pFont, FontSpec );
 	m_pItemWndFont = pFont;
-
-#elif defined __S60_2ND_FP2__
-	m_pColumnHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pRowHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pCellFont = CEikonEnv::Static()->AnnotationFont();
-	m_pItemWndFont = CEikonEnv::Static()->AnnotationFont();
-#elif defined __UIQ__
-	m_pColumnHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pRowHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pCellFont = CEikonEnv::Static()->AnnotationFont();
-	m_pItemWndFont = CEikonEnv::Static()->AnnotationFont();
-#elif defined __S80__
-	m_pColumnHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pRowHeaderFont = CEikonEnv::Static()->AnnotationFont();
-	m_pCellFont = CEikonEnv::Static()->AnnotationFont();
-	m_pItemWndFont = CEikonEnv::Static()->AnnotationFont();
-#else         
-	#error device not defined
-#endif
 }
 
 void CSheetData::ReleaseFonts()
 {
-#ifdef __SERIES60_3X__
 	if( m_pColumnHeaderFont )
 	{
 		CEikonEnv::Static()->ScreenDevice()->ReleaseFont( CONST_CAST( CFont*, m_pColumnHeaderFont ) );
@@ -383,11 +362,4 @@ void CSheetData::ReleaseFonts()
 		CEikonEnv::Static()->ScreenDevice()->ReleaseFont( CONST_CAST( CFont*, m_pItemWndFont ) );
 		m_pItemWndFont = NULL;
 	}
-#elif defined __S60_2ND_FP2__
-#elif defined __UIQ__
-#elif defined __S80__
-#else
-	#error device not defined
-#endif
-
 }
