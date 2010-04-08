@@ -29,6 +29,7 @@
 
 #include <eikappui.h>
 #include <eikenv.h>
+#include <akndef.h>
 
 #include "sheet_trace.h"
 #include "sheet_ctrl.h"
@@ -151,34 +152,25 @@ void CSheetCtrl::ConstructL()
 	CColumnHeaderWnd* pColumnHeaderWnd = new ( ELeave ) CColumnHeaderWnd( pView );
 	CleanupStack::PushL( pColumnHeaderWnd );
 	pColumnHeaderWnd->SetContainerWindowL( *this );
-
-#ifndef __S80__
 	pColumnHeaderWnd->SetMopParent( this );
-#endif
 	pColumnHeaderWnd->ConstructL();	
 
 	CRowHeaderWnd* pRowHeaderWnd = new ( ELeave ) CRowHeaderWnd( pView );
 	CleanupStack::PushL( pRowHeaderWnd );
 	pRowHeaderWnd->SetContainerWindowL( *this );
-#ifndef __S80__
 	pRowHeaderWnd->SetMopParent( this );
-#endif
 	pRowHeaderWnd->ConstructL();	
 
 	CSheetWnd* pSheetWnd = new ( ELeave ) CSheetWnd( pView );
 	CleanupStack::PushL( pSheetWnd );
 	pSheetWnd->SetContainerWindowL( *this );
-#ifndef __S80__
 	pSheetWnd->SetMopParent( this );
-#endif
 	pSheetWnd->ConstructL();	
 
 	CItemViewWnd* pItemViewWnd = new ( ELeave ) CItemViewWnd( pView );
 	CleanupStack::PushL( pItemViewWnd );
 	pItemViewWnd->SetContainerWindowL( *this );
-#ifndef __S80__
 	pItemViewWnd->SetMopParent( this );
-#endif 
 	pItemViewWnd->ConstructL();	
 
 	CleanupStack::Pop( pItemViewWnd );
@@ -244,8 +236,6 @@ CSheetData* CSheetCtrl::Data() const
 {
 	return m_pData;
 }
-
-//CSheetDrawer* Drawer() const;
 
 CSheetView* CSheetCtrl::View() const
 {
@@ -432,31 +422,15 @@ TKeyResponse CSheetCtrl::OfferKeyEventL( const TKeyEvent& KeyEvent, TEventCode T
 	}
 }
 
-
-#ifdef __SERIES60_3X__
-	#include <akndef.h>
-#elif defined __S60_2ND_FP2__
-	#include <eikdef.h>
-#elif defined __UIQ__
-#elif defined __S80__
-#else
-	#error device not defined
-#endif
-
 void CSheetCtrl::HandleResourceChange( TInt nType )
 {
 	CCoeControl::HandleResourceChange( nType );
 
-#ifdef __UIQ__
-#elif defined __S80__
-#else
 	if( nType == KEikDynamicLayoutVariantSwitch )
 	{
 		m_pData->UpdateFonts(); 
 		m_pView->ScrollToMakeCellVisibleL( m_pView->CurrentCell() );
 	}
-#endif
-
 }
 //-------------------------- CSheetCtrl::CColumnHeaderWnd -------------------------
 

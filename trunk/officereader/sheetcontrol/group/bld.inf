@@ -27,32 +27,11 @@
  *
  ************************************************************************/
 
-#ifdef EKA2
-
 PRJ_PLATFORMS
-//WINS 
 WINSCW THUMB gcce
 
 PRJ_MMPFILES
-
-#ifdef UIQ_UMTS_AVAILABLE
-sheet_lib_UIQ3.mmp
-#else
 sheet_lib_v9.mmp
-#endif
-
-
-#else
-
-
-PRJ_PLATFORMS
-WINSCW ARMI THUMB
-
-PRJ_MMPFILES
-sheet_lib.mmp
-
-
-#endif
 
 
 PRJ_EXPORTS
